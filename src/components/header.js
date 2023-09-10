@@ -80,13 +80,13 @@ const Header = ({ siteTitle }) => {
                 <Divider />
                 <List>
                   {samplePageLinks.map((obj, index) => (
-                    <Link to={obj.url}>
+                    <Link to={obj.url} >
                       <ListItem key={obj.url} disablePadding>
                         <ListItemButton>
                           <ListItemIcon>
                             <ChevronLeftIcon />
                           </ListItemIcon>
-                          <ListItemText primary={obj.text} />
+                          <ListItemText style={{ color: "whitesmoke" }} primary={obj.text} />
                         </ListItemButton>
                       </ListItem>
                     </Link>
