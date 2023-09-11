@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { samplePageLinks } from '../constants'
 import * as styles from "./index.module.css"
 
+import { Instagram, Facebook, Twitter, Email } from '@mui/icons-material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -126,7 +127,13 @@ const Header = ({ siteTitle }) => {
               </Link>
             ))}
           </Box>
-          <Button style={{ color: "gold", border: "2px solid gold" }} variant="filled" size="small">Donations</Button>
+          <span>
+            <Instagram className={styles.iconSM} />
+            <Facebook className={styles.iconSM} />
+            <Twitter className={styles.iconSM} />
+            <Email className={styles.iconSM} />
+          </span>
+          <Button style={{ color: "gold", border: "2px solid gold", marginLeft: 30 }} variant="filled" size="small">Donations</Button>
 
         </Toolbar>
 

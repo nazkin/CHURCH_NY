@@ -59,3 +59,19 @@
   font-weight: bold;
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+.iconLG {
+  color: darkblue;
+  cursor: pointer;
+  font-size: 40;
+  margin: 15px;
+
+}
+
+.iconSM {
+  color: darkblue;
+  cursor: pointer;
+  font-size: 15;
+  margin: 5px;
+
+}
