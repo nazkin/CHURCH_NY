@@ -126,7 +126,10 @@ const Header = ({ siteTitle }) => {
               </Link>
             ))}
           </Box>
+          <Button style={{ color: "gold", border: "2px solid gold" }} variant="filled" size="small">Donations</Button>
+
         </Toolbar>
+
       </Container>
     </AppBar>
   );
