@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { samplePageLinks } from '../constants'
+import * as styles from "./index.module.css"
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -80,13 +81,13 @@ const Header = ({ siteTitle }) => {
                 <Divider />
                 <List>
                   {samplePageLinks.map((obj, index) => (
-                    <Link to={obj.url} >
+                    <Link to={obj.url} style={{ textDecoration: "none" }}>
                       <ListItem key={obj.url} disablePadding>
                         <ListItemButton>
                           <ListItemIcon>
                             <ChevronLeftIcon />
                           </ListItemIcon>
-                          <ListItemText style={{ color: "whitesmoke" }} primary={obj.text} />
+                          <ListItemText style={{ color: "#159bf3" }} primary={obj.text} />
                         </ListItemButton>
                       </ListItem>
                     </Link>
@@ -115,15 +116,14 @@ const Header = ({ siteTitle }) => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {samplePageLinks.map((obj) => (
-              <Button
-                key={obj.url}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                <Link to={obj.url}>
+              <Link to={obj.url} className={styles.link} activeClassName={styles.linkActive}>
+                <Button
+                  key={obj.url}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
                   {obj.text}
-                </Link>
-
-              </Button>
+                </Button>
+              </Link>
             ))}
           </Box>
         </Toolbar>
