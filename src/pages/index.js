@@ -1,5 +1,15 @@
 import * as React from "react"
-import { Grid, Item, Container, Button } from '@mui/material'
+import {
+  Grid,
+  Item,
+  Container,
+  Button,
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
+  ListSubheader
+} from '@mui/material'
+
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -25,20 +35,46 @@ const IndexPage = () => (
       margin: `0 auto 40px auto`,
       maxWidth: `var(--size-content)`,
       padding: `var(--size-gutter)`,
-      border: "1px solid black",
       minHeight: 400,
+      background: 'whitesmoke',
 
     }}>
-      <h1>Big Announcement central</h1>
+      <ImageList sx={{ width: '100%', minHeight: 400 }}>
+        <ImageListItem key="Subheader" cols={2}>
+          <ListSubheader style={{ fontSize: "30px", background: 'whitesmoke', }} component="div">Easter Celebration at St. John the Baptist Catholic Church</ListSubheader>
+        </ImageListItem>
+        {["c1.jpg", "c2.jpg"].map((item) => (
+          <ImageListItem key={item}>
+            <img
+              src={`${item}?w=248&fit=crop&auto=format`}
+              srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              alt={item}
+              loading="lazy"
+            />
+            <ImageListItemBar
+              title="Write a general title for photo"
+              subtitle="Add a photo description"
+            />
+          </ImageListItem>
+        ))}
+      </ImageList>
     </Grid>
     <Grid container alt="News poster or slide" style={{
       margin: `0 auto 40px auto`,
       maxWidth: `var(--size-content)`,
-      border: "1px solid black",
       minHeight: 300,
     }}>
-      <Grid item sm={12} md={6} style={{ background: "blue", margin: 0 }}>Small Announcements/News</Grid>
-      <Grid item sm={12} md={6} style={{ background: "lightblue", margin: 0 }}>Small Announcements/News</Grid>
+      <Grid item sm={12} md={6} style={{}}>
+        <span className={styles.headerOne}>Important World Events</span>
+        <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Fact Check: Only assholes eat dogs. Answer: True</a></div>
+        <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Why Chinese eat dogs?</a></div>
+        <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> How to train your dragon?</a></div>
+        <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Why Russians eat ass for breakfast?</a></div>
+        <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Putin will die as the stupidest house elf in history</a></div>
+      </Grid>
+      <Grid item sm={12} md={6} style={{ background: "whitesmoke", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <img src="news.png" />
+      </Grid>
     </Grid>
   </Layout >
 )

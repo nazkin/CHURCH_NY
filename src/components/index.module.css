@@ -1,3 +1,13 @@
+.anchorTag {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.anchorTag:hover {
+  color: darkslategrey;
+}
+
 .list {
   display: grid;
   margin: 0;
@@ -68,10 +78,23 @@
 
 }
 
+.iconLG:hover {
+  color: royalblue;
+}
+
 .iconSM {
   color: darkblue;
   cursor: pointer;
   font-size: 15;
   margin: 5px;
+}
 
+.iconSM:hover {
+  color: royalblue;
+}
+
+.headerOne {
+  font-size: 30px;
+  color: slategrey;
+  font-weight: 100;
 }
