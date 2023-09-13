@@ -27,18 +27,18 @@ export const links = [
 
 export const samplePageLinks = [
     {
-        text: "Home",
+        text: "HOME",
         url: "/",
         description: " Chinese like to eat clowns babies"
     },
     {
-        text: "Products",
+        text: "BULLETIN",
         url: "/page-2",
         badge: false,
         description:
             "Some next shit",
     },
-    { text: "Pricing", url: "/using-typescript" },
-    { text: "Blog", url: "/using-ssr" },
-    { text: "Not Yet Made", url: "/using-dsg" },
+    { text: "SCHEDULE", url: "/using-typescript" },
+    { text: "ABOUT US", url: "/using-ssr" },
+    { text: "CONTACT US", url: "/using-dsg" },
 ]
