@@ -40,11 +40,11 @@ const IndexPage = () => (
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      padding: 50
+      padding: 50,
     }}>
       {/* <h1 >Schedule</h1> */}
       <div style={{
-        width: "50%",
+        width: "100%",
         marginBottom: 40,
         display: "flex",
         flexDirection: "column",
@@ -52,9 +52,22 @@ const IndexPage = () => (
         alignItems: "center",
 
       }}>
-        <h4 style={{ fontSize: '34px', color: "slategrey", fontWeight: 200 }}>Divine Liturgy</h4>
-        <span style={{ fontSize: '30px', color: "darkslategrey" }}>Saturday 5:00pm</span>
-        <span style={{ fontSize: '30px', color: "darkslategrey" }}>Sunday 11:00am</span>
+        <h4 style={{ fontSize: '34px', color: "slategrey", fontWeight: 200 }}>Divine Liturgy Schedule</h4>
+        <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center", width: '100%' }}>
+          <div style={{ width: "33%" }}>
+            <p style={{ textAlign: "center", width: "100%", fontSize: '25px', color: "darkslategrey" }}>Saturday</p>
+            <p style={{ textAlign: "center", width: "100%", fontSize: '25px', color: "darkslategrey" }}>Sunday</p>
+          </div>
+          <div style={{ width: "33%" }}>
+            <p style={{ textAlign: "center", width: "100%", fontSize: '25px', color: "darkslategrey" }}>5:00pm</p>
+            <p style={{ textAlign: "center", width: "100%", fontSize: '25px', color: "darkslategrey" }}>8:45am, 11:00am </p>
+          </div>
+          <div style={{ width: "33%" }}>
+            <p style={{ textAlign: "center", width: "100%", fontSize: '25px', color: "darkslategrey" }}>(English)</p>
+            <p style={{ textAlign: "center", width: "100%", fontSize: '25px', color: "darkslategrey" }}>(Ukrainian)</p>
+          </div>
+        </div>
+
       </div>
       <p style={{ textAlign: "center" }}>
         Condimentum id venenatis a condimentum. Sed enim ut sem viverra aliquet eget. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Aliquet bibendum enim facilisis gravida neque convallis. At tempor commodo ullamcorper a lacus. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor.
