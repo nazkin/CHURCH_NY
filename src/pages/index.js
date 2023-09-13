@@ -36,6 +36,38 @@ const IndexPage = () => (
       maxWidth: `var(--size-content)`,
       padding: `var(--size-gutter)`,
       minHeight: 400,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      padding: 50
+    }}>
+      {/* <h1 >Schedule</h1> */}
+      <div style={{
+        width: "50%",
+        marginBottom: 40,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+
+      }}>
+        <h4 style={{ fontSize: '34px', color: "slategrey", fontWeight: 200 }}>Divine Liturgy</h4>
+        <span style={{ fontSize: '30px', color: "darkslategrey" }}>Saturday 5:00pm</span>
+        <span style={{ fontSize: '30px', color: "darkslategrey" }}>Sunday 11:00am</span>
+      </div>
+      <p style={{ textAlign: "center" }}>
+        Condimentum id venenatis a condimentum. Sed enim ut sem viverra aliquet eget. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Aliquet bibendum enim facilisis gravida neque convallis. At tempor commodo ullamcorper a lacus. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor.
+
+        Id semper risus in hendrerit gravida. Id interdum velit laoreet id donec ultrices tincidunt arcu non. Diam maecenas ultricies mi eget mauris pharetra et ultrices. Tincidunt ornare massa eget egestas purus. Risus in hendrerit gravida rutrum quisque non tellus orci. Neque vitae tempus quam pellentesque nec nam aliquam.
+      </p>
+
+    </Grid>
+    <Grid container alt="News poster or slide" style={{
+      margin: `0 auto 40px auto`,
+      maxWidth: `var(--size-content)`,
+      padding: `var(--size-gutter)`,
+      minHeight: 400,
       background: 'whitesmoke',
 
     }}>
@@ -76,32 +108,17 @@ const IndexPage = () => (
         </div>
       </Grid> */}
       <Grid item sm={12} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-around" }}>
-        <span className={styles.headerOne}>Our Community</span>
+        <span className={styles.headerOne}>Support Your Parish</span>
         <p style={{ textAlign: 'center' }}>
           Founded in 1921, our church is located in the heart of historic Morris County,
           five miles from Morristown, in the town of Whippany, New Jersey.
           It is a very active and growing parish with a new campus that includes our newly
           consecrated church as well as the 24,000 square foot Ukrainian American Cultural Center of NJ.
         </p>
+        <Button variant="outlined">Support Here</Button>
       </Grid>
 
     </Grid>
-    {/* <Grid container spacing={1} style={{
-      margin: `0 auto 40px auto`,
-      maxWidth: `var(--size-content)`,
-      minHeight: 300,
-      display: "flex",
-      justifyContent: "space-around",
-
-    }}>
-      <Grid item sm={12} md={5} style={{ alignItems: "center" }}>
-        <img src="community.png" />
-      </Grid>
-      <Grid item sm={12} md={5} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <img src="news.png" />
-      </Grid>
-
-    </Grid> */}
   </Layout >
 )
 
