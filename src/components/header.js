@@ -26,7 +26,7 @@ const Header = ({ siteTitle }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(false);
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}

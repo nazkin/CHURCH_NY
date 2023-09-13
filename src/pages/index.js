@@ -17,7 +17,7 @@ import * as styles from "../components/index.module.css"
 
 const IndexPage = () => (
   <Layout>
-    <div style={{ padding: 0, margin: "0 0 40px 0", width: "100%", height: 550, backgroundImage: `url('hero.jpg')`, backgroundPosition: "center", backgroundSize: "cover" }}>
+    <div style={{ padding: 0, margin: "50px 0 40px 0", width: "100%", height: 550, backgroundImage: `url('hero.jpg')`, backgroundPosition: "center", backgroundSize: "cover" }}>
       <Grid style={{ background: 'rgba(0,0,0,0.5)', width: "100%", height: '100%' }} container spacing={0}>
         <Grid item xs={12} style={{ display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
           <section>
@@ -41,7 +41,7 @@ const IndexPage = () => (
     }}>
       <ImageList sx={{ width: '100%', minHeight: 400 }}>
         <ImageListItem key="Subheader" cols={2}>
-          <ListSubheader style={{ fontSize: "30px", background: 'whitesmoke', }} component="div">Easter Celebration at St. John the Baptist Catholic Church</ListSubheader>
+          <ListSubheader style={{ fontSize: "30px", background: "whitesmoke" }} component="div">Easter Celebration at St. John the Baptist Catholic Church</ListSubheader>
         </ImageListItem>
         {["c1.jpg", "c2.jpg"].map((item) => (
           <ImageListItem key={item}>
@@ -59,23 +59,49 @@ const IndexPage = () => (
         ))}
       </ImageList>
     </Grid>
-    <Grid container alt="News poster or slide" style={{
+    <Grid container spacing={1} style={{
       margin: `0 auto 40px auto`,
       maxWidth: `var(--size-content)`,
       minHeight: 300,
+      // display: "flex",
+      // justifyContent: "space-between",
+
     }}>
-      <Grid item sm={12} md={6} style={{}}>
-        <span className={styles.headerOne}>Important World Events</span>
-        <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Fact Check: Only assholes eat dogs. Answer: True</a></div>
-        <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Why Chinese eat dogs?</a></div>
-        <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> How to train your dragon?</a></div>
-        <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Why Russians eat ass for breakfast?</a></div>
-        <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Putin will die as the stupidest house elf in history</a></div>
+      {/* <Grid item sm={12} md={6} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between" }}>
+        <span className={styles.headerOne}>Useful Links</span>
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Why Chinese eat dogs?</a></div>
+          <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> How to train your dragon?</a></div>
+          <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Why Russians eat ass for breakfast?</a></div>
+        </div>
+      </Grid> */}
+      <Grid item sm={12} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-around" }}>
+        <span className={styles.headerOne}>Our Community</span>
+        <p style={{ textAlign: 'center' }}>
+          Founded in 1921, our church is located in the heart of historic Morris County,
+          five miles from Morristown, in the town of Whippany, New Jersey.
+          It is a very active and growing parish with a new campus that includes our newly
+          consecrated church as well as the 24,000 square foot Ukrainian American Cultural Center of NJ.
+        </p>
       </Grid>
-      <Grid item sm={12} md={6} style={{ background: "whitesmoke", display: "flex", justifyContent: "center", alignItems: "center" }}>
+
+    </Grid>
+    {/* <Grid container spacing={1} style={{
+      margin: `0 auto 40px auto`,
+      maxWidth: `var(--size-content)`,
+      minHeight: 300,
+      display: "flex",
+      justifyContent: "space-around",
+
+    }}>
+      <Grid item sm={12} md={5} style={{ alignItems: "center" }}>
+        <img src="community.png" />
+      </Grid>
+      <Grid item sm={12} md={5} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
         <img src="news.png" />
       </Grid>
-    </Grid>
+
+    </Grid> */}
   </Layout >
 )
 
