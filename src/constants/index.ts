@@ -39,6 +39,6 @@ export const samplePageLinks = [
             "Some next shit",
     },
     { text: "SCHEDULE", url: "/using-typescript" },
-    { text: "ABOUT US", url: "/using-ssr" },
-    { text: "CONTACT US", url: "/using-dsg" },
+    { text: "ABOUT", url: "/using-ssr" },
+    { text: "CONTACT", url: "/using-dsg" },
 ]

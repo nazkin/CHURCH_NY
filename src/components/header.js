@@ -29,25 +29,30 @@ const Header = ({ siteTitle }) => {
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            CHURCH
-          </Typography>
+          <Container sx={{ display: { xs: 'none', md: 'flex' } }} style={{ width: 150, background: "gold", height: "100%", padding: 5 }}>
 
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'monospace',
+                fontWeight: 100,
+                fontSize: 12,
+                letterSpacing: '-0.1rem',
+                color: 'darkblue',
+                textDecoration: 'none',
+                textWrap: "wrap",
+                textAlign: "center"
+
+              }}
+            >
+              St. John the Baptist Catholic Church
+            </Typography>
+          </Container>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -63,16 +68,16 @@ const Header = ({ siteTitle }) => {
               anchor={"left"}
               open={anchorElNav}
               onClose={() => setAnchorElNav(false)}
-
+              style={{ padding: 0, }}
             >
-              <div style={{ minWidth: 250, height: "100%" }}>
-                <div style={{ background: '#159bf3', height: 40, paddingLeft: 10, display: "flex", flexDirection: "row", alignItems: "center" }}>
+              <div style={{ padding: 0, minWidth: 250, height: "100%" }}>
+                <div style={{ background: '#159bf3', height: 40, display: "flex", flexDirection: "row", alignItems: "center" }}>
                   <IconButton
                     size="small"
                     aria-label="close drawer"
                     aria-controls="app-drawer"
                     aria-haspopup="true"
-                    style={{ color: "white" }}
+                    style={{ color: "white", marginLeft: 15 }}
                     onClick={() => setAnchorElNav(false)}
                   >
                     <CloseIcon />
@@ -94,27 +99,56 @@ const Header = ({ siteTitle }) => {
                     </Link>
                   ))}
                 </List>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="a"
+                  href="/"
+                  sx={{
+                    display: "flex",
+                    fontFamily: 'monospace',
+                    fontWeight: 100,
+                    fontSize: 12,
+                    letterSpacing: '-0.1rem',
+                    color: 'darkblue',
+                    background: "gold",
+                    textDecoration: 'none',
+                    textWrap: "wrap",
+                    textAlign: "center",
+                    padding: 2
+
+                  }}
+                >
+                  St. John the Baptist Catholic Church
+                </Typography>
+
               </div>
             </Drawer>
           </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            CHURCH
-          </Typography>
+          {/* <Container sx={{ display: { xs: 'flex', md: 'none' } }} style={{ float: "left", width: 150, background: "gold", height: "100%", padding: 5 }}>
+
+            <Typography
+              variant="h6"
+              noWrap
+              component="a"
+              href="/"
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                fontFamily: 'monospace',
+                fontWeight: 100,
+                fontSize: 12,
+                letterSpacing: '-0.1rem',
+                color: 'darkblue',
+                textDecoration: 'none',
+                textWrap: "wrap",
+                textAlign: "center",
+
+              }}
+            >
+              St. John the Baptis
+            </Typography>
+          </Container> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {samplePageLinks.map((obj) => (
               <Link to={obj.url} className={styles.link} activeClassName={styles.linkActive}>
