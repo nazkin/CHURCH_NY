@@ -5,7 +5,7 @@ import Layout from "../components/layout"
 
 const PageThree = () => (
   <Layout>
-    <h1>
+    <h1 style={{ marginTop: 200 }}>
       This is page 3
     </h1>
 

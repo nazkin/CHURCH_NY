@@ -125,30 +125,6 @@ const Header = ({ siteTitle }) => {
               </div>
             </Drawer>
           </Box>
-          {/* <Container sx={{ display: { xs: 'flex', md: 'none' } }} style={{ float: "left", width: 150, background: "gold", height: "100%", padding: 5 }}>
-
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: 'flex', md: 'none' },
-                fontFamily: 'monospace',
-                fontWeight: 100,
-                fontSize: 12,
-                letterSpacing: '-0.1rem',
-                color: 'darkblue',
-                textDecoration: 'none',
-                textWrap: "wrap",
-                textAlign: "center",
-
-              }}
-            >
-              St. John the Baptis
-            </Typography>
-          </Container> */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {samplePageLinks.map((obj) => (
               <Link to={obj.url} className={styles.link} activeClassName={styles.linkActive}>
