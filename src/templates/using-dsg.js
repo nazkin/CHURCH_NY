@@ -31,7 +31,7 @@ const UsingDSG = () => {
     setTimeout(() => {
       setSuccess(false)
       setError(false)
-    }, 3000)
+    }, 6000)
 
   }, [message]);
 
@@ -138,11 +138,11 @@ const UsingDSG = () => {
           }}
         />
         <div style={{ height: 75, marginTop: 15 }}>
-          {success && <Alert variant="filled" severity="success">
+          {success && <Alert severity="success">
             Contact message was sent successfully. Thank you!
           </Alert>
           }
-          {error && <Alert variant="filled" severity="error">
+          {error && <Alert severity="error">
             Unable to send the message. Please try again !
           </Alert>
           }
