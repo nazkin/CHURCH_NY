@@ -33,13 +33,13 @@ export const samplePageLinks = [
     },
     {
         text: "BULLETIN",
-        url: "/page-2",
+        url: "/bulletin",
         badge: false,
-        description: "Some next shit",
+        description: "Current week church bulletin",
     },
-    { text: "SCHEDULE", url: "/using-typescript" },
-    { text: "ABOUT", url: "/using-ssr" },
-    { text: "CONTACT", url: "/using-dsg" },
+    { text: "SCHEDULE", url: "/schedule" },
+    { text: "ABOUT", url: "/about" },
+    { text: "CONTACT", url: "/contact" },
 ];
 
 export const LANGUAGE_ID = {
@@ -51,3 +51,5 @@ export const LANGUAGE_ICON = {
     en: "🇬🇧",
     ua: "🇺🇦"
 }
+
+export const LANGUAGES = [LANGUAGE_ID.en, LANGUAGE_ID.ua];

@@ -4,7 +4,7 @@ import { MenuItem } from "@mui/material";
 import { StyledSelect, SelectIcon } from "./Select.styles";
 
 const Select = ({ value, onChange, renderValue, list = [], ...rest }) => {
-    console.log(list)
+
     return (
         <StyledSelect
             value={value}

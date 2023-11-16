@@ -8,7 +8,7 @@ import file from '../../public/test_schedule.pdf'
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const SecondPage = () => (
+const Bulletin = () => (
   <Layout>
     <h1 style={{ marginTop: 100 }}>
       Explore Our Weekly Bulletin
@@ -19,6 +19,6 @@ const SecondPage = () => (
   </Layout>
 )
 
-export const Head = () => <Seo title="Page two" />
+export const Head = () => <Seo title="Bulletin" />
 
-export default SecondPage
+export default Bulletin

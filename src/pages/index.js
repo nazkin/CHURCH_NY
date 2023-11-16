@@ -1,18 +1,18 @@
-import * as React from "react";
+import * as React from "react"
 import {
   Grid,
-  Item,
-  Container,
   Button,
   ImageList,
   ImageListItem,
   ImageListItemBar,
   ListSubheader,
-} from "@mui/material";
+} from "@mui/material"
 
-import Layout from "../components/layout";
-import Seo from "../components/seo";
-import * as styles from "../components/index.module.css";
+import Layout from "../components/layout"
+import { Footer } from "../components/Footer"
+import Seo from "../components/seo"
+import { HOME_CONTENT } from '../constants/content/home'
+import * as styles from "../components/index.module.css"
 
 const PageContent = ({ language }) => {
   console.log("language", language); //check
@@ -57,7 +57,7 @@ const PageContent = ({ language }) => {
                   textAlign: "center",
                 }}
               >
-                Welcome to
+                {HOME_CONTENT[language].heroWelcome}
               </div>
               <div
                 style={{
@@ -67,7 +67,7 @@ const PageContent = ({ language }) => {
                   textAlign: "center",
                 }}
               >
-                St. John the Baptist Ukrainian Catholic Church
+                {HOME_CONTENT[language].churchName}
               </div>
             </section>
             <section
@@ -83,7 +83,7 @@ const PageContent = ({ language }) => {
                 variant="contained"
                 style={{ color: "goldenrod", fontSize: 24 }}
               >
-                UACCNJ Humanitarian Aid Drive
+                {HOME_CONTENT[language].humanitarianBtn}
               </Button>
               <img src={"pfu.png"} height={200} width={200} />
             </section>
@@ -117,7 +117,7 @@ const PageContent = ({ language }) => {
           }}
         >
           <h4 style={{ fontSize: "34px", color: "slategrey", fontWeight: 200 }}>
-            Divine Liturgy Schedule
+            {HOME_CONTENT[language].liturgySchedTitle}
           </h4>
           <div
             style={{
@@ -136,7 +136,7 @@ const PageContent = ({ language }) => {
                   color: "darkslategrey",
                 }}
               >
-                Saturday
+                {HOME_CONTENT[language].saturday}
               </p>
               <p
                 style={{
@@ -146,7 +146,7 @@ const PageContent = ({ language }) => {
                   color: "darkslategrey",
                 }}
               >
-                Sunday
+                {HOME_CONTENT[language].sunday}
               </p>
             </div>
             <div style={{ width: "33%" }}>
@@ -180,7 +180,7 @@ const PageContent = ({ language }) => {
                   color: "darkslategrey",
                 }}
               >
-                (English)
+                {HOME_CONTENT[language].en}
               </p>
               <p
                 style={{
@@ -190,22 +190,13 @@ const PageContent = ({ language }) => {
                   color: "darkslategrey",
                 }}
               >
-                (Ukrainian)
+                {HOME_CONTENT[language].ua}
               </p>
             </div>
           </div>
         </div>
         <p style={{ textAlign: "center" }}>
-          Condimentum id venenatis a condimentum. Sed enim ut sem viverra
-          aliquet eget. Malesuada bibendum arcu vitae elementum curabitur vitae
-          nunc sed. Aliquet bibendum enim facilisis gravida neque convallis. At
-          tempor commodo ullamcorper a lacus. Accumsan in nisl nisi scelerisque
-          eu ultrices vitae auctor. Id semper risus in hendrerit gravida. Id
-          interdum velit laoreet id donec ultrices tincidunt arcu non. Diam
-          maecenas ultricies mi eget mauris pharetra et ultrices. Tincidunt
-          ornare massa eget egestas purus. Risus in hendrerit gravida rutrum
-          quisque non tellus orci. Neque vitae tempus quam pellentesque nec nam
-          aliquam.
+          {HOME_CONTENT[language].summary}
         </p>
       </Grid>
       <Grid
@@ -225,7 +216,7 @@ const PageContent = ({ language }) => {
               style={{ fontSize: "30px", background: "whitesmoke" }}
               component="div"
             >
-              Easter Celebration at St. John the Baptist Catholic Church
+              {HOME_CONTENT[language].easterCeleb}
             </ListSubheader>
           </ImageListItem>
           {["c1.jpg", "c2.jpg"].map((item) => (
@@ -251,18 +242,8 @@ const PageContent = ({ language }) => {
           margin: `0 auto 40px auto`,
           maxWidth: `var(--size-content)`,
           minHeight: 300,
-          // display: "flex",
-          // justifyContent: "space-between",
         }}
       >
-        {/* <Grid item sm={12} md={6} style={{ display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between" }}>
-        <span className={styles.headerOne}>Useful Links</span>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Why Chinese eat dogs?</a></div>
-          <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> How to train your dragon?</a></div>
-          <div style={{ padding: '8px 0px 8px 0px' }}><a className={styles.anchorTag} styles={{ textDeration: "none" }} href="https://www.newyorker.com/magazine/2021/05/10/how-the-pentagon-started-taking-ufos-seriously"> Why Russians eat ass for breakfast?</a></div>
-        </div>
-      </Grid> */}
         <Grid
           item
           sm={12}
@@ -273,17 +254,18 @@ const PageContent = ({ language }) => {
             justifyContent: "space-around",
           }}
         >
-          <span className={styles.headerOne}>Support Your Parish</span>
+          <span className={styles.headerOne}>
+            {HOME_CONTENT[language].supportTitle}
+          </span>
           <p style={{ textAlign: "center" }}>
-            Founded in 1921, our church is located in the heart of historic
-            Morris County, five miles from Morristown, in the town of Whippany,
-            New Jersey. It is a very active and growing parish with a new campus
-            that includes our newly consecrated church as well as the 24,000
-            square foot Ukrainian American Cultural Center of NJ.
+            {HOME_CONTENT[language].history}
           </p>
-          <Button variant="outlined">Support Here</Button>
+          <Button variant="outlined">
+            {HOME_CONTENT[language].supportBtn}
+          </Button>
         </Grid>
       </Grid>
+      <Footer />
     </>
   );
 };

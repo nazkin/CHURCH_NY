@@ -7,18 +7,20 @@ import {
   TextField,
   Button
 } from '@mui/material'
-import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser'
 
 import Layout from "../components/layout"
+import { Footer } from "../components/Footer"
 import Seo from "../components/seo"
 import contactImg from '../../public/c3.jpg'
+import { CONTACT_CONTENT } from '../constants/content/contact'
 
 const SERVICE = 'service_l2h0844'
 const TEMPLATE = 'template_smhk7ll'
 const PUBLIC_KEY = 'Bnn2RnFZ7su91pwrn'
 
-const UsingDSG = () => {
-  const form = React.useRef()
+const ContactInfo = ({ language }) => {
+
   const [name, setName] = React.useState("")
   const [email, setEmail] = React.useState("")
   const [phone, setPhone] = React.useState("")
@@ -60,9 +62,9 @@ const UsingDSG = () => {
       });
   }
 
-  return <Layout>
+  return <div>
     <h1 style={{ marginTop: 100 }}>
-      Contact Our Church
+      {CONTACT_CONTENT[language].title}
     </h1>
     <Grid
       container
@@ -77,9 +79,8 @@ const UsingDSG = () => {
 
         <TextField
           id="name-input"
-          label="Name"
+          label={CONTACT_CONTENT[language].nameInput}
           type="name"
-          autoComplete="Your Name"
           variant="outlined"
           style={{
             width: '90%',
@@ -92,7 +93,7 @@ const UsingDSG = () => {
         />
         <TextField
           id="email-input"
-          label="Email"
+          label={CONTACT_CONTENT[language].emailInput}
           type="email"
           autoComplete="Your Email"
           variant="outlined"
@@ -107,7 +108,7 @@ const UsingDSG = () => {
         />
         <TextField
           id="phone-input"
-          label="Phone"
+          label={CONTACT_CONTENT[language].phoneInput}
           type="phone"
           autoComplete="Your Phone"
           variant="outlined"
@@ -122,7 +123,7 @@ const UsingDSG = () => {
         />
         <TextField
           id="message-input"
-          label="Message"
+          label={CONTACT_CONTENT[language].messageInput}
           type="message"
           autoComplete="Your Message"
           variant="outlined"
@@ -139,16 +140,18 @@ const UsingDSG = () => {
         />
         <div style={{ height: 75, marginTop: 15 }}>
           {success && <Alert severity="success">
-            Contact message was sent successfully. Thank you!
+            {CONTACT_CONTENT[language].successMsg}
           </Alert>
           }
           {error && <Alert severity="error">
-            Unable to send the message. Please try again !
+            {CONTACT_CONTENT[language].errorMsg}
           </Alert>
           }
         </div>
 
-        <Button onClick={(e) => onSubmit(e)} type="submit" variant="outlined" style={{ width: 100 }}>Submit</Button>
+        <Button onClick={(e) => onSubmit(e)} type="submit" variant="outlined" style={{ minWidth: 100 }}>
+          {CONTACT_CONTENT[language].submitBtn}
+        </Button>
 
       </Grid>
       <Grid md={5} style={{
@@ -162,9 +165,16 @@ const UsingDSG = () => {
         <img src={contactImg} />
       </Grid>
     </Grid>
-  </Layout>
+    <Footer />
+  </div>
 }
 
 export const Head = () => <Seo title="Contact" />
 
-export default UsingDSG
+const Contact = () => {
+  return <Layout>
+    <ContactInfo />
+  </Layout>
+}
+
+export default Contact
