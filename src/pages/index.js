@@ -81,7 +81,7 @@ const PageContent = ({ language }) => {
             >
               <Button
                 variant="contained"
-                style={{ color: "goldenrod", fontSize: 24 }}
+                style={{ color: "gold", fontSize: 24 }}
               >
                 {HOME_CONTENT[language].humanitarianBtn}
               </Button>
