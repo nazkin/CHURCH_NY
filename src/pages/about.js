@@ -5,6 +5,7 @@ import {
 } from "@mui/material"
 
 import Layout from "../components/layout"
+import { FAQ } from "../components/FAQ/FaqComponent"
 import Seo from "../components/seo"
 import { ABOUT_CONTENT } from '../constants/content/about'
 import history from '../../public/design.png'
@@ -34,6 +35,10 @@ const AboutContent = ({ language }) => {
             Consectetur voluptate ut in magna do labore eu voluptate id consequat. Consectetur ad ea id Lorem ad ullamco irure. Id in irure occaecat Lorem. Voluptate proident fugiat irure adipisicing elit cillum laborum eiusmod ullamco irure.
           </p>
         </Grid>
+      </Grid>
+      <Grid>
+        <h1>Frequently Asked Questions</h1>
+        <FAQ />
       </Grid>
 
     </>
