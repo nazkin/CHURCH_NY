@@ -13,6 +13,7 @@ import { Footer } from "../components/Footer"
 import Seo from "../components/seo"
 import { HOME_CONTENT } from '../constants/content/home'
 import * as styles from "../components/index.module.css"
+import background from '../../public/back.png'
 
 const PageContent = ({ language }) => {
   console.log("language", language); //check
@@ -114,6 +115,7 @@ const PageContent = ({ language }) => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            backgroundImage: `url(${background})`
           }}
         >
           <h4 style={{ fontSize: "34px", color: "slategrey", fontWeight: 200 }}>
@@ -207,7 +209,7 @@ const PageContent = ({ language }) => {
           maxWidth: `var(--size-content)`,
           padding: `var(--size-gutter)`,
           minHeight: 400,
-          background: "whitesmoke",
+          backgroundImage: `url(${background})`
         }}
       >
         <ImageList sx={{ width: "100%", minHeight: 400 }}>
