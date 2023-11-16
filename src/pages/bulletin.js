@@ -6,9 +6,10 @@ import {
 import file from '../../public/test_schedule.pdf'
 
 import Layout from "../components/layout"
+import { Footer } from "../components/Footer"
 import Seo from "../components/seo"
 
-const Bulletin = () => (
+const BulletinInfo = () => (
   <Layout>
     <h1 style={{ marginTop: 100 }}>
       Explore Our Weekly Bulletin
@@ -20,5 +21,13 @@ const Bulletin = () => (
 )
 
 export const Head = () => <Seo title="Bulletin" />
+const Bulletin = () => {
+  return (
+    <Layout>
+      <BulletinInfo />
+      <Footer />
+    </Layout>
+  )
+}
 
 export default Bulletin

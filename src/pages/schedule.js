@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 
 import { SCHEDULE_CONTENT } from '../constants/content/schedule'
 import Layout from "../components/layout"
+import { Footer } from "../components/Footer"
 
 
 const ScheduleContent = ({ language }) => (
@@ -18,6 +19,7 @@ const Schedule = () => {
   return (
     <Layout>
       <ScheduleContent />
+      <Footer />
     </Layout>
   )
 }

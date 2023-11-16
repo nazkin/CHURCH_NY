@@ -265,7 +265,6 @@ const PageContent = ({ language }) => {
           </Button>
         </Grid>
       </Grid>
-      <Footer />
     </>
   );
 };
@@ -280,6 +279,7 @@ export const Head = () => <Seo title="Home" />;
 const IndexPage = () => (
   <Layout>
     <PageContent />
+    <Footer />
   </Layout>
 );
 

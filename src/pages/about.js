@@ -6,9 +6,11 @@ import {
 
 import Layout from "../components/layout"
 import { FAQ } from "../components/FAQ/FaqComponent"
+import { Footer } from "../components/Footer"
 import Seo from "../components/seo"
 import { ABOUT_CONTENT } from '../constants/content/about'
 import history from '../../public/design.png'
+
 
 const AboutContent = ({ language }) => {
   return (
@@ -45,7 +47,6 @@ const AboutContent = ({ language }) => {
 
         </Grid>
       </Grid>
-
     </>
   )
 }
@@ -55,6 +56,7 @@ export const Head = () => <Seo title="About Page" />
 const About = () => {
   return <Layout>
     <AboutContent />
+    <Footer />
   </Layout>
 }
 

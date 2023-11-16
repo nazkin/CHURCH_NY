@@ -165,7 +165,6 @@ const ContactInfo = ({ language }) => {
         <img src={contactImg} />
       </Grid>
     </Grid>
-    <Footer />
   </div>
 }
 
@@ -174,6 +173,7 @@ export const Head = () => <Seo title="Contact" />
 const Contact = () => {
   return <Layout>
     <ContactInfo />
+    <Footer />
   </Layout>
 }
 
