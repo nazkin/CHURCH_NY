@@ -27,19 +27,40 @@ export const links = [
 
 export const samplePageLinks = [
     {
-        text: "HOME",
+        text: {
+            en: "HOME",
+            ua: "DOMA"
+        },
         url: "/",
         description: " Chinese like to eat clowns babies",
     },
     {
-        text: "BULLETIN",
+        text: {
+            en: "BULLETIN",
+            ua: "BULETINA"
+        },
         url: "/bulletin",
         badge: false,
         description: "Current week church bulletin",
     },
-    { text: "SCHEDULE", url: "/schedule" },
-    { text: "ABOUT", url: "/about" },
-    { text: "CONTACT", url: "/contact" },
+    {
+        text: {
+            en: "SCHEDULE",
+            ua: "ROZKLAD"
+        }, url: "/schedule"
+    },
+    {
+        text: {
+            en: "ABOUT",
+            ua: "PRONAS"
+        }, url: "/about"
+    },
+    {
+        text: {
+            en: "CONTACT",
+            ua: "KONTAKT"
+        }, url: "/contact"
+    },
 ];
 
 export const LANGUAGE_ID = {
