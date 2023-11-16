@@ -1,22 +1,23 @@
 import * as React from "react"
 import { Link } from "gatsby"
+
+import { SCHEDULE_CONTENT } from '../constants/content/schedule'
 import Layout from "../components/layout"
 
 
-const SchduleContent = () => (
+const ScheduleContent = ({ language }) => (
   <>
-    <h1 style={{ marginTop: 200 }}>
-      This is page 3
-    </h1>
+    <h1 style={{ marginTop: 80 }}>
 
-    <Link to="/">Go back to the homepage</Link>
+      {SCHEDULE_CONTENT[language].title}
+    </h1>
   </>
 )
 
 const Schedule = () => {
   return (
     <Layout>
-      <SchduleContent />
+      <ScheduleContent />
     </Layout>
   )
 }

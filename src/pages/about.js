@@ -2,12 +2,13 @@ import * as React from "react"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { ABOUT_CONTENT } from '../constants/content/about'
 
 const AboutContent = ({ language }) => {
   return (
     <>
-      <h1>
-        This the new shit
+      <h1 style={{ marginTop: 80 }}>
+        {ABOUT_CONTENT[language].title}
       </h1>
 
     </>
