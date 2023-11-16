@@ -14,7 +14,7 @@ export function FAQ() {
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
-                    <Typography>Accordion 1</Typography>
+                    <Typography>Q1: WHy is the earth flat?</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
@@ -29,7 +29,7 @@ export function FAQ() {
                     aria-controls="panel2a-content"
                     id="panel2a-header"
                 >
-                    <Typography>Accordion 2</Typography>
+                    <Typography>Q2: Is it a sin to want to have sex with Jennifer Aniston?</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
@@ -38,14 +38,20 @@ export function FAQ() {
                     </Typography>
                 </AccordionDetails>
             </Accordion>
-            <Accordion disabled>
+            <Accordion>
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel3a-content"
                     id="panel3a-header"
                 >
-                    <Typography>Disabled Accordion</Typography>
+                    <Typography>Q3: Can i go to hell for steroids?</Typography>
                 </AccordionSummary>
+                <AccordionDetails>
+                    <Typography>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                        malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    </Typography>
+                </AccordionDetails>
             </Accordion>
         </div>
     );
