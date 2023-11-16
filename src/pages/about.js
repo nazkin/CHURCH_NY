@@ -36,9 +36,14 @@ const AboutContent = ({ language }) => {
           </p>
         </Grid>
       </Grid>
-      <Grid>
-        <h1>Frequently Asked Questions</h1>
-        <FAQ />
+      <Grid container>
+        <Grid item md={8} style={{ padding: 50 }}>
+          <h1>Frequently Asked Questions</h1>
+          <FAQ />
+        </Grid>
+        <Grid item md={3}>
+
+        </Grid>
       </Grid>
 
     </>
