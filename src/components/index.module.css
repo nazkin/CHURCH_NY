@@ -73,7 +73,7 @@
 .iconLG {
   color: darkblue;
   cursor: pointer;
-  font-size: 40;
+  font-size: 40px;
   margin: 15px;
 
 }
@@ -85,7 +85,7 @@
 .iconSM {
   color: darkblue;
   cursor: pointer;
-  font-size: 15;
+  font-size: 17px;
   margin: 5px;
 }
 
