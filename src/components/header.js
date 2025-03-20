@@ -83,12 +83,18 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
               <MenuIcon />
             </IconButton>
             <Drawer
-              anchor={"left"}
+              anchor={"top"}
               open={anchorElNav}
               onClose={() => setAnchorElNav(false)}
-              style={{ padding: 0 }}
             >
-              <div style={{ padding: 0, minWidth: 250, height: "100%" }}>
+              <div
+                style={{
+                  padding: 0,
+                  minHeight: 700,
+                  height: "100%",
+                  borderBottom: "10px solid goldenrod",
+                }}
+              >
                 <div
                   style={{
                     background: "#159bf3",
@@ -110,7 +116,8 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
                   </IconButton>
                 </div>
                 <Divider />
-                <List>
+
+                <List style={{ minHeight: 600 }}>
                   {samplePageLinks.map((obj, index) => (
                     <Link to={obj.url} style={{ textDecoration: "none" }}>
                       <ListItem key={obj.url} disablePadding>
@@ -120,34 +127,36 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
                           </ListItemIcon>
                           <ListItemText
                             style={{ color: "#159bf3" }}
-                            primary={obj.text}
+                            primary={obj.text[language]}
                           />
                         </ListItemButton>
                       </ListItem>
                     </Link>
                   ))}
                 </List>
-                <Typography
-                  variant="h6"
-                  noWrap
-                  component="a"
-                  href="/"
-                  sx={{
-                    display: "flex",
-                    fontFamily: "monospace",
-                    fontWeight: 100,
-                    fontSize: 12,
-                    letterSpacing: "-0.1rem",
-                    color: "darkblue",
-                    background: "gold",
-                    textDecoration: "none",
-                    textWrap: "wrap",
-                    textAlign: "center",
-                    padding: 2,
-                  }}
-                >
-                  {translations.churchName[language]}
-                </Typography>
+                <Box>
+                  <Typography
+                    variant="h6"
+                    noWrap
+                    component="a"
+                    href="/"
+                    sx={{
+                      display: "flex",
+                      fontFamily: "monospace",
+                      fontWeight: 100,
+                      fontSize: 12,
+                      letterSpacing: "-0.1rem",
+                      color: "darkblue",
+                      background: "gold",
+                      textDecoration: "none",
+                      textWrap: "wrap",
+                      textAlign: "center",
+                      padding: 2,
+                    }}
+                  >
+                    {translations.churchName[language]}
+                  </Typography>
+                </Box>
               </div>
             </Drawer>
           </Box>
