@@ -14,8 +14,12 @@ module.exports = {
     author: `The clan of Judas`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
+
   plugins: [
     `gatsby-plugin-image`,
+    {
+      resolve: "gatsby-plugin-force-file-loader",
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -46,4 +50,4 @@ module.exports = {
       },
     },
   ],
-}
+};

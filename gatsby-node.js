@@ -16,3 +16,23 @@ exports.createPages = async ({ actions }) => {
     defer: true,
   })
 }
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.(png|jpe?g|gif|svg|pdf)$/i,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: "static/[name].[hash].[ext]",
+              },
+            },
+          ],
+        },
+        // Add more rules for other file types if needed
+      ],
+    },
+  });
+};
