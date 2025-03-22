@@ -20,7 +20,7 @@ const AboutContent = ({ language }) => {
       </h1>
       <Grid container>
         <Grid item md={6} style={{ padding: 40 }}>
-          <img src={history} width="80%" height={1000} />
+          <img src="/design.png" width="80%" height={1000} />
         </Grid>
         <Grid item md={6} style={{ padding: 40, display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
           <p>
