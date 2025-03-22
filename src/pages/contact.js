@@ -31,7 +31,9 @@ const ContactInfo = ({ language }) => {
   const pastorName = GENERAL_CONTENT[language].pastor
 
   const handleCopy = (value) => {
-    navigator.clipboard.writeText(value)
+    if (navigator && navigator.clipboard) {
+      navigator.clipboard.writeText(value)
+    }
   };
 
   return <Box>
