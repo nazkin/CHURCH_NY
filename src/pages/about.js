@@ -18,12 +18,13 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const AboutContent = ({ language }) => {
   return (
-    <Box width="80%" height="100%" marginTop={10} justifySelf={"center"}>
-      <Grid container paddingTop={5}>
+    <Box width="80%" height="100%" marginTop={5} justifySelf={"center"}>
+      <Grid container paddingTop={10}>
         <Grid item md={6} style={{ padding: 5 }}>
           <Box display={"flex"} width="80%" height="80%" justifyContent={"center"} alignItems={
             "center"
-          }><StaticImage src="../images/church_icon.png" /></Box>
+          }><StaticImage src="../images/about.jpg" placeholder="blurred" />
+          </Box>
         </Grid>
         <Grid item md={6} style={{ padding: 5, display: "flex", flexDirection: "column", justifyContent: "left"}}>
           <Stack width="100%" height="100%" direction="column" gap={2}>
