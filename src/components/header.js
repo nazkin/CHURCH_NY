@@ -22,6 +22,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { LanguageSelector } from "./LanguageSelector";
 import { GENERAL_CONTENT } from "../constants/content/general";
+import { StaticImage } from "gatsby-plugin-image"
 
 
 const Header = ({ siteTitle, language, changeLanguage }) => {
@@ -40,7 +41,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
             }}
           >
             <Box width="100%" height="100%" display={"flex"} justifyContent={"left"} alignItems={"center"}>
-              <img src="/church_icon_simple.png" width="50" height="50"/>
+              <StaticImage src="../images/church_icon_simple.png" width="50" height="50"/>
             </Box>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
