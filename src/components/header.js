@@ -40,7 +40,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
               padding: 5,
             }}
           >
-            <img src="/icons/church_icon_simple.png" width="50" height="50"/>
+            <img src="/church_icon_simple.png" width="50" height="50"/>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
