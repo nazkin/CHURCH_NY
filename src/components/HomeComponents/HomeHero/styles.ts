@@ -2,9 +2,10 @@ export const mainHeroContainer = {
   padding: 0,
   margin: "50px 0 40px 0",
   width: "100%",
-  height: 550,
-  backgroundImage: `url('hero.jpg')`,
-  backgroundPosition: "center",
+  height: 650,
+  backgroundImage: `url('background.jpg')`,
+  backgroundPosition: "right 35% bottom 80%",
+  //background-position: "right 35% bottom 45%",
   backgroundSize: "cover",
 };
 export const heroImageOpacityStyle = {
@@ -43,7 +44,7 @@ export const heroBtnsContainer = {
   width: "100%",
   marginTop: "30px",
   display: "flex",
-  justifyContent: "space-evenly",
+  justifyContent: "space-between",
   alignItems: "center",
 };
 

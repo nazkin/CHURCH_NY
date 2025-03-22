@@ -35,7 +35,7 @@ export const HomeHero = ({ language }) => {
               {HOME_CONTENT[language].churchName}
             </Box>
           </section>
-          <Container sx={Styles.heroBtnsContainer}>
+          <Container width="100%" sx={Styles.heroBtnsContainer}>
             <Button variant="contained" sx={Styles.heroHumanitarianBtn}>
               {HOME_CONTENT[language].humanitarianBtn}
             </Button>
