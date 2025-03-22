@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState, useEffect } from 'react';
 import { Link } from "gatsby"
 
 import {
@@ -27,12 +27,24 @@ const TEMPLATE = 'template_smhk7ll'
 const PUBLIC_KEY = 'Bnn2RnFZ7su91pwrn'
 
 const ContactInfo = ({ language }) => {
+  const [isClient, setIsClient] = useState(false);
   const churchName = GENERAL_CONTENT[language].name
   const pastorName = GENERAL_CONTENT[language].pastor
 
-  const handleCopy = (value) => {
-    if (navigator && navigator.clipboard) {
-      navigator.clipboard.writeText(value)
+  useEffect(() => {
+    // Ensure that the code runs only on the client-side
+    setIsClient(true);
+  }, []);
+
+  const handleCopyAddress = () => {
+    if (isClient && navigator.clipboard) {
+      navigator.clipboard.writeText(`${ADDRESS_LINE_1} ${ADDRESS_LINE_2}`)
+    }
+  };
+
+  const handleCopyEmail = () => {
+    if (isClient && navigator.clipboard) {
+      navigator.clipboard.writeText(`${EMAIL}`)
     }
   };
 
@@ -48,7 +60,7 @@ const ContactInfo = ({ language }) => {
           {ADDRESS_LINE_1}{' '}{ADDRESS_LINE_2}
         </Typography>
         <Tooltip title="Copy to Clipboard">
-          <IconButton onClick={handleCopy(`${ADDRESS_LINE_1} ${ADDRESS_LINE_2}`)} sx={{ padding: 0, fontSize: 18 }}>
+          <IconButton onClick={handleCopyAddress()} sx={{ padding: 0, fontSize: 18 }}>
             <ContentCopyIcon sx={{ fontSize: "inherit" }}/>
           </IconButton>
         </Tooltip>
@@ -63,7 +75,7 @@ const ContactInfo = ({ language }) => {
         {EMAIL}
       </Typography>
         <Tooltip title="Copy to Clipboard">
-            <IconButton onClick={handleCopy(`${EMAIL}`)} sx={{ padding: 0, fontSize: 18 }}>
+            <IconButton onClick={handleCopyEmail()} sx={{ padding: 0, fontSize: 18 }}>
               <ContentCopyIcon sx={{ fontSize: "inherit" }}/>
             </IconButton>
         </Tooltip>
