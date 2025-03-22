@@ -132,7 +132,7 @@ const ContactForm = ({ language }) => {
       });
   }
 
-  return <Box width={"100%"} height={"100%"} marginTop={10} padding={2}>
+  return <Box justifySelf={"center"} width={"80%"} height={"100%"} paddingTop={"120px"} paddingLeft={"20px"} paddingRight={"20px"} minHeight={"100vh"}>
     <Grid
       container
       style={{
@@ -240,7 +240,9 @@ export const Head = () => <Seo title="Contact" />
 const Contact = () => {
   return <Layout>
     <ContactForm />
-    <Footer />
+    <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
+      <Footer />
+    </Box>
   </Layout>
 }
 

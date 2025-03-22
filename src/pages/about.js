@@ -13,7 +13,7 @@ import { FAQ } from "../components/FAQ/FaqComponent"
 import { Footer } from "../components/Footer"
 import Seo from "../components/seo"
 import { ABOUT_CONTENT } from '../constants/content/about'
-import history from '../../public/design.png'
+import { StaticImage } from "gatsby-plugin-image"
 
 
 const AboutContent = ({ language }) => {
@@ -21,9 +21,9 @@ const AboutContent = ({ language }) => {
     <Box width="80%" height="100%" marginTop={10} justifySelf={"center"}>
       <Grid container paddingTop={5}>
         <Grid item md={6} style={{ padding: 5 }}>
-          <Box display={"flex"} justifyContent={"center"} alignItems={
+          <Box display={"flex"} width="80%" height="80%" justifyContent={"center"} alignItems={
             "center"
-          }><img src="/church_icon.png" width="70%" height={"70%"} /></Box>
+          }><StaticImage src="../images/church_icon.png" /></Box>
         </Grid>
         <Grid item md={6} style={{ padding: 5, display: "flex", flexDirection: "column", justifyContent: "left"}}>
           <Stack width="100%" height="100%" direction="column" gap={2}>
