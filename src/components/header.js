@@ -39,7 +39,9 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
               padding: 5,
             }}
           >
-            <img src="/church_icon_simple.png" width="50" height="50"/>
+            <Box width="100%" height="100%" display={"flex"} justifyContent={"left"} alignItems={"center"}>
+              <img src="/church_icon_simple.png" width="50" height="50"/>
+            </Box>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
