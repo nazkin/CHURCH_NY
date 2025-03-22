@@ -2,6 +2,10 @@ import * as React from "react"
 import {
   Grid,
   Button,
+  Box,
+  Stack,
+  Typography,
+  Divider
 } from "@mui/material"
 
 import Layout from "../components/layout"
@@ -14,40 +18,38 @@ import history from '../../public/design.png'
 
 const AboutContent = ({ language }) => {
   return (
-    <>
-      <h1 style={{ marginTop: 80 }}>
-        {ABOUT_CONTENT[language].title}
-      </h1>
-      <Grid container>
-        <Grid item md={6} style={{ padding: 40 }}>
-          <img src="/design.png" width="80%" height={1000} />
+    <Box width="80%" height="100%" marginTop={10} justifySelf={"center"}>
+      <Grid container paddingTop={5}>
+        <Grid item md={6} style={{ padding: 5 }}>
+          <Box display={"flex"} justifyContent={"center"} alignItems={
+            "center"
+          }><img src="/church_icon.png" width="70%" height={"70%"} /></Box>
         </Grid>
-        <Grid item md={6} style={{ padding: 40, display: "flex", flexDirection: "column", justifyContent: "space-around" }}>
-          <p>
-            Sit deserunt cillum cupidatat est eiusmod. Fugiat cillum culpa culpa exercitation ullamco dolore officia minim pariatur laborum ut laborum ipsum. Quis reprehenderit ex in nostrud labore velit tempor laboris minim nulla consequat ad.
-
-            Consectetur voluptate ut in magna do labore eu voluptate id consequat. Consectetur ad ea id Lorem ad ullamco irure. Id in irure occaecat Lorem. Voluptate proident fugiat irure adipisicing elit cillum laborum eiusmod ullamco irure.
-
-            Ut dolore officia dolore esse fugiat culpa sunt nostrud ut deserunt aute incididunt pariatur. Ipsum qui aliquip ullamco nostrud fugiat non exercitation magna adipisicing. Fugiat aliqua ex aliqua irure aute aliquip nostrud nostrud officia pariatur ea. Magna nulla adipisicing est officia magna. Magna ipsum eiusmod enim dolor consequat amet non amet excepteur. Quis excepteur Lorem nisi est do qui ipsum est exercitation.
-          </p>
-          <p>
-            Id non nostrud deserunt duis dolor occaecat. Est sint sunt velit ad nulla nostrud occaecat proident tempor laboris voluptate consectetur est. Et nulla adipisicing dolore aliquip voluptate est dolor est officia mollit. Esse non eu excepteur sit ex minim et duis. Proident aliquip sint elit id mollit proident.
-          </p>
-          <p>
-            Consectetur voluptate ut in magna do labore eu voluptate id consequat. Consectetur ad ea id Lorem ad ullamco irure. Id in irure occaecat Lorem. Voluptate proident fugiat irure adipisicing elit cillum laborum eiusmod ullamco irure.
-          </p>
+        <Grid item md={6} style={{ padding: 5, display: "flex", flexDirection: "column", justifyContent: "left"}}>
+          <Stack width="100%" height="100%" direction="column" gap={2}>
+            <Box>{ABOUT_CONTENT[language].welcome}</Box>
+            <Box>{ABOUT_CONTENT[language].about}</Box>
+          </Stack>
+        </Grid>
+      </Grid>
+      <Box sx={{ width: '100%'}}>
+        <Divider sx={{ borderBottomWidth: 2, borderColor: 'grey.500' }} />
+      </Box>
+      <Grid container>
+        <Grid item xs={12} md={12} style={{ padding: 5 }}>
+          <Box><h2>{ABOUT_CONTENT[language].histroyTitle}</h2></Box>
+          {ABOUT_CONTENT[language].history}
         </Grid>
       </Grid>
       <Grid container>
-        <Grid item md={8} style={{ padding: 50 }}>
-          <h1>Frequently Asked Questions</h1>
-          <FAQ />
+      <Grid item xs={12} md={12} style={{ padding: 5 }}>
         </Grid>
-        <Grid item md={3}>
-
+        <Grid item xs={12} md={12} style={{ padding: 5 }}>
+          <h2>{ABOUT_CONTENT[language].faq}</h2>
+          <FAQ language={language} />
         </Grid>
       </Grid>
-    </>
+    </Box>
   )
 }
 

@@ -4,22 +4,22 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { FAQ_CONTENT } from '../../constants/content/faq';
 
-export function FAQ() {
+export function FAQ({language}) {
     return (
         <div>
-            <Accordion>
+            <Accordion width="100%">
                 <AccordionSummary
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls="panel1a-content"
                     id="panel1a-header"
                 >
-                    <Typography>Q1: What is the meaning of life?</Typography>
+                    <Typography>{FAQ_CONTENT[language].q1}</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-                        malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    {FAQ_CONTENT[language].a1}
                     </Typography>
                 </AccordionDetails>
             </Accordion>
