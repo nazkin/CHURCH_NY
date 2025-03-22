@@ -4,6 +4,7 @@ export const CONTACT_CONTENT = {
         submitBtn: "Submit",
         nameInput: "Name",
         emailInput: "Email",
+        phoneLabel: "Tel:",
         phoneInput: "Phone",
         messageInput: "Message",
         successMsg: "Contact message was sent successfully. Thank you!",
@@ -11,13 +12,14 @@ export const CONTACT_CONTENT = {
 
     },
     ua: {
-        title: "UA | Contact Our Church",
-        submitBtn: "UA | Submit",
-        nameInput: "UA | Name",
-        emailInput: "UA | Email",
-        phoneInput: "UA | Phone",
-        messageInput: "UA | Message",
-        successMsg: "UA | Contact message was sent successfully. Thank you!",
-        errorMsg: "UA | Unable to send the contact message. Please try again !"
+        title: "Зв'язатись з Нашою Церквою",
+        submitBtn: "Вислати",
+        nameInput: "Ім'я",
+        emailInput: "Електронна Пошта",
+        phoneLabel: "Тел:",
+        phoneInput: "Телефон",
+        messageInput: "Повідомлення",
+        successMsg: "Повідомлення надіслано! Дякуємо!",
+        errorMsg: "Помилка при надсиланні повідомлення. Перегляньте всі поля форми і спробуйте ще раз."
     }
 }

@@ -22,17 +22,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { LanguageSelector } from "./LanguageSelector";
+import { GENERAL_CONTENT } from "../constants/content/general";
 
-const translations = {
-  donateBtn: {
-    en: "Donations",
-    ua: "Donaciyi"
-  },
-  churchName: {
-    en: "St. John the Baptist Catholic Church",
-    ua: "Cerkva Svyatoho Ivana Baptista"
-  }
-}
 
 const Header = ({ siteTitle, language, changeLanguage }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(false);
@@ -68,7 +59,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
                 textAlign: "center",
               }}
             >
-              {translations.churchName[language]}
+              {GENERAL_CONTENT[language].name}
             </Typography>
           </Container>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -154,7 +145,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
                       padding: 2,
                     }}
                   >
-                    {translations.churchName[language]}
+                    {GENERAL_CONTENT[language].name}
                   </Typography>
                 </Box>
               </div>
@@ -191,7 +182,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
             variant="filled"
             size="small"
           >
-            {translations.donateBtn[language]}
+            {GENERAL_CONTENT[language].support}
           </Button>
 
           <LanguageSelector

@@ -5,21 +5,55 @@ import {
   Grid,
   Alert,
   TextField,
-  Button
+  Button,
+  Box,
+  Typography
 } from '@mui/material'
 import emailjs from '@emailjs/browser'
 
 import Layout from "../components/layout"
 import { Footer } from "../components/Footer"
 import Seo from "../components/seo"
-import contactImg from '../../public/c3.jpg'
 import { CONTACT_CONTENT } from '../constants/content/contact'
+import { GENERAL_CONTENT } from '../constants/content/general'
+import { ADDRESS_LINE_1, ADDRESS_LINE_2, PHONE_NUMBER, EMAIL } from '../constants/info'
 
 const SERVICE = 'service_l2h0844'
 const TEMPLATE = 'template_smhk7ll'
 const PUBLIC_KEY = 'Bnn2RnFZ7su91pwrn'
 
 const ContactInfo = ({ language }) => {
+  const churchName = GENERAL_CONTENT[language].name
+  const pastorName = GENERAL_CONTENT[language].pastor
+
+  return <Box>
+    <Box paddingBottom={"10pt"}>
+    <Typography fontWeight={500} fontSize={18}>
+      {churchName}
+    </Typography>
+    </Box>
+    <Box paddingBottom={"10pt"}>
+      <Typography fontWeight={400} fontSize={15}>
+        {ADDRESS_LINE_1}{' '}{ADDRESS_LINE_2}
+      </Typography>
+    </Box>
+    <Box paddingBottom={"20pt"}>
+      <Typography fontWeight={400} fontSize={15}>
+        {CONTACT_CONTENT[language].phoneLabel}{' '}{PHONE_NUMBER}
+      </Typography>
+      <Typography fontWeight={400} fontSize={15}>
+        {EMAIL}
+      </Typography>
+    </Box>
+    <Box>
+    <Typography fontWeight={400} fontSize={15}>
+        {GENERAL_CONTENT[language].pastorLabel}{' - '}{pastorName}
+      </Typography>
+    </Box>
+  </Box>
+}
+
+const ContactForm = ({ language }) => {
 
   const [name, setName] = React.useState("")
   const [email, setEmail] = React.useState("")
@@ -62,117 +96,114 @@ const ContactInfo = ({ language }) => {
       });
   }
 
-  return <div>
-    <h1 style={{ marginTop: 100 }}>
-      {CONTACT_CONTENT[language].title}
-    </h1>
+  return <Box width={"100%"} height={"100%"} marginTop={10} padding={2}>
     <Grid
       container
       style={{
-        background: "whitesmoke",
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
-        alignItem: "center"
+        alignItem: "center",
       }}>
-      <Grid md={6} style={{ padding: 20 }}>
-
-        <TextField
-          id="name-input"
-          label={CONTACT_CONTENT[language].nameInput}
-          type="name"
-          variant="outlined"
-          style={{
-            width: '90%',
-            marginTop: 50
-          }}
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value)
-          }}
-        />
-        <TextField
-          id="email-input"
-          label={CONTACT_CONTENT[language].emailInput}
-          type="email"
-          autoComplete="Your Email"
-          variant="outlined"
-          style={{
-            width: '90%',
-            marginTop: 50
-          }}
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value)
-          }}
-        />
-        <TextField
-          id="phone-input"
-          label={CONTACT_CONTENT[language].phoneInput}
-          type="phone"
-          autoComplete="Your Phone"
-          variant="outlined"
-          style={{
-            width: '90%',
-            marginTop: 50
-          }}
-          value={phone}
-          onChange={(e) => {
-            setPhone(e.target.value)
-          }}
-        />
-        <TextField
-          id="message-input"
-          label={CONTACT_CONTENT[language].messageInput}
-          type="message"
-          autoComplete="Your Message"
-          variant="outlined"
-          multiline={true}
-          rows={5}
-          style={{
-            width: '90%',
-            marginTop: 50
-          }}
-          value={message}
-          onChange={(e) => {
-            setMessage(e.target.value)
-          }}
-        />
-        <div style={{ height: 75, marginTop: 15 }}>
-          {success && <Alert severity="success">
-            {CONTACT_CONTENT[language].successMsg}
-          </Alert>
-          }
-          {error && <Alert severity="error">
-            {CONTACT_CONTENT[language].errorMsg}
-          </Alert>
-          }
-        </div>
-
-        <Button onClick={(e) => onSubmit(e)} type="submit" variant="outlined" style={{ minWidth: 100 }}>
-          {CONTACT_CONTENT[language].submitBtn}
-        </Button>
-
+      <Grid md={6} display={"flex"} flexDirection={"column"}>
+          <Grid>
+            <ContactInfo language={language} />
+          </Grid>
+          <Grid>
+          <TextField
+            id="name-input"
+            label={CONTACT_CONTENT[language].nameInput}
+            type="name"
+            variant="outlined"
+            style={{
+              width: '100%',
+              marginTop: 50
+            }}
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value)
+            }}
+            size="small"
+          />
+          <TextField
+            id="email-input"
+            label={CONTACT_CONTENT[language].emailInput}
+            type="email"
+            autoComplete="Your Email"
+            variant="outlined"
+            style={{
+              width: '100%',
+              marginTop: 20
+            }}
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value)
+            }}
+            size="small"
+          />
+          <TextField
+            id="phone-input"
+            label={CONTACT_CONTENT[language].phoneInput}
+            type="phone"
+            autoComplete="Your Phone"
+            variant="outlined"
+            style={{
+              width: '100%',
+              marginTop: 20
+            }}
+            value={phone}
+            onChange={(e) => {
+              setPhone(e.target.value)
+            }}
+            size="small"
+          />
+          <TextField
+            id="message-input"
+            label={CONTACT_CONTENT[language].messageInput}
+            type="message"
+            autoComplete="Your Message"
+            variant="outlined"
+            multiline={true}
+            rows={5}
+            style={{
+              width: '100%',
+              marginTop: 20
+            }}
+            value={message}
+            onChange={(e) => {
+              setMessage(e.target.value)
+            }}
+          />
+          {success && <Box width={'100%'} marginTop={"20pt"}>
+            <Alert severity="success">{CONTACT_CONTENT[language].successMsg}</Alert>
+          </Box>}
+          {error && <Box width={'100%'} marginTop={"20pt"}>
+            <Alert severity="error">{CONTACT_CONTENT[language].errorMsg}</Alert>
+          </Box>}
+          <Box width={"100%"} display={"flex"} justifyContent={"right"} marginTop={"20pt"}>
+            <Button onClick={(e) => onSubmit(e)} type="submit" variant="contained" style={{ minWidth: 100 }}>
+              {CONTACT_CONTENT[language].submitBtn}
+            </Button>
+          </Box>
+          </Grid>
       </Grid>
       <Grid md={5} style={{
-        background: "lightsteelblue",
-        border: "30px solid lightsteelblue",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItem: "center",
       }}>
-        <img src={contactImg} />
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.6451164792375!2d-74.42900408727112!3d40.83575807125593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3a7c048043bef%3A0xbc81a8fd3b1a55b5!2sSaint%20John%20the%20Baptist%20Ukrainian%20Catholic%20Church!5e0!3m2!1sen!2sus!4v1742655055864!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </Grid>
     </Grid>
-  </div>
+  </Box>
 }
 
 export const Head = () => <Seo title="Contact" />
 
 const Contact = () => {
   return <Layout>
-    <ContactInfo />
+    <ContactForm />
     <Footer />
   </Layout>
 }

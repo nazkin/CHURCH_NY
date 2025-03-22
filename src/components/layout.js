@@ -7,6 +7,9 @@ import "./layout.css";
 import * as styles from "./index.module.css";
 import { Children, cloneElement, useState } from "react";
 import { LANGUAGE_ID } from "../constants";
+import {
+  Box,
+} from '@mui/material'
 
 /**
  * Layout component that queries for data
@@ -35,7 +38,7 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <>
+    <Box width='100%' height='100%' sx={{background: 'whitesmoke'}}>
       <Header
         siteTitle={data.site.siteMetadata?.title || `Title`}
         language={language}
@@ -44,7 +47,7 @@ const Layout = ({ children }) => {
       <main>
         {Children.map(children, (child) => cloneElement(child, { language }))}
       </main>
-    </>
+    </Box>
   );
 };
 
