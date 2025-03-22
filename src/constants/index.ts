@@ -69,8 +69,8 @@ export const LANGUAGE_ID = {
 };
 
 export const LANGUAGE_ICON = {
-    en: "🇬🇧",
-    ua: "🇺🇦"
+    en: "🇺🇸",
+    ua: "🇺🇦",
 }
 
 export const LANGUAGES = [LANGUAGE_ID.en, LANGUAGE_ID.ua];
