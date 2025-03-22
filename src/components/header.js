@@ -30,38 +30,18 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
 
   return (
     <AppBar position="fixed">
-      <Container maxWidth="xl">
+      <Container maxWidth="m">
         <Toolbar disableGutters>
-          <Container
-            sx={{ display: { xs: "none", md: "flex" } }}
+          <Box
+            sx={{ display: { xs: "none", md: "flex" }, justifyContent: "left", alignItems: "center"}}
             style={{
-              width: 150,
-              background: "gold",
+              alignItems: "center",
               height: "100%",
               padding: 5,
             }}
           >
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 100,
-                fontSize: 12,
-                letterSpacing: "-0.1rem",
-                color: "darkblue",
-                textDecoration: "none",
-                textWrap: "wrap",
-                textAlign: "center",
-              }}
-            >
-              {GENERAL_CONTENT[language].name}
-            </Typography>
-          </Container>
+            <img src="/icons/church_icon_simple.png" width="50" height="50"/>
+          </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"

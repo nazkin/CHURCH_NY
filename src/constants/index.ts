@@ -29,15 +29,15 @@ export const samplePageLinks = [
     {
         text: {
             en: "HOME",
-            ua: "DOMA"
+            ua: "ДОДОМУ"
         },
         url: "/",
-        description: " Chinese like to eat clowns babies",
+        description: "",
     },
     {
         text: {
             en: "BULLETIN",
-            ua: "BULETINA"
+            ua: "ЩО НОВОГО"
         },
         url: "/bulletin",
         badge: false,
@@ -46,19 +46,19 @@ export const samplePageLinks = [
     {
         text: {
             en: "SCHEDULE",
-            ua: "ROZKLAD"
+            ua: "РОЗКЛАД"
         }, url: "/schedule"
     },
     {
         text: {
             en: "ABOUT",
-            ua: "PRONAS"
+            ua: "ПРО ЦЕРКВУ"
         }, url: "/about"
     },
     {
         text: {
             en: "CONTACT",
-            ua: "KONTAKT"
+            ua: "ЗВ'ЯЗАТИСЬ"
         }, url: "/contact"
     },
 ];

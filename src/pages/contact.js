@@ -7,9 +7,13 @@ import {
   TextField,
   Button,
   Box,
-  Typography
+  Typography,
+  Tooltip,
+  IconButton,
+  Stack
 } from '@mui/material'
 import emailjs from '@emailjs/browser'
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 import Layout from "../components/layout"
 import { Footer } from "../components/Footer"
@@ -26,24 +30,42 @@ const ContactInfo = ({ language }) => {
   const churchName = GENERAL_CONTENT[language].name
   const pastorName = GENERAL_CONTENT[language].pastor
 
+  const handleCopy = (value) => {
+    navigator.clipboard.writeText(value)
+  };
+
   return <Box>
     <Box paddingBottom={"10pt"}>
     <Typography fontWeight={500} fontSize={18}>
       {churchName}
     </Typography>
     </Box>
-    <Box paddingBottom={"10pt"}>
-      <Typography fontWeight={400} fontSize={15}>
-        {ADDRESS_LINE_1}{' '}{ADDRESS_LINE_2}
-      </Typography>
+    <Box paddingBottom={"10pt"} alignItems={"center"}>
+      <Stack width="100%" direction="row" display={"flex"} justifyContent={"left"} alignItems={"center"} gap={1}>
+        <Typography fontWeight={400} fontSize={15}>
+          {ADDRESS_LINE_1}{' '}{ADDRESS_LINE_2}
+        </Typography>
+        <Tooltip title="Copy to Clipboard">
+          <IconButton onClick={handleCopy(`${ADDRESS_LINE_1} ${ADDRESS_LINE_2}`)} sx={{ padding: 0, fontSize: 18 }}>
+            <ContentCopyIcon sx={{ fontSize: "inherit" }}/>
+          </IconButton>
+        </Tooltip>
+      </Stack>
     </Box>
     <Box paddingBottom={"20pt"}>
       <Typography fontWeight={400} fontSize={15}>
         {CONTACT_CONTENT[language].phoneLabel}{' '}{PHONE_NUMBER}
       </Typography>
+      <Stack width="100%" direction="row" display={"flex"} justifyContent={"left"} alignItems={"center"} gap={1}>
       <Typography fontWeight={400} fontSize={15}>
         {EMAIL}
       </Typography>
+        <Tooltip title="Copy to Clipboard">
+            <IconButton onClick={handleCopy(`${EMAIL}`)} sx={{ padding: 0, fontSize: 18 }}>
+              <ContentCopyIcon sx={{ fontSize: "inherit" }}/>
+            </IconButton>
+        </Tooltip>
+      </Stack>
     </Box>
     <Box>
     <Typography fontWeight={400} fontSize={15}>

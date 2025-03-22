@@ -13,7 +13,7 @@ export const CONTACT_CONTENT = {
     },
     ua: {
         title: "Зв'язатись з Нашою Церквою",
-        submitBtn: "Вислати",
+        submitBtn: "Надіслати",
         nameInput: "Ім'я",
         emailInput: "Електронна Пошта",
         phoneLabel: "Тел:",
