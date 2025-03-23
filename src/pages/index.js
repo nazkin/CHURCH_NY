@@ -12,6 +12,7 @@ import { HomeHero } from "../components/HomeComponents/HomeHero";
 import { HomeScheduleSection } from "../components/HomeComponents/HomeSchedule";
 import { SupportParish } from "../components/HomeComponents/HomeSupport";
 import { HomeNewsSection } from "../components/HomeComponents/HomeNewsSection";
+import { Announcement } from "../components/Announcements";
 
 const PageContent = ({ language }) => {
   const theme = useTheme();
@@ -21,6 +22,7 @@ const PageContent = ({ language }) => {
     <>
       <HomeHero language={language} />
       <HomeScheduleSection language={language} />
+      <Announcement />
       <HomeNewsSection language={language} />
       <SupportParish language={language} />
     </>
