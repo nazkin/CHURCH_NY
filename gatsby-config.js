@@ -17,6 +17,7 @@ module.exports = {
 
   plugins: [
     `gatsby-plugin-image`,
+    "gatsby-image",
     {
       resolve: "gatsby-plugin-force-file-loader",
     },
