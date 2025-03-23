@@ -15,36 +15,27 @@ export const HomeHero = ({ language }) => {
     <Box sx={Styles.mainHeroContainer}>
       <Grid sx={Styles.heroImageOpacityStyle} container spacing={0}>
         <Grid item xs={12} sx={Styles.flexColSpaceAround}>
-          <section>
-            <Box
-              sx={
-                phoneSize
-                  ? Styles.heroTextContainerSm
-                  : Styles.heroTextContainerLg
-              }
-            >
-              {HOME_CONTENT[language].heroWelcome}
-            </Box>
-            <Box
-              sx={
-                phoneSize
-                  ? Styles.heroTextContainerSm
-                  : Styles.heroTextContainerLg
-              }
-            >
-              {HOME_CONTENT[language].churchName}
-            </Box>
-          </section>
-          <Container width="100%" sx={Styles.heroBtnsContainer}>
+        <Container width="100%" sx={Styles.heroBtnsContainer}>
             <Button variant="contained" sx={Styles.heroHumanitarianBtn}>
               {HOME_CONTENT[language].humanitarianBtn}
             </Button>
-            {!phoneSize && (
+            {/* {!phoneSize && (
               <Box>
                 <img src={"pfu.png"} height={200} width={200} />
               </Box>
-            )}
+            )} */}
           </Container>
+          <Box paddingLeft={"20px"}>
+            <Box
+              sx={
+                phoneSize
+                  ? Styles.heroTextContainerSm
+                  : Styles.heroTextContainerLg
+              }
+            >
+              {HOME_CONTENT[language].heroWelcome}{' '}{HOME_CONTENT[language].churchName}
+            </Box>
+          </Box>
         </Grid>
       </Grid>
     </Box>

@@ -21,8 +21,8 @@ const PageContent = ({ language }) => {
   return (
     <>
       <HomeHero language={language} />
+      <Announcement language={language} />
       <HomeScheduleSection language={language} />
-      <Announcement />
       <HomeNewsSection language={language} />
       <SupportParish language={language} />
     </>

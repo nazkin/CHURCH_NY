@@ -2,10 +2,9 @@ export const mainHeroContainer = {
   padding: 0,
   margin: "50px 0 40px 0",
   width: "100%",
-  height: 650,
+  height: 520,
   backgroundImage: `url('background.jpg')`,
   backgroundPosition: "right 35% bottom 80%",
-  //background-position: "right 35% bottom 45%",
   backgroundSize: "cover",
 };
 export const heroImageOpacityStyle = {
@@ -24,7 +23,7 @@ export const heroTextContainerSm = {
   width: "100%",
   color: "whitesmoke",
   textAlign: "center",
-  fontSize: "40px",
+  fontSize: "20px",
   display: "flex",
   justifyConten: "center",
   alignItems: "center",
@@ -34,17 +33,18 @@ export const heroTextContainerLg = {
   width: "100%",
   color: "whitesmoke",
   textAlign: "center",
-  fontSize: "64px",
+  fontSize: "34px",
   display: "flex",
   justifyConten: "center",
   alignItems: "center",
+  
 };
 
 export const heroBtnsContainer = {
   width: "100%",
-  marginTop: "30px",
+  marginTop: "10px",
   display: "flex",
-  justifyContent: "space-between",
+  justifyContent: "right",
   alignItems: "center",
 };
 
