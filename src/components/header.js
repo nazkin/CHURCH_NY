@@ -149,6 +149,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
               </Link>
             ))}
           </Box>
+          <Link to='/support'>
           <Button
             style={{
               color: "gold",
@@ -160,6 +161,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
           >
             {GENERAL_CONTENT[language].support}
           </Button>
+          </Link>
 
           <LanguageSelector
             language={language}

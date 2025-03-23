@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "gatsby";
 import { Grid, Button, Box, Container } from "@mui/material";
 
 import { useTheme } from "@mui/material/styles";
@@ -16,9 +17,11 @@ export const HomeHero = ({ language }) => {
       <Grid sx={Styles.heroImageOpacityStyle} container spacing={0}>
         <Grid item xs={12} sx={Styles.flexColSpaceAround}>
         <Container width="100%" sx={Styles.heroBtnsContainer}>
+          <Link to='/aid'>
             <Button variant="contained" sx={Styles.heroHumanitarianBtn}>
               {HOME_CONTENT[language].humanitarianBtn}
             </Button>
+            </Link>
             {/* {!phoneSize && (
               <Box>
                 <img src={"pfu.png"} height={200} width={200} />
