@@ -1,27 +1,27 @@
 import * as React from "react"
 import { Link } from "gatsby"
 
-import { SCHEDULE_CONTENT } from '../constants/content/schedule'
 import Layout from "../components/layout"
 import { Footer } from "../components/Footer"
+import { AID_CONTENT } from "../constants/content/aid"
 
 
-const ScheduleContent = ({ language }) => (
+const AidContent = ({ language }) => (
   <>
     <h2 style={{ marginTop: 80 }}>
 
-      {SCHEDULE_CONTENT[language].title}
+      {AID_CONTENT[language].title}
     </h2>
     
   </>
 )
 
-const Schedule = () => {
+const Aid = () => {
   return (
     <Layout>
-      <ScheduleContent />
+      <AidContent />
       <Footer />
     </Layout>
   )
 }
-export default Schedule
+export default Aid
