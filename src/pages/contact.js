@@ -132,7 +132,7 @@ const ContactForm = ({ language }) => {
       });
   }
 
-  return <Box justifySelf={"center"} width={"80%"} height={"100%"} paddingTop={"120px"} paddingLeft={"20px"} paddingRight={"20px"} minHeight={"100vh"}>
+  return <Box justifySelf={"center"} width={"80%"} height={"100%"} paddingBottom={"100px"} paddingTop={"120px"} paddingLeft={"20px"} paddingRight={"20px"} minHeight={"100vh"}>
     <Grid
       container
       style={{

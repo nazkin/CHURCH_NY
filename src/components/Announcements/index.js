@@ -5,7 +5,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
-export const Announcement = (props) => {
+export const Announcement = ({language}) => {
   var items = [
     {
       name: "Event Super Awesome",
@@ -19,31 +19,18 @@ export const Announcement = (props) => {
       image: "c6.jpg",
     },
     {
-      name: "The Best of the Best of them All",
+      name: "Next Liturgy",
       description:
-        "Come support your church and do a good deed once in a while. We can talk God and stay away from politics. It will be good for you.",
+        "Saturday at 5PM, Sunday ay 8AM in Ukrainian and 10AM mixed Ukrainian and English",
       image: "c3.jpg",
     },
   ];
 
   return (
     <Container>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-        }}
-      >
-        <Typography variant="h4" sx={{ color: "slategray" }}>
-          Announcements
-        </Typography>
-      </Box>
       <Carousel
         animation="fade"
-        interval="8000"
+        interval="3000"
         indicators={false}
         navButtonsAlwaysVisible={true}
         NextIcon={<NavigateNextIcon />}
@@ -62,13 +49,15 @@ const Item = (props) => {
     <Paper
       sx={{
         background: "#f6f6f6",
-        padding: "40px",
+        padding: "10px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
+      <h2>{props.item.name}</h2>
+      <p>{props.item.description}</p>
       <img
         src={props.item.image}
         alt="My Image"
@@ -76,9 +65,6 @@ const Item = (props) => {
         width="60%"
         height="300px"
       />
-
-      <h2>{props.item.name}</h2>
-      <p>{props.item.description}</p>
 
       <Button className="CheckButton">See More</Button>
     </Paper>
