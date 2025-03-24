@@ -28,8 +28,7 @@ export const Announcement = ({ language }) => {
       }
     }
   `);
-  console.log(allContentfulAnnouncement);
-  var items = allContentfulAnnouncement.node;
+
   return (
     <Container>
       <Carousel
