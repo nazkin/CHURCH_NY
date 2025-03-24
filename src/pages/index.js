@@ -1,6 +1,5 @@
 import * as React from "react"
 
-
 import Layout from "../components/layout";
 import { Footer } from "../components/Footer";
 import Seo from "../components/seo";
@@ -36,11 +35,13 @@ const PageContent = ({ language }) => {
  */
 export const Head = () => <Seo title="Home" />;
 
-const IndexPage = () => (
-  <Layout>
-    <PageContent />
-    <Footer />
-  </Layout>
-);
+const IndexPage = () => {
+  return (
+    <Layout>
+      <PageContent />
+      <Footer />
+    </Layout>
+  );
+};
 
 export default IndexPage;
