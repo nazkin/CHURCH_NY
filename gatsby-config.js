@@ -12,8 +12,6 @@
    path: `.env.${process.env.NODE_ENV}`,
  });
  module.exports = {
-   pathPrefix: "/CHURCH_NY",
-
    siteMetadata: {
      title: `Our Church`,
      description: `Our description of the Church`,
