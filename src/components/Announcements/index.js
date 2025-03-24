@@ -49,6 +49,19 @@ export const Announcement = ({ language }) => {
         navButtonsAlwaysVisible={true}
         NextIcon={<NavigateNextIcon />}
         PrevIcon={<NavigateBeforeIcon />}
+        navButtonsProps={{
+          // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
+          style: {
+            backgroundColor: darkYellow,
+            color: white,
+          },
+        }}
+        navButtonsWrapperProps={{
+          // Move the buttons to the bottom. Unsetting top here to override default style.
+          style: {
+            padding: "30px",
+          },
+        }}
       >
         {allContentfulAnnouncement.nodes.map((item, i) => (
           <Item key={i} item={item} />
@@ -70,19 +83,32 @@ const Item = (props) => {
         justifyContent: "center",
         alignItems: "center",
         padding: "30px",
+        borderRadius: "1.5%",
+        border: "1px solid white",
       }}
     >
       <span
         style={{
           display: "flex",
-          justifyContent: "space-around",
-          alignItems: "flex-start",
+          justifyContent: "space-between",
+          alignItems: "flex-end",
           width: "100%",
+          padding: "0 20px 0 20px",
         }}
       >
         {" "}
-        <h2>{props.item.title}</h2>
-        <h3>{props.item.announcementDate}</h3>
+        <h2
+          style={{
+            fontSize: "34px",
+            color: darkBlue,
+            lineHeight: "34px",
+          }}
+        >
+          {props.item.title}
+        </h2>
+        <h3 style={{ fontWeight: 100, color: darkBlue }}>
+          {props.item.announcementDate}
+        </h3>
       </span>
       <img
         src={props.item.image.publicUrl}
