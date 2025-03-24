@@ -1,3 +1,11 @@
+import {
+  darkBlue,
+  white,
+  lightYellow,
+  darkYellow,
+  lightBlue,
+} from "../../../constants/colors";
+
 export const mainHeroContainer = {
   padding: 0,
   margin: "50px 0 40px 0",
@@ -37,7 +45,6 @@ export const heroTextContainerLg = {
   display: "flex",
   justifyConten: "center",
   alignItems: "center",
-  
 };
 
 export const heroBtnsContainer = {

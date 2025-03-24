@@ -6,6 +6,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { HOME_CONTENT } from "../../../constants/content/home";
 
+
 import * as Styles from "./styles";
 
 export const HomeHero = ({ language }) => {
