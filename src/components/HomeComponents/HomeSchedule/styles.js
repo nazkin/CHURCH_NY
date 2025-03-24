@@ -1,5 +1,6 @@
 import * as styles from "../../index.module.css";
 
+
 export const homeScheduleContainer = {
   margin: `0 auto 40px auto`,
   maxWidth: `var(--size-content)`,
@@ -19,7 +20,6 @@ export const homeSchedBackgroundSection = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  backgroundImage: `about.jpg`,
 };
 
 export const flexSpaceEvenlyAndCenter = {

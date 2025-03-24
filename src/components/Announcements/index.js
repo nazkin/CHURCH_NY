@@ -72,6 +72,9 @@ const Item = (props) => {
         placeholder="blurred"
         width="60%"
         height="400px"
+        style={{
+          objectFit: "contain",
+        }}
       />
       <a href={props.item.linkOne}>See More</a>
       <a href={props.item.linkTwo}>View Social Media</a>
