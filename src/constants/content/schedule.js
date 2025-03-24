@@ -1,8 +1,8 @@
 export const SCHEDULE_CONTENT = {
     en: {
-        title: "Our Schedule"
+        title: "Schedule of Divine Liturgies"
     },
     ua: {
-        title: "UA | Our Schedule"
+        title: "Розклад Божественних Літургій"
     }
 }

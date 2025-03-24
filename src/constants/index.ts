@@ -51,6 +51,12 @@ export const samplePageLinks = [
     },
     {
         text: {
+            en: "EVENTS",
+            ua: "ПОДІЇ"
+        }, url: "/events"
+    },
+    {
+        text: {
             en: "ABOUT",
             ua: "ПРО ЦЕРКВУ"
         }, url: "/about"
