@@ -11,17 +11,12 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const AboutContent = ({ language }) => {
   return (
-    <Box width="80%" height="100%" marginTop={5} justifySelf={"center"}>
+    <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2}} justifySelf={'center'}>
       <Grid container paddingTop={10}>
         <Grid item md={6} style={{ padding: 5 }}>
-          <Box
-            display={"flex"}
-            width="80%"
-            height="80%"
-            justifyContent={"center"}
-            alignItems={"center"}
-          >
-            <StaticImage src="about.jpg" placeholder="blurred" />
+          <Box display={"flex"}  justifyContent={"center"} alignItems={
+            "center"
+          }><StaticImage src="../images/about.jpg" placeholder="blurred" />
           </Box>
         </Grid>
         <Grid
@@ -49,13 +44,6 @@ const AboutContent = ({ language }) => {
             <h2>{ABOUT_CONTENT[language].histroyTitle}</h2>
           </Box>
           {ABOUT_CONTENT[language].history}
-        </Grid>
-      </Grid>
-      <Grid container>
-        <Grid item xs={12} md={12} style={{ padding: 5 }}></Grid>
-        <Grid item xs={12} md={12} style={{ padding: 5 }}>
-          <h2>{ABOUT_CONTENT[language].faq}</h2>
-          <FAQ language={language} />
         </Grid>
       </Grid>
     </Box>
