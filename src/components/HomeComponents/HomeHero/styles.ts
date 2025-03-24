@@ -3,7 +3,7 @@ export const mainHeroContainer = {
   margin: "50px 0 40px 0",
   width: "100%",
   height: 520,
-  backgroundImage: `url('background.jpg')`,
+  backgroundImage: `url('back.png')`,
   backgroundPosition: "right 35% bottom 80%",
   backgroundSize: "cover",
 };

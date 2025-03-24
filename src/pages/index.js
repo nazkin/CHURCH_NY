@@ -1,6 +1,5 @@
 import * as React from "react"
 
-
 import Layout from "../components/layout";
 import { Footer } from "../components/Footer";
 import Seo from "../components/seo";
@@ -13,6 +12,7 @@ import { HomeScheduleSection } from "../components/HomeComponents/HomeSchedule";
 import { SupportParish } from "../components/HomeComponents/HomeSupport";
 import { HomeNewsSection } from "../components/HomeComponents/HomeNewsSection";
 import { Announcement } from "../components/Announcements";
+import { Box } from "@mui/material";
 
 const PageContent = ({ language }) => {
   const theme = useTheme();
@@ -21,10 +21,19 @@ const PageContent = ({ language }) => {
   return (
     <>
       <HomeHero language={language} />
-      <Announcement language={language} />
-      <HomeScheduleSection language={language} />
-      <HomeNewsSection language={language} />
-      <SupportParish language={language} />
+      <Box pt="50px">
+        <Announcement language={language} />
+      </Box>
+
+      <Box pt="50px">
+        <HomeScheduleSection language={language} />
+      </Box>
+      <Box pt="50px">
+        <HomeNewsSection language={language} />
+      </Box>
+      <Box pt="50px">
+        <SupportParish language={language} />
+      </Box>
     </>
   );
 };
@@ -36,11 +45,13 @@ const PageContent = ({ language }) => {
  */
 export const Head = () => <Seo title="Home" />;
 
-const IndexPage = () => (
-  <Layout>
-    <PageContent />
-    <Footer />
-  </Layout>
-);
+const IndexPage = () => {
+  return (
+    <Layout>
+      <PageContent />
+      <Footer />
+    </Layout>
+  );
+};
 
 export default IndexPage;

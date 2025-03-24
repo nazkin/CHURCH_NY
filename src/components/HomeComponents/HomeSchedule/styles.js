@@ -1,5 +1,5 @@
-import background from "../../../../public/back.png";
 import * as styles from "../../index.module.css";
+
 
 export const homeScheduleContainer = {
   margin: `0 auto 40px auto`,
@@ -20,7 +20,6 @@ export const homeSchedBackgroundSection = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  backgroundImage: `url(${background})`,
 };
 
 export const flexSpaceEvenlyAndCenter = {

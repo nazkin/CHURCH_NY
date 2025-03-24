@@ -10,7 +10,6 @@ import {
 
 import { HOME_CONTENT } from "../../../constants/content/home";
 import * as styles from "../../index.module.css";
-import background from "../../../../public/back.png";
 
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -36,7 +35,7 @@ export const HomeNewsSection = ({ language }) => {
           sx={{
             width: "100%",
             minHeight: 400,
-            backgroundImage: `url(${background})`,
+            backgroundImage: `about.jpg`,
             margin: 0,
           }}
         >
