@@ -26,25 +26,45 @@ import { GENERAL_CONTENT } from "../constants/content/general";
 import { StaticImage } from "gatsby-plugin-image"
 import { SupportOurChurch } from "./SupportOurChurch";
 import { Facebook } from "@mui/icons-material";
-
+import {
+  darkBlue,
+  white,
+  lightYellow,
+  darkYellow,
+  lightBlue,
+} from "../constants/colors";
 
 const Header = ({ siteTitle, language, changeLanguage }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(false);
 
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" sx={{ background: darkBlue, color: white }}>
       <Container maxWidth="m">
         <Toolbar disableGutters>
           <Box
-            sx={{ display: { xs: "none", md: "flex" }, justifyContent: "left", alignItems: "center"}}
+            sx={{
+              display: { xs: "none", md: "flex" },
+              justifyContent: "left",
+              alignItems: "center",
+            }}
             style={{
               alignItems: "center",
               height: "100%",
               padding: 5,
             }}
           >
-            <Box width="100%" height="100%" display={"flex"} justifyContent={"left"} alignItems={"center"}>
-              <StaticImage src="../images/church_icon_simple.png" width="50" height="50"/>
+            <Box
+              width="100%"
+              height="100%"
+              display={"flex"}
+              justifyContent={"left"}
+              alignItems={"center"}
+            >
+              <StaticImage
+                src="../images/church_icon_simple.png"
+                width="50"
+                height="50"
+              />
             </Box>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -152,13 +172,27 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
               </Link>
             ))}
           </Box>
-          <Stack gap={0} direction={"row"} display="flex" justifyContent={"center"} alignItems={"center"}>
+          <Stack
+            gap={0}
+            direction={"row"}
+            display="flex"
+            justifyContent={"center"}
+            alignItems={"center"}
+          >
             <Facebook fontSize="large" className={styles.iconLG} />
             <SupportOurChurch language={language} />
-            <LanguageSelector
-              language={language}
-              changeLanguage={changeLanguage}
-            />
+            <Box
+              sx={{
+                background: lightBlue,
+                marginLeft: "10px",
+                borderRadius: "20%",
+              }}
+            >
+              <LanguageSelector
+                language={language}
+                changeLanguage={changeLanguage}
+              />
+            </Box>
           </Stack>
         </Toolbar>
       </Container>

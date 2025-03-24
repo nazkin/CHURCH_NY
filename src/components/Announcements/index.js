@@ -5,6 +5,13 @@ import { StaticImage } from "gatsby-plugin-image";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { graphql, useStaticQuery } from "gatsby";
+import {
+  darkBlue,
+  white,
+  lightYellow,
+  darkYellow,
+  lightBlue,
+} from "../../constants/colors";
 
 export const Announcement = ({ language }) => {
   const { allContentfulAnnouncement } = useStaticQuery(graphql`
@@ -30,7 +37,11 @@ export const Announcement = ({ language }) => {
   `);
 
   return (
-    <Container>
+    <Container
+      style={{
+        boxShadow: `rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;`,
+      }}
+    >
       <Carousel
         animation="fade"
         interval="3000"
@@ -51,31 +62,49 @@ const Item = (props) => {
   return (
     <Paper
       sx={{
-        background: "#f6f6f6",
+        background: white,
+        color: darkBlue,
         padding: "10px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        padding: "30px",
       }}
     >
-      <span>
+      <span
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          alignItems: "flex-start",
+          width: "100%",
+        }}
+      >
         {" "}
         <h2>{props.item.title}</h2>
-        <h5>{props.item.announcementDate}</h5>
+        <h3>{props.item.announcementDate}</h3>
       </span>
-      <h3 style={{ textAlign: "center" }}>{props.item.summary}</h3>
-      <p style={{ color: "slategrey" }}>{props.item.description.description}</p>
       <img
         src={props.item.image.publicUrl}
         alt="My Image"
         placeholder="blurred"
-        width="60%"
+        width="auto"
         height="400px"
         style={{
           objectFit: "contain",
         }}
       />
+      <h3
+        style={{ textAlign: "center", color: "darkslategray", height: "50px" }}
+      >
+        {props.item.summary}
+      </h3>
+      <p
+        style={{ color: "darkslategray", textAlign: "center", height: "250px" }}
+      >
+        {props.item.description.description}
+      </p>
+
       <a href={props.item.linkOne}>See More</a>
       <a href={props.item.linkTwo}>View Social Media</a>
     </Paper>
