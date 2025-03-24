@@ -6,7 +6,7 @@ import { HOME_CONTENT } from "../../../constants/content/home";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import * as Styled from "./styles";
-import background from "../../../../public/back.png";
+import background from "../../../../public/about.jpg";
 
 export const HomeScheduleSection = ({ language }) => {
   const theme = useTheme();

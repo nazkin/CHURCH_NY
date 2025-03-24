@@ -4,27 +4,30 @@ import { Paper, Button, Container, Typography, Box } from "@mui/material";
 import { StaticImage } from "gatsby-plugin-image";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import { graphql, useStaticQuery } from "gatsby";
 
-export const Announcement = ({language}) => {
-  var items = [
-    {
-      name: "Event Super Awesome",
-      description: "Come hang out with friends and family and eat good food",
-      image: "c5.jpg",
-    },
-    {
-      name: "Event Even Better",
-      description:
-        "Come enjoy Bible study and learn about the best way to enjoy",
-      image: "c6.jpg",
-    },
-    {
-      name: "Next Liturgy",
-      description:
-        "Saturday at 5PM, Sunday ay 8AM in Ukrainian and 10AM mixed Ukrainian and English",
-      image: "c3.jpg",
-    },
-  ];
+export const Announcement = ({ language }) => {
+  const { allContentfulAnnouncement } = useStaticQuery(graphql`
+    query getAnnouncementsQuery {
+      allContentfulAnnouncement {
+        totalCount
+        nodes {
+          linkOne
+          linkTwo
+          summary
+          title
+          id
+          announcementDate
+          description {
+            description
+          }
+          image {
+            publicUrl
+          }
+        }
+      }
+    }
+  `);
 
   return (
     <Container>
@@ -36,7 +39,7 @@ export const Announcement = ({language}) => {
         NextIcon={<NavigateNextIcon />}
         PrevIcon={<NavigateBeforeIcon />}
       >
-        {items.map((item, i) => (
+        {allContentfulAnnouncement.nodes.map((item, i) => (
           <Item key={i} item={item} />
         ))}
       </Carousel>
@@ -56,17 +59,22 @@ const Item = (props) => {
         alignItems: "center",
       }}
     >
-      <h2>{props.item.name}</h2>
-      <p>{props.item.description}</p>
+      <span>
+        {" "}
+        <h2>{props.item.title}</h2>
+        <h5>{props.item.announcementDate}</h5>
+      </span>
+      <h3 style={{ textAlign: "center" }}>{props.item.summary}</h3>
+      <p style={{ color: "slategrey" }}>{props.item.description.description}</p>
       <img
-        src={props.item.image}
+        src={props.item.image.publicUrl}
         alt="My Image"
         placeholder="blurred"
         width="60%"
-        height="300px"
+        height="400px"
       />
-
-      <Button className="CheckButton">See More</Button>
+      <a href={props.item.linkOne}>See More</a>
+      <a href={props.item.linkTwo}>View Social Media</a>
     </Paper>
   );
 };

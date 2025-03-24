@@ -1,12 +1,5 @@
 import * as React from "react"
-import {
-  Grid,
-  Button,
-  Box,
-  Stack,
-  Typography,
-  Divider
-} from "@mui/material"
+import { Grid, Box, Stack, Divider } from "@mui/material";
 
 import Layout from "../components/layout"
 import { FAQ } from "../components/FAQ/FaqComponent"
