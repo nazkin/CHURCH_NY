@@ -56,7 +56,15 @@ export const heroBtnsContainer = {
 };
 
 export const heroHumanitarianBtn = {
-  color: "gold",
+  color: "#4682B4",
+  background: "gold",
+  border: `6px solid #4682B4`,
   fontSize: 24,
   margin: "0px 15px 0px 15px",
+  "&:hover": {
+    opacity: 0.85,
+    color: "#4682B4",
+    background: "gold",
+    border: `6px solid #4682B4`,
+  },
 };
