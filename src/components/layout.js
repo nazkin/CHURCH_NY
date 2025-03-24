@@ -20,11 +20,21 @@ import {
 const Layout = ({ children }) => {
   const [language, setLanguage] = useState(LANGUAGE_ID.en);
 
+  React.useEffect(() => {
+    const storedLanguage = localStorage.getItem("language");
+    if (!storedLanguage) {
+      localStorage.setItem("language", LANGUAGE_ID.en);
+      setLanguage(LANGUAGE_ID.en);
+    }
+    setLanguage(storedLanguage);
+  }, []);
+
   const changeLanguage = () => {
     const updatedLang =
       language === LANGUAGE_ID.en ? LANGUAGE_ID.ua : LANGUAGE_ID.en;
 
     setLanguage(updatedLang);
+    localStorage.setItem("language", updatedLang);
   };
 
   const data = useStaticQuery(graphql`
