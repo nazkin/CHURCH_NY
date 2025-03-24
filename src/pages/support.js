@@ -83,7 +83,7 @@ const ExpandableOption = ({ title, summary, details }) => {
   };
 
 const SupportOptions = () => {
-    return <Box sx={{ width: '80%', maxWidth: '800px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, marginTop: 8, height: '90vh'}} justifySelf={'center'}>
+    return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, marginTop: 8, height: '90vh'}} justifySelf={'center'}>
         <Stack spacing={3} alignItems="center" sx={{ width: '100%' }}>
         {sections.map((section, index) => (
             <Box key={index} sx={{ width: '100%' }}>

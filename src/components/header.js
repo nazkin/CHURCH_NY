@@ -5,6 +5,7 @@ import * as styles from "./index.module.css";
 
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
@@ -23,6 +24,8 @@ import ListItemText from "@mui/material/ListItemText";
 import { LanguageSelector } from "./LanguageSelector";
 import { GENERAL_CONTENT } from "../constants/content/general";
 import { StaticImage } from "gatsby-plugin-image"
+import { SupportOurChurch } from "./SupportOurChurch";
+import { Facebook } from "@mui/icons-material";
 
 
 const Header = ({ siteTitle, language, changeLanguage }) => {
@@ -149,24 +152,14 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
               </Link>
             ))}
           </Box>
-          <Link to='/support'>
-          <Button
-            style={{
-              color: "gold",
-              border: "2px solid gold",
-              margin: "0 20px 0 30px",
-            }}
-            variant="filled"
-            size="small"
-          >
-            {GENERAL_CONTENT[language].support}
-          </Button>
-          </Link>
-
-          <LanguageSelector
-            language={language}
-            changeLanguage={changeLanguage}
-          />
+          <Stack gap={0} direction={"row"} display="flex" justifyContent={"center"} alignItems={"center"}>
+            <Facebook fontSize="large" className={styles.iconLG} />
+            <SupportOurChurch language={language} />
+            <LanguageSelector
+              language={language}
+              changeLanguage={changeLanguage}
+            />
+          </Stack>
         </Toolbar>
       </Container>
     </AppBar>

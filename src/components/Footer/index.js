@@ -2,6 +2,7 @@ import React from "react"
 import { Instagram, Facebook, Twitter, Email } from "@mui/icons-material";
 
 import * as styles from "../index.module.css"
+import { Typography, Box } from "@mui/material";
 
 const Footer = () => (
     <footer
@@ -9,16 +10,14 @@ const Footer = () => (
             marginTop: `var(--space-5)`,
             fontSize: `var(--font-sm)`,
             background: "#159bf3",
-            height: 75,
+            height: 50,
             textAlign: "center",
         }}
     >
-        <span>
-            <Instagram fontSize="large" className={styles.iconLG} />
-            <Facebook fontSize="large" className={styles.iconLG} />
-            <Twitter fontSize="large" className={styles.iconLG} />
-            <Email fontSize="large" className={styles.iconLG} />
-        </span>
+        <Box display="flex" justifyContent="center" alignContent="center" paddingTop={2}>
+            <Typography >Copyright © 2025 St. John the Baptist Ukrainian Catholic Church Whippany, NJ 07981</Typography>
+            {/* <Facebook fontSize="small" className={styles.iconLG} /> */}
+        </Box>
     </footer>
 )
 

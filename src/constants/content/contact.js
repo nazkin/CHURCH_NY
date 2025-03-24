@@ -8,8 +8,9 @@ export const CONTACT_CONTENT = {
         phoneInput: "Phone",
         messageInput: "Message",
         successMsg: "Contact message was sent successfully. Thank you!",
-        errorMsg: "Unable to send the contact message. Please try again !"
-
+        errorMsg: "Unable to send the contact message. Please try again !",
+        copyEmail: "Copy email",
+        copyAddress: "Copy address",
     },
     ua: {
         title: "Зв'язатись з Нашою Церквою",
@@ -20,6 +21,8 @@ export const CONTACT_CONTENT = {
         phoneInput: "Телефон",
         messageInput: "Повідомлення",
         successMsg: "Повідомлення надіслано! Дякуємо!",
-        errorMsg: "Помилка при надсиланні повідомлення. Перегляньте всі поля форми і спробуйте ще раз."
+        errorMsg: "Помилка при надсиланні повідомлення. Перегляньте всі поля форми і спробуйте ще раз.",
+        copyEmail: "Скопіювати Електронну Адресу",
+        copyAddress: "Скопіювати Адресу",
     }
 }
