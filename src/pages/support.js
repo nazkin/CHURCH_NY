@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from "gatsby"
 
 import {
   Grid,
@@ -22,53 +21,40 @@ import Seo from "../components/seo"
 import { CONTACT_CONTENT } from '../constants/content/contact'
 import { GENERAL_CONTENT } from '../constants/content/general'
 import { ADDRESS_LINE_1, ADDRESS_LINE_2, PHONE_NUMBER, EMAIL } from '../constants/info'
+import { SUPPORT_CONTENT } from '../constants/content/support';
+import { StaticImage, GatsbyImage } from 'gatsby-plugin-image';
+import { steelBlue } from '../constants/colors';
 
 
 export const Head = () => <Seo title="Support our Church" />
 
 
-const sections = [
-    {
-      title: 'myEoffering',
-      summary: 'Learn how you can support local shops and help them thrive in challenging times.',
-      details: 'You can support local businesses by buying locally, promoting them on social media, and even donating to their crowdfunding campaigns.',
-    },
-    {
-      title: 'Amazon Smile',
-      summary: 'Join community-driven initiatives and offer your time to those in need.',
-      details: 'Volunteer your time with local shelters, food banks, and non-profits to make a positive impact in your community.',
-    },
-    {
-      title: 'ShopWithScrip',
-      summary: 'Find out how to get involved with fundraising efforts for important causes.',
-      details: 'Get involved with local or online fundraising campaigns. You can donate, host fundraising events, or even create your own campaign.',
-    },
-    {
-        title: 'Participating Retailers',
-        summary: 'Find out how to get involved with fundraising efforts for important causes.',
-        details: 'Get involved with local or online fundraising campaigns. You can donate, host fundraising events, or even create your own campaign.',
-      },
-  ];
-
-const ExpandableOption = ({ title, summary, details }) => {
+const ExpandableOption = ({ name, title, summary, details, link, logo, language }) => {
     const [expanded, setExpanded] = useState(false);
-  
+    console.log(logo)
     return (
       <Box sx={{ width: '100%', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2 }}>
         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ marginBottom: 2 }}>
-          <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#333' }}>
-            {title}
-          </Typography>
+          <Stack direction="row" justifyContent={"left"} alignItems={"center"}>
+            {name === 'myEoffering' ? <StaticImage src="../images/myEoffering_logo.png" /> : null}
+            {name && !logo ? <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#333' }}>
+                {name}
+            </Typography> : null}
+          </Stack>
+          <Stack direction={"row"} display="flex" justifyContent={"right"} alignItems={"center"} gap={2}>
+            <a href={link}  target='_blank'>
           <Button
-            variant="outlined"
-            color="primary"
-            onClick={() => setExpanded(!expanded)}
-            sx={{ textTransform: 'none' }}
-          >
-            {expanded ? 'Show Less' : 'More Details'}
-          </Button>
+                variant="contained"
+                color="primary"
+                sx={{ textTransform: 'none' }}
+            >
+                {SUPPORT_CONTENT[language].startSupport}
+            </Button>
+            </a>
+          </Stack>
         </Stack>
-        <Typography variant="body2" sx={{ color: '#555' }}>
+        {title ? <Typography>{title}</Typography> : null}
+        <Typography variant="body1" sx={{ color: '#333' }}>
           {summary}
         </Typography>
         {expanded && (
@@ -78,17 +64,55 @@ const ExpandableOption = ({ title, summary, details }) => {
             </Typography>
           </Box>
         )}
+        <Stack direction={"row"} display="flex" justifyContent={"left"} alignItems={"center"} gap={2} paddingTop={2}>
+            {expanded ? <a href={link}  target='_blank'>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    sx={{ textTransform: 'none' }}
+                >
+                    {SUPPORT_CONTENT[language].support}
+                </Button>
+            </a> : null}
+            <Button
+                variant="outlined"
+                color="primary"
+                onClick={() => setExpanded(!expanded)}
+                sx={{ textTransform: 'none' }}
+            >
+                {expanded ? GENERAL_CONTENT[language].lessDetails : GENERAL_CONTENT[language].moreDetails}
+            </Button>
+          </Stack>
       </Box>
     );
   };
 
-const SupportOptions = () => {
-    return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, marginTop: 8, height: '90vh'}} justifySelf={'center'}>
+const SupportOptions = ({language}) => {
+    const sections = [
+        {
+          name: "myEoffering",
+          title: SUPPORT_CONTENT[language].myEofferingTitle,
+          summary: SUPPORT_CONTENT[language].myEofferingSummary,
+          details: SUPPORT_CONTENT[language].myEofferingDetails,
+          link: SUPPORT_CONTENT[language].myEofferingLink,
+          logo: SUPPORT_CONTENT[language].logo,
+          language: language
+        },
+        // {
+        //   name: 'Amazon Smile',
+        //   title: SUPPORT_CONTENT[language].smileTitle,
+        //   summary: SUPPORT_CONTENT[language].smileSummary,
+        //   details: SUPPORT_CONTENT[language].smileDetails,
+        //   link: SUPPORT_CONTENT[language].smileLink,
+        //   logoUrl: "",
+        // },
+      ];
+
+    return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, marginTop: 8, height: '90vh', paddingBottom: "50px", minHeight: 1000}} justifySelf={'center'}>
         <Stack spacing={3} alignItems="center" sx={{ width: '100%' }}>
         {sections.map((section, index) => (
             <Box key={index} sx={{ width: '100%' }}>
             <ExpandableOption {...section} />
-            {/* {index < sections.length - 1 && <Divider sx={{ width: '80%', margin: '16px auto', borderColor: '#ccc' }} />} */}
         </Box>
       ))}
     </Stack>
@@ -99,8 +123,8 @@ const SupportOutChurch = () => {
   return <Layout>
     <SupportOptions />
     <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
-      <Footer />
-    </Box>
+        <Footer />
+      </Box>
   </Layout>
 }
 

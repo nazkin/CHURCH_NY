@@ -28,17 +28,19 @@ import { SupportOurChurch } from "./SupportOurChurch";
 import { Facebook } from "@mui/icons-material";
 import {
   darkBlue,
+  steelBlue,
   white,
   lightYellow,
   darkYellow,
   lightBlue,
 } from "../constants/colors";
+import { Tooltip } from "@mui/material";
 
 const Header = ({ siteTitle, language, changeLanguage }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(false);
 
   return (
-    <AppBar position="fixed" sx={{ background: darkBlue, color: white }}>
+    <AppBar position="fixed" sx={{ background: steelBlue, color: white }}>
       <Container maxWidth="m">
         <Toolbar disableGutters>
           <Box
@@ -179,6 +181,11 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
             justifyContent={"center"}
             alignItems={"center"}
           >
+            <Tooltip title={GENERAL_CONTENT[language].UACCNJ}>
+              <a href="https://uaccnj.org/" target="_blank">
+                <StaticImage src = "../images/uaccnj-logo-no-name.png" width="30" height="30" />
+              </a>
+            </Tooltip>
             <Facebook fontSize="large" className={styles.iconLG} />
             <SupportOurChurch language={language} />
             <Box

@@ -3,14 +3,14 @@ import { Instagram, Facebook, Twitter, Email } from "@mui/icons-material";
 
 import * as styles from "../index.module.css"
 import { Typography, Box } from "@mui/material";
-import { darkBlue, white } from "../../constants/colors";
+import { steelBlue, white } from "../../constants/colors";
 
 const Footer = () => (
   <footer
     style={{
       marginTop: `var(--space-5)`,
       fontSize: `var(--font-sm)`,
-      background: darkBlue,
+      background: steelBlue,
       color: white,
       height: 50,
       textAlign: "center",
