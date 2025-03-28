@@ -23,11 +23,6 @@ export const HomeHero = ({ language }) => {
               {HOME_CONTENT[language].humanitarianBtn}
             </Button>
             </Link>
-            {/* {!phoneSize && (
-              <Box>
-                <img src={"pfu.png"} height={200} width={200} />
-              </Box>
-            )} */}
           </Container>
           <Box paddingLeft={"20px"}>
             <Box

@@ -181,11 +181,18 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
             justifyContent={"center"}
             alignItems={"center"}
           >
-            <Tooltip title={GENERAL_CONTENT[language].UACCNJ}>
-              <a href="https://uaccnj.org/" target="_blank">
-                <StaticImage src = "../images/uaccnj-logo-no-name.png" width="30" height="30" />
-              </a>
-            </Tooltip>
+            <Stack direction="row" display={"flex"} justifyContent={"center"} alignItems={"center"} gap={2}>
+              <Tooltip title={GENERAL_CONTENT[language].UCAP}>
+                <a href="https://ukrcatholic.org//" target="_blank">
+                  <StaticImage src = "../images/ucap.png" width="25" height="50" />
+                </a>
+              </Tooltip>
+              <Tooltip title={GENERAL_CONTENT[language].UACCNJ}>
+                <a href="https://uaccnj.org/" target="_blank">
+                  <StaticImage src = "../images/uaccnj-logo-no-name.png" width="30" height="30" />
+                </a>
+              </Tooltip>
+            </Stack>
             <Facebook fontSize="large" className={styles.iconLG} />
             <SupportOurChurch language={language} />
             <Box
