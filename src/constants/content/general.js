@@ -1,3 +1,5 @@
+import * as React from "react"
+
 export const GENERAL_CONTENT = {
     en: {
         name: "St. John the Baptist Ukrainian Catholic Church",
@@ -7,6 +9,8 @@ export const GENERAL_CONTENT = {
         moreDetails: "Show More",
         lessDetails: "Show Less",
         UACCNJ: "Ukrainian-American Cultural Center NJ",
+        UCAP: "Ukrainian Catholic Archeparchy of Philadelphia",
+        UCAP_LABEL: <>Ukrainian Catholic Archeparchy of Philadelphia</>
     },
     ua: {
         name: "Українська Католицька Церква Св. Івана Хрестителя",
@@ -16,5 +20,7 @@ export const GENERAL_CONTENT = {
         moreDetails: "Показати Більше",
         lessDetails: "Показати Менше",
         UACCNJ: "Українсько-Aмериканський Культурний Центр NJ",
+        UCAP: "Українська Католицька Архиєпархія Філадельфії",
+        UCAP_LABEL: <>Українська Католицька Архиєпархія Філадельфії</>
     }
 }
