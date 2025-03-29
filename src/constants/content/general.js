@@ -10,7 +10,8 @@ export const GENERAL_CONTENT = {
         lessDetails: "Show Less",
         UACCNJ: "Ukrainian-American Cultural Center NJ",
         UCAP: "Ukrainian Catholic Archeparchy of Philadelphia",
-        UCAP_LABEL: <>Ukrainian Catholic Archeparchy of Philadelphia</>
+        UCAP_LABEL: <>Ukrainian Catholic Archeparchy of Philadelphia</>,
+        the: 'The ',
     },
     ua: {
         name: "Українська Католицька Церква Св. Івана Хрестителя",
@@ -21,6 +22,7 @@ export const GENERAL_CONTENT = {
         lessDetails: "Показати Менше",
         UACCNJ: "Українсько-Aмериканський Культурний Центр NJ",
         UCAP: "Українська Католицька Архиєпархія Філадельфії",
-        UCAP_LABEL: <>Українська Католицька Архиєпархія Філадельфії</>
+        UCAP_LABEL: <>Українська Католицька Архиєпархія Філадельфії</>,
+        the: '',
     }
 }
