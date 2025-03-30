@@ -11,7 +11,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const AboutContent = ({ language }) => {
   return (
-    <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2}} justifySelf={'center'}>
+    <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingBottom: 10}} justifySelf={'center'}>
       <Grid container paddingTop={10}>
         <Grid item md={6} style={{ padding: 5 }}>
           <Box display={"flex"}  justifyContent={"center"} alignItems={
@@ -55,7 +55,9 @@ export const Head = () => <Seo title="About Page" />
 const About = () => {
   return <Layout>
     <AboutContent />
-    <Footer />
+    <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
+      <Footer />
+    </Box>
   </Layout>
 }
 

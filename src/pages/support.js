@@ -98,17 +98,9 @@ const SupportOptions = ({language}) => {
           logo: SUPPORT_CONTENT[language].logo,
           language: language
         },
-        // {
-        //   name: 'Amazon Smile',
-        //   title: SUPPORT_CONTENT[language].smileTitle,
-        //   summary: SUPPORT_CONTENT[language].smileSummary,
-        //   details: SUPPORT_CONTENT[language].smileDetails,
-        //   link: SUPPORT_CONTENT[language].smileLink,
-        //   logoUrl: "",
-        // },
       ];
 
-    return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, marginTop: 8, height: '90vh', paddingBottom: "50px", minHeight: 1000}} justifySelf={'center'}>
+    return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, marginTop: 8, paddingBottom: "700px", minHeight: 1000}} justifySelf={'center'}>
         <Stack spacing={3} alignItems="center" sx={{ width: '100%' }}>
         {sections.map((section, index) => (
             <Box key={index} sx={{ width: '100%' }}>
