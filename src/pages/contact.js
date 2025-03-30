@@ -132,7 +132,7 @@ const ContactForm = ({ language }) => {
       });
   }
 
-  return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, height: '100vh', paddingTop: '100px'}} justifySelf={'center'}>
+  return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingTop: '100px', paddingBottom: 50}} justifySelf={'center'}>
     <Grid
       container
       style={{
