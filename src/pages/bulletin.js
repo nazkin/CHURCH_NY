@@ -117,6 +117,7 @@ const Bulletin = () => {
         style={{
           background: "whitesmoke",
         }}
+        marginTop={'70px'}
       >
         <Grid xs={12} md={6} px={"10px"} style={{ height: "75vh" }}>
           <Box
@@ -147,7 +148,6 @@ const Bulletin = () => {
             </Box>
           </Box>
         </Grid>
-        <VerticalDivider />
         <Grid
           xs={12}
           md={6}
@@ -161,6 +161,7 @@ const Bulletin = () => {
           <AnnouncementsComponent />
         </Grid>
       </Grid>
+      <Box paddingBottom={100}></Box>
       <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
         <Footer />
       </Box>

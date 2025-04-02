@@ -13,6 +13,7 @@ import * as styles from "../../index.module.css";
 
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import ImageCarousel from "../../ImageCarousel";
 
 export const HomeNewsSection = ({ language }) => {
   const theme = useTheme();
@@ -31,7 +32,8 @@ export const HomeNewsSection = ({ language }) => {
       }}
     >
       <Box px={2}>
-        <ImageList
+        <ImageCarousel language={language}/>
+        {/* <ImageList
           sx={{
             width: "100%",
             minHeight: 400,
@@ -65,7 +67,7 @@ export const HomeNewsSection = ({ language }) => {
               />
             </ImageListItem>
           ))}
-        </ImageList>
+        </ImageList> */}
       </Box>
     </Grid>
   );

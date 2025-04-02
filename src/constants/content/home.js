@@ -15,8 +15,8 @@ export const HOME_CONTENT = {
         supportTitle: "Support Your Parish",
         supportBtn: "Support our Church",
         supportParishBtn: "Support our Parish",
-        history: "Founded in 1921, our church is located in the heart of historic Morris County, five miles from Morristown, in the town of Whippany, New Jersey. It is a very active and growing parish with a new campus that includes our newly consecrated church as well as the 24,000 square foot Ukrainian American Cultural Center of NJ."
-
+        history: "Founded in 1921, our church is located in the heart of historic Morris County, five miles from Morristown, in the town of Whippany, New Jersey. It is a very active and growing parish with a new campus that includes our newly consecrated church as well as the 24,000 square foot Ukrainian American Cultural Center of NJ.",
+        ourChurch: "Our Church",
     },
     ua: {
         heroWelcome: "Вітаємо в",
@@ -34,6 +34,7 @@ export const HOME_CONTENT = {
         supportTitle: "Підтримати Нашу Парафію",
         supportBtn: "Підтримати Нашу Церкву",
         supportParishBtn: "Підтримати Нашу Парафію",
-        history: "UA | Founded in 1921, our church is located in the heart of historic Morris County, five miles from Morristown, in the town of Whippany, New Jersey. It is a very active and growing parish with a new campus that includes our newly consecrated church as well as the 24,000 square foot Ukrainian American Cultural Center of NJ."
+        history: "UA | Founded in 1921, our church is located in the heart of historic Morris County, five miles from Morristown, in the town of Whippany, New Jersey. It is a very active and growing parish with a new campus that includes our newly consecrated church as well as the 24,000 square foot Ukrainian American Cultural Center of NJ.",
+        ourChurch: "Наша Церква",
     }
 }

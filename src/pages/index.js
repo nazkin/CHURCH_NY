@@ -21,17 +21,17 @@ const PageContent = ({ language }) => {
   return (
     <>
       <HomeHero language={language} />
-      <Box pt="50px">
+      <Box>
         <Announcement language={language} />
       </Box>
 
-      <Box pt="50px">
+      <Box>
         <HomeScheduleSection language={language} />
       </Box>
-      <Box pt="50px">
+      <Box>
         <HomeNewsSection language={language} />
       </Box>
-      <Box pt="50px">
+      <Box>
         <SupportParish language={language} />
       </Box>
     </>
