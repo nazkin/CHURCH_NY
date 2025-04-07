@@ -26,7 +26,7 @@ export const GENERAL_CONTENT = {
         UCAP: "Українська Католицька Архиєпархія Філадельфії",
         UCAP_LABEL: <center>Українська Католицька<br/> Архиєпархія Філадельфії</center>,
         the: '',
-        and: "і",
+        and: "та",
         and_or: "та/або",
     }
 }

@@ -31,7 +31,7 @@ export const Head = () => <Seo title="Support our Church" />
 
 const ExpandableOption = ({ name, title, summary, details, link, logo, language }) => {
     const [expanded, setExpanded] = useState(false);
-    console.log(logo)
+
     return (
       <Box sx={{ width: '100%', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2 }}>
         <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ marginBottom: 2 }}>
@@ -100,7 +100,15 @@ const SupportOptions = ({language}) => {
         },
       ];
 
-    return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, marginTop: 8, paddingBottom: "700px", minHeight: 1000}} justifySelf={'center'}>
+    return <Box sx={{ width: '100%',
+        maxWidth: '1000px',
+        margin: '0 auto',
+        padding: '20px',
+        paddingTop: '80px',
+        backgroundColor: '#ffffff',
+        borderRadius: '8px',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        paddingBottom: 100}} justifySelf={'center'}>
         <Stack spacing={3} alignItems="center" sx={{ width: '100%' }}>
         {sections.map((section, index) => (
             <Box key={index} sx={{ width: '100%' }}>

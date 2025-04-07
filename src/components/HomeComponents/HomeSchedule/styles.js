@@ -30,6 +30,7 @@ export const flexSpaceEvenlyAndCenter = {
 };
 export const homeSchedText = {
   fontSize: "34px",
+  textAlign: "center",
   color: "slategrey",
   fontWeight: 200,
 };
@@ -38,6 +39,11 @@ export const schedTableText = {
   textAlign: "center",
   width: "100%",
   fontSize: "25px",
+  color: "darkslategrey",
+};
+
+export const schedTableTextSmall = {
+  fontSize: "17px",
   color: "darkslategrey",
 };
 

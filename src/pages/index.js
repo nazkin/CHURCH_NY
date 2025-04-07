@@ -31,7 +31,7 @@ const PageContent = ({ language }) => {
       <Box>
         <HomeNewsSection language={language} />
       </Box>
-      <Box>
+      <Box paddingBottom={30}>
         <SupportParish language={language} />
       </Box>
     </>

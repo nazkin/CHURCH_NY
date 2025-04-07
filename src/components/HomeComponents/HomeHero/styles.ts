@@ -10,7 +10,16 @@ export const mainHeroContainer = {
   padding: 0,
   margin: "50px 0 40px 0",
   width: "100%",
-  height: 520,
+  height: 500,
+  backgroundImage: `url('background.JPG')`,
+  backgroundPosition: "right 35% bottom 80%",
+  backgroundSize: "cover",
+};
+export const mainHeroContainerSm = {
+  padding: 0,
+  margin: "50px 0 40px 0",
+  width: "100%",
+  height: 300,
   backgroundImage: `url('background.JPG')`,
   backgroundPosition: "right 35% bottom 80%",
   backgroundSize: "cover",
@@ -58,8 +67,8 @@ export const heroBtnsContainer = {
 export const heroHumanitarianBtn = {
   color: "#4682B4",
   background: "gold",
-  border: `6px solid #4682B4`,
-  fontSize: 24,
+  border: `5px solid #4682B4`,
+  fontSize: 20,
   margin: "0px 15px 0px 15px",
   "&:hover": {
     opacity: 0.85,

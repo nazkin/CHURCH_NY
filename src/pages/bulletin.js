@@ -3,6 +3,7 @@ import { Box, Grid, Button, Typography, Stack, Divider } from "@mui/material";
 
 import Layout from "../components/layout";
 import { Footer } from "../components/Footer";
+import { PdfDisplay } from "../components/PdfDisplay";
 import Seo from "../components/seo";
 import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
@@ -129,22 +130,8 @@ const Bulletin = () => {
               alignItems: "flex-end",
             }}
           >
-            <Button
-              style={{
-                display: "relative",
-                top: -7,
-                right: 0,
-                background: "gold",
-                color: "steelblue",
-                fontWeight: 800,
-              }}
-              variant="contained"
-              onClick={() => {}}
-            >
-              View Full Screen
-            </Button>
-            <Box>
-              <h1>HERE WE BUILD A NEW BULLETIN</h1>
+            <Box sx={{width: '100%', height: '75%'}}>
+              <PdfDisplay pdfUrl={"/2024ltr.pdf"} aspectRatio="calc(100% * 1.414)" />
             </Box>
           </Box>
         </Grid>

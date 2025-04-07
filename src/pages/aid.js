@@ -10,7 +10,7 @@ import { GENERAL_CONTENT } from "../constants/content/general";
 
 
 const AidContent = ({ language }) => (
-  <Box sx={{ width: '80%', minHeight: '800px', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2}} justifySelf={'center'} alignItems={"top"}>
+  <Box sx={{ width: '80%', minHeight: '800px', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, margin: '0 auto'}} justifySelf={'center'} alignItems={"top"}>
     <Stack width="100%" height="100%" display={"flex"} justifyContent={"center"} alignItems={"center"} marginTop={"65px"}>
         <Typography variant="h6" fontFamily={'serif'} fontSize={40}>
             {AID_CONTENT[language].title}
