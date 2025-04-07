@@ -25,7 +25,7 @@ const ImageCarousel = ({language}) => {
     src: getImage(node.childImageSharp),
     desc: `This is ${node.base.split('.')[0]}`,
   }));
-  console.log(images)
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const theme = useTheme();

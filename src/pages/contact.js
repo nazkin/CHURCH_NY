@@ -217,7 +217,7 @@ const ContactForm = ({ language }) => {
           {error && <Box width={'100%'} marginTop={"20pt"}>
             <Alert severity="error">{CONTACT_CONTENT[language].errorMsg}</Alert>
           </Box>}
-          <Box width={"100%"} display={"flex"} justifyContent={"right"} marginTop={"20pt"}>
+          <Box width={"100%"} display={"flex"} justifyContent={"right"} marginTop={"20pt"} paddingBottom={2}>
             <Button onClick={(e) => onSubmit(e)} type="submit" variant="contained" style={{ minWidth: 100 }}>
               {CONTACT_CONTENT[language].submitBtn}
             </Button>

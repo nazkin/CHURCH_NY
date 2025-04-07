@@ -8,7 +8,7 @@ import { Grid, Box, Stack, Divider, Typography } from "@mui/material";
 
 
 const EventsContent = ({ language }) => (
-    <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingTop: '100px', paddingBottom: 130}} justifySelf={'center'}>
+    <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingTop: '100px', paddingBottom: 130, margin: '0 auto'}} justifySelf={'center'}>
         <Typography variant="h4" sx={{ textAlign: 'center', marginBottom: 3 }}>
             {EVENTS_CONTENT[language].title}
         </Typography>

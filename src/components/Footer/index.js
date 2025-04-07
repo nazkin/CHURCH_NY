@@ -22,7 +22,7 @@ const Footer = () => (
       alignContent="center"
       paddingTop={2}
     >
-      <Typography>
+      <Typography fontSize={12}>
         Copyright © 2025 St. John the Baptist Ukrainian Catholic Church
         Whippany, NJ 07981
       </Typography>

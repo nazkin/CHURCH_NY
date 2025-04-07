@@ -11,7 +11,7 @@ import { StaticImage } from "gatsby-plugin-image"
 
 const AboutContent = ({ language }) => {
   return (
-    <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingBottom: 10}} justifySelf={'center'}>
+    <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingBottom: 10, margin: '0 auto'}} justifySelf={'center'}>
       <Grid container paddingTop={10}>
         <Grid item md={6} style={{ padding: 5 }}>
           <Box display={"flex"}  justifyContent={"center"} alignItems={

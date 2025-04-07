@@ -35,9 +35,39 @@ import {
   lightBlue,
 } from "../constants/colors";
 import { Tooltip } from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+
 
 const Header = ({ siteTitle, language, changeLanguage }) => {
   const [anchorElNav, setAnchorElNav] = React.useState(false);
+  const theme = useTheme();
+  const phoneSize = useMediaQuery(theme.breakpoints.down("sm"));
+  const facebook = {
+    text: {
+        en: "FACEBOOK",
+        ua: "FACEBOOK",
+    }, url: "https://www.facebook.com/SJUCCNJ/"
+  }
+  const uaccnj = {
+    text: {
+        en: "UACCNJ",
+        ua: "UACCNJ",
+    }, url: "https://uaccnj.org"
+  }
+  const archeparchy = {
+    text: {
+        en: "ARCHEPARCHY OF PHILADELPHIA",
+        ua: "АРХИЄПАРХІЯ ФІЛАДЕЛЬФІЇ",
+    }, url: "https://ukrcatholic.org/"
+  }
+  const aid = {
+    text: {
+      en: "AID FOR UKRAINE",
+      ua: "ДОПОМОГА УКРАЇНІ",
+    }, url: "/aid"
+  }
+  const pageLinks = phoneSize ? [...samplePageLinks, aid, facebook, uaccnj, archeparchy] : samplePageLinks
 
   return (
     <AppBar position="fixed" sx={{ background: steelBlue, color: white }}>
@@ -90,7 +120,6 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
                   padding: 0,
                   minHeight: 700,
                   height: "100%",
-                  borderBottom: "10px solid goldenrod",
                 }}
               >
                 <div
@@ -116,7 +145,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
                 <Divider />
 
                 <List style={{ minHeight: 600 }}>
-                  {samplePageLinks.map((obj, index) => (
+                  {pageLinks.map((obj, index) => (
                     <Link to={obj.url} style={{ textDecoration: "none" }}>
                       <ListItem key={obj.url} disablePadding>
                         <ListItemButton>
@@ -132,29 +161,6 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
                     </Link>
                   ))}
                 </List>
-                <Box>
-                  <Typography
-                    variant="h6"
-                    noWrap
-                    component="a"
-                    href="/"
-                    sx={{
-                      display: "flex",
-                      fontFamily: "monospace",
-                      fontWeight: 100,
-                      fontSize: 12,
-                      letterSpacing: "-0.1rem",
-                      color: "darkblue",
-                      background: "gold",
-                      textDecoration: "none",
-                      textWrap: "wrap",
-                      textAlign: "center",
-                      padding: 2,
-                    }}
-                  >
-                    {GENERAL_CONTENT[language].name}
-                  </Typography>
-                </Box>
               </div>
             </Drawer>
           </Box>
@@ -181,6 +187,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
             justifyContent={"center"}
             alignItems={"center"}
           >
+            {!phoneSize ? 
             <Stack direction="row" display={"flex"} justifyContent={"center"} alignItems={"center"} gap={2}>
               <Tooltip title={GENERAL_CONTENT[language].UCAP}>
                 <a href="https://ukrcatholic.org//" target="_blank">
@@ -192,8 +199,8 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
                   <StaticImage src = "../images/uaccnj-logo-no-name.png" width="30" height="30" />
                 </a>
               </Tooltip>
-            </Stack>
-            <Facebook fontSize="large" className={styles.iconLG} />
+            </Stack> : null}
+            {!phoneSize ? <a href="https://www.facebook.com/SJUCCNJ/" target="_blank"><Facebook fontSize="large" className={styles.iconLG} /></a> : null }
             <SupportOurChurch language={language} />
             <Box
               sx={{
