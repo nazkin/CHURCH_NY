@@ -12,6 +12,8 @@ import {
   darkYellow,
   lightBlue,
 } from "../../constants/colors";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export const Announcement = ({ language }) => {
   const { allContentfulAnnouncement } = useStaticQuery(graphql`
@@ -72,17 +74,20 @@ export const Announcement = ({ language }) => {
 };
 
 const Item = (props) => {
+  const theme = useTheme();
+  const phoneSize = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
     <Paper
       sx={{
         background: white,
         color: darkBlue,
-        padding: "10px",
+        // padding: "10px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: "30px",
+        padding: "10px",
         borderRadius: "1.5%",
         border: "1px solid white",
       }}
@@ -93,46 +98,51 @@ const Item = (props) => {
           justifyContent: "space-between",
           alignItems: "flex-end",
           width: "100%",
-          padding: "0 20px 0 20px",
+          padding: "0 10px 0 10px",
         }}
       >
         {" "}
+        {props.item.title ?
         <h2
           style={{
-            fontSize: "34px",
+            fontSize: "24px",
             color: darkBlue,
-            lineHeight: "34px",
+            lineHeight: "24px",
           }}
         >
           {props.item.title}
-        </h2>
+        </h2> : ' '}
+        {props.item.announcementDate ? 
         <h3 style={{ fontWeight: 100, color: darkBlue }}>
           {props.item.announcementDate}
-        </h3>
+        </h3> : ' '}
       </span>
-      <img
+      {props.item.image.publicUrl ? <img
         src={props.item.image.publicUrl}
         alt="My Image"
         placeholder="blurred"
         width="auto"
-        height="400px"
+        height="300px"
         style={{
           objectFit: "contain",
         }}
-      />
+      /> : null}
+      {props.item.summary ?
       <h3
-        style={{ textAlign: "center", color: "darkslategray", height: "50px" }}
+        style={{ textAlign: "center", color: "darkslategray" }}
       >
         {props.item.summary}
-      </h3>
+      </h3> : null }
+      {props.item.description && !phoneSize ? 
       <p
         style={{ color: "darkslategray", textAlign: "center", height: "250px" }}
       >
         {props.item.description.description}
-      </p>
+      </p> : null}
 
-      <a href={props.item.linkOne}>See More</a>
-      <a href={props.item.linkTwo}>View Social Media</a>
+      {props.item.linkOne ? 
+        <a href={props.item.linkOne}>See More</a> : null }
+      {props.item.linkTwo ? <a href={props.item.linkTwo}>View Social Media</a> : null}
     </Paper>
   );
 };

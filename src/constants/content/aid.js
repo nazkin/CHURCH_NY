@@ -9,6 +9,8 @@ export const AID_CONTENT = {
         </>,
         donationsLink: "Donations link",
         pastDonations: "Past donation drives",
+        downloadText: "Download Printable Version of the Donations Flyer",
+        here: "here",
     },
     ua: {
         title: "Допомога Україні",
@@ -18,5 +20,7 @@ export const AID_CONTENT = {
         </>,
         donationsLink: "Посилання на пожертви",
         pastDonations: "Минулі збори пожертв",
+        downloadText: "Завантажити летючку з інформацією про пожертви можна",
+        here: "тут",
     }
 }
