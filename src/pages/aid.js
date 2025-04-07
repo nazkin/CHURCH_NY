@@ -37,9 +37,9 @@ const AidContent = ({ language }) => (
             <Typography>
                 {AID_CONTENT[language].donationsLink}: <a href="https://www.paypal.com/donate/?hosted_button_id=R3BG7HYYM5HH4" tatget="_blank">https://www.paypal.com/donate/?hosted_button_id=R3BG7HYYM5HH4</a>
             </Typography>
-            {/* <Typography>
-                Download Printable Version of the Donations Flyer: <a download="donations_qr.png" href="donations_qr.png" tatget="_blank">here</a>
-            </Typography> */}
+            <Typography>
+                {AID_CONTENT[language].downloadText}: <a download="Aid_for_Ukraine.jpg" href="/Aid_for_Ukraine.jpg">{AID_CONTENT[language].here}.</a>
+            </Typography>
             </center>
         </Box>
         <Box paddingTop={3} display="flex" paddingBottom={3} justifyContent={"center"} alignItems={"center"}>
