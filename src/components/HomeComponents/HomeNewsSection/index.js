@@ -30,44 +30,10 @@ export const HomeNewsSection = ({ language }) => {
         justifyContent: "center",
         alignItems: "center",
       }}
+
     >
-      <Box px={2}>
+      <Box px={2} width="100%" height="100%">
         <ImageCarousel language={language}/>
-        {/* <ImageList
-          sx={{
-            width: "100%",
-            minHeight: 400,
-            backgroundImage: `about.jpg`,
-            margin: 0,
-          }}
-        >
-          <ImageListItem key="Subheader" cols={2}>
-            <ListSubheader
-              style={{
-                fontSize: "30px",
-                background: "whitesmoke",
-                textAlign: "center",
-              }}
-              component="div"
-            >
-              {HOME_CONTENT[language].easterCeleb}
-            </ListSubheader>
-          </ImageListItem>
-          {["c1.jpg", "c2.jpg"].map((item) => (
-            <ImageListItem key={item}>
-              <img
-                src={`${item}?w=248&fit=crop&auto=format`}
-                srcSet={`${item}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                alt={item}
-                loading="lazy"
-              />
-              <ImageListItemBar
-                title="Write a general title for photo"
-                subtitle="Add a photo description"
-              />
-            </ImageListItem>
-          ))}
-        </ImageList> */}
       </Box>
     </Grid>
   );
