@@ -12,7 +12,7 @@ const EventsContent = ({ language }) => (
         <Typography variant="h4" sx={{ textAlign: 'center', marginBottom: 3 }}>
             {EVENTS_CONTENT[language].title}
         </Typography>
-        <Box width="100%" display="flex" justifyContent={"center"} alignItems={"center"}>
+        <Box width="100%" height={"100%"} minWidth={"500px"} minHeight={"500px"} display="flex" justifyContent={"center"} alignItems={"center"}>
             {EVENTS_CONTENT[language].content}
         </Box>
   </Box>
