@@ -12,7 +12,40 @@ import { HomeScheduleSection } from "../components/HomeComponents/HomeSchedule";
 import { SupportParish } from "../components/HomeComponents/HomeSupport";
 import { HomeNewsSection } from "../components/HomeComponents/HomeNewsSection";
 import { Announcement } from "../components/Announcements";
-import { Box } from "@mui/material";
+import { Box, styled } from "@mui/material";
+
+
+// Styled Box for consistent styling
+const FixedHeightBox = styled(Box)(({ theme, isSmallScreen }) => ({
+  height: isSmallScreen ? '300px' : '500px', // Fixed height, adjusted for screen size
+  // border: '2px solid #4CAF50',
+  borderRadius: '8px',
+  padding: theme.spacing(2),
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',            // Center content horizontally
+  backgroundColor: '#f5f5f5',
+  overflow: 'hidden', // Keep overflow hidden to contain content.
+  width: '90%',
+  maxWidth: '1200px',
+  margin: '10px auto',
+  position: 'relative', // Needed for absolute positioning of resizable content
+}));
+
+const ResizableContent = styled('div')({
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  boxSizing: 'border-box', // Include padding and border in element's total width and height
+  padding: 'inherit',  // Ensure padding from FixedHeightBox is applied
+  overflow: 'hidden', // prevent content from overflowing
+});
 
 const PageContent = ({ language }) => {
   const theme = useTheme();
@@ -21,10 +54,12 @@ const PageContent = ({ language }) => {
   return (
     <>
       <HomeHero language={language} />
-      <Box>
-        <Announcement language={language} />
-      </Box>
-
+      {/* <FixedHeightBox>
+        <ResizableContent>
+          <Announcement language={language} />
+        </ResizableContent>
+      </FixedHeightBox> */}
+      <Announcement language={language} />
       <Box>
         <HomeScheduleSection language={language} />
       </Box>

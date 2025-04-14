@@ -34,10 +34,15 @@ const AnnouncementsComponent = () => {
           linkTwo
           summary
           title
+          summaryUa
+          titleUa
           id
           announcementDate
           description {
             description
+          }
+          descriptionUa {
+            descriptionUa
           }
           image {
             publicUrl

@@ -1,0 +1,5 @@
+[[headers]]
+  # Apply this rule to all PDF files
+  for = "/*.pdf"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"

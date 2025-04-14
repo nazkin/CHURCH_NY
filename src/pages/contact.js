@@ -22,9 +22,9 @@ import { CONTACT_CONTENT } from '../constants/content/contact'
 import { GENERAL_CONTENT } from '../constants/content/general'
 import { ADDRESS_LINE_1, ADDRESS_LINE_2, PHONE_NUMBER, EMAIL } from '../constants/info'
 
-const SERVICE = 'service_l2h0844'
+const SERVICE = 'service_mhbcm0d'
 const TEMPLATE = 'template_smhk7ll'
-const PUBLIC_KEY = 'Bnn2RnFZ7su91pwrn'
+const PUBLIC_KEY = 'qMiZK74sZIp_Lm_UE'
 
 const ContactInfo = ({ language }) => {
   const [isClient, setIsClient] = useState(false);
@@ -103,7 +103,7 @@ const ContactForm = ({ language }) => {
     setTimeout(() => {
       setSuccess(false)
       setError(false)
-    }, 6000)
+    }, 15000)
 
   }, [message]);
 
@@ -132,7 +132,7 @@ const ContactForm = ({ language }) => {
       });
   }
 
-  return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingTop: '100px', paddingBottom: 50}} justifySelf={'center'}>
+  return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingTop: '100px', paddingBottom: 50, margin: '0 auto'}} justifySelf={'center'}>
     <Grid
       container
       style={{

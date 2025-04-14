@@ -1,4 +1,5 @@
 import * as React from "react"
+import {useState} from "react"
 import { Link } from "gatsby"
 
 import Layout from "../components/layout"
@@ -19,9 +20,15 @@ const EventsContent = ({ language }) => (
 )
 
 const Events = () => {
+    const [showEvents, setShowEvents] = useState(false)
+    React.useEffect(() => {
+        setShowEvents(true)
+    }, []);
+
   return (
     <Layout>
-      <EventsContent />
+        {showEvents ?
+            <EventsContent /> : <></> }
       <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
         <Footer />
       </Box>

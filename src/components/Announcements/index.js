@@ -1,6 +1,6 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
-import { Paper, Button, Container, Typography, Box } from "@mui/material";
+import { Paper, Button, Container, Typography, Box, Stack } from "@mui/material";
 import { StaticImage } from "gatsby-plugin-image";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
@@ -14,6 +14,7 @@ import {
 } from "../../constants/colors";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { GENERAL_CONTENT } from '../../constants/content/general';
 
 export const Announcement = ({ language }) => {
   const { allContentfulAnnouncement } = useStaticQuery(graphql`
@@ -25,10 +26,15 @@ export const Announcement = ({ language }) => {
           linkTwo
           summary
           title
+          summaryUa
+          titleUa
           id
           announcementDate
           description {
             description
+          }
+          descriptionUa {
+            descriptionUa
           }
           image {
             publicUrl
@@ -41,7 +47,11 @@ export const Announcement = ({ language }) => {
   return (
     <Container
       style={{
-        boxShadow: `rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;`,
+        boxShadow: `rgba(0, 0, 0, 0.25) 0px 14px 18px, rgba(0, 0, 0, 0.22) 0px 10px 10px;`,
+        borderRadius: '8px',
+        width: "100%",
+        height: "100%",
+
       }}
     >
       <Carousel
@@ -66,7 +76,7 @@ export const Announcement = ({ language }) => {
         }}
       >
         {allContentfulAnnouncement.nodes.map((item, i) => (
-          <Item key={i} item={item} />
+          <Item key={i} item={item} language={language} />
         ))}
       </Carousel>
     </Container>
@@ -82,14 +92,13 @@ const Item = (props) => {
       sx={{
         background: white,
         color: darkBlue,
-        // padding: "10px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        padding: "10px",
         borderRadius: "1.5%",
         border: "1px solid white",
+        height: "100%"
       }}
     >
       <span
@@ -99,50 +108,108 @@ const Item = (props) => {
           alignItems: "flex-end",
           width: "100%",
           padding: "0 10px 0 10px",
+          height: "5%",
         }}
       >
         {" "}
         {props.item.title ?
-        <h2
-          style={{
-            fontSize: "24px",
-            color: darkBlue,
-            lineHeight: "24px",
-          }}
-        >
-          {props.item.title}
-        </h2> : ' '}
-        {props.item.announcementDate ? 
-        <h3 style={{ fontWeight: 100, color: darkBlue }}>
-          {props.item.announcementDate}
-        </h3> : ' '}
-      </span>
-      {props.item.image.publicUrl ? <img
-        src={props.item.image.publicUrl}
-        alt="My Image"
-        placeholder="blurred"
-        width="auto"
-        height="300px"
-        style={{
-          objectFit: "contain",
-        }}
-      /> : null}
-      {props.item.summary ?
-      <h3
-        style={{ textAlign: "center", color: "darkslategray" }}
-      >
-        {props.item.summary}
-      </h3> : null }
-      {props.item.description && !phoneSize ? 
-      <p
-        style={{ color: "darkslategray", textAlign: "center", height: "250px" }}
-      >
-        {props.item.description.description}
-      </p> : null}
+          <>{ phoneSize ? 
+              <h5
+                style={{
+                  fontSize: "15px",
+                  color: darkBlue,
+                  lineHeight: "15px",
+                }}
+              >
+                {props.item.title}
+              </h5> : 
+              <h3
+                style={{
+                  fontSize: "20px",
+                  color: darkBlue,
+                  lineHeight: "20px",
+                }}
+              >
+                {props.language == 'en' ? props.item.title : props.item.titleUa}
+              </h3>
+            }
+          </> : ' '}
 
-      {props.item.linkOne ? 
-        <a href={props.item.linkOne}>See More</a> : null }
-      {props.item.linkTwo ? <a href={props.item.linkTwo}>View Social Media</a> : null}
+        {props.item.announcementDate ? 
+          <>{ phoneSize ? 
+              <h5 style={{ fontWeight: 100, fontSize: "15px", color: darkBlue }}>
+                {props.item.announcementDate}
+              </h5> : 
+              <h3 style={{ fontWeight: 100, color: darkBlue }}>
+                {props.item.announcementDate}
+              </h3>
+            }
+          </> : ' '}
+      </span>
+
+      {phoneSize ? 
+        <Stack padding="5px" height="95%" alignItems={"center"} display={"flex"} justifyContent={"center"} sx={{background: "red"}}>
+          {/* Either image or long description is required */}
+          <>
+            {props.item.image.publicUrl ? 
+              <Box height={props.item.summary ? "60%" : "90%"}><img
+                src={props.item.image.publicUrl}
+                alt="Event image"
+                placeholder="blurred"
+                width="auto"
+                height="100%"
+                style={{
+                  objectFit: "contain",
+                }}
+              /></Box> : 
+              <p style={{ color: "darkslategray", textAlign: "center" }}>
+                {props.item.description.description}
+              </p>
+            }
+          </>
+          {props.item.summary ?
+          <h6
+            style={{ textAlign: "center", color: "darkslategray", fontSize: "14px" }}
+          >
+            {props.language == 'en' ? props.item.summary : props.item.summaryUa}
+          </h6> : null }
+          {props.item.linkOne ? 
+            <a href={props.item.linkOne}>{GENERAL_CONTENT[props.language].moreDetails}</a> : null }
+        </Stack> : 
+        <Stack>
+          <>
+            {props.item.image.publicUrl ? 
+              <Box height={props.item.summary ? "60%" : "90%"}><img
+                src={props.item.image.publicUrl}
+                alt="Event image"
+                placeholder="blurred"
+                width="auto"
+                height="100%"
+                style={{
+                  objectFit: "contain",
+                }}
+              /></Box> : 
+              <p style={{ color: "darkslategray", textAlign: "center" }}>
+                {props.language == 'en' ? props.item.description.description : props.item.descriptionUa.descriptionUa}
+              </p>
+            }
+          </>
+          {props.item.summary ?
+          <h6
+            style={{ textAlign: "center", color: "darkslategray", fontSize: "14px" }}
+          >
+            {props.language == 'en' ? props.item.summary : props.item.summaryUa}
+          </h6> : null }
+          {props.item.description ? 
+          <p
+            style={{ color: "darkslategray", textAlign: "center", height: "250px" }}
+          >
+            {props.language == 'en' ? props.item.description.description : props.item.descriptionUa.descriptionUa}
+          </p> : null}
+          {props.item.linkOne ? 
+            <a href={props.item.linkOne}>{GENERAL_CONTENT[props.language].moreDetails}</a> : null }
+        </Stack>
+      }
     </Paper>
   );
 };
