@@ -61,6 +61,7 @@ const AnnouncementsComponent = ({ language }) => {
               border: "1px solid #ddd", // Light border for subtle contrast
             }}
           >
+            {announcement.image ?
             <img
               src={announcement.image.publicUrl}
               height="200px"
@@ -68,7 +69,7 @@ const AnnouncementsComponent = ({ language }) => {
               style={{
                 objectFit: "contain",
               }}
-            />
+            /> : null}
             <Stack
               direction="row"
               justifyContent="space-between"

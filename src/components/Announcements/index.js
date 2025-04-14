@@ -151,7 +151,7 @@ const Item = (props) => {
         <Stack padding="5px" height="95%" alignItems={"center"} display={"flex"} justifyContent={"center"} sx={{background: "red"}}>
           {/* Either image or long description is required */}
           <>
-            {props.item.image.publicUrl ? 
+            {props.item.image && props.item.image.publicUrl ? 
               <Box height={props.item.summary ? "60%" : "90%"}><img
                 src={props.item.image.publicUrl}
                 alt="Event image"
@@ -178,7 +178,7 @@ const Item = (props) => {
         </Stack> : 
         <Stack>
           <>
-            {props.item.image.publicUrl ? 
+            {props.item.image && props.item.image.publicUrl ? 
               <Box height={props.item.summary ? "60%" : "90%"}><img
                 src={props.item.image.publicUrl}
                 alt="Event image"
