@@ -82,6 +82,46 @@ export const Announcement = ({ language }) => {
   );
 };
 
+const TitleSection = ({ title, date }) => {
+  return (
+    <Box
+      style={{
+        height: "100px",
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-evenly",
+        alignItems: "center",
+        height: "30px",
+      }}
+    >
+      <Box p={0} m={0}>
+        <h3
+          style={{
+            fontSize: "18px",
+            color: darkBlue,
+            lineHeight: "20px",
+          }}
+        >
+          {title}
+        </h3>
+      </Box>
+      <Box p={0} m={0}>
+        <h3
+          style={{
+            fontWeight: 100,
+            color: darkBlue,
+            lineHeight: "20px",
+            fontSize: "16px",
+          }}
+        >
+          {date}
+        </h3>
+      </Box>
+    </Box>
+  );
+};
+
 const Item = (props) => {
   const theme = useTheme();
   const phoneSize = useMediaQuery(theme.breakpoints.down("sm"));
@@ -89,13 +129,17 @@ const Item = (props) => {
   const isSummaryAvailable = Boolean(
     props.item.summary || props.item.summaryUa
   );
-  const isImageAvailable = Boolean(props.item.image.publicUrl);
+  const isImageAvailable = Boolean(props.item.image?.publicUrl);
   const isDescriptionAvailable = Boolean(
-    props.item.description.description || props.item.descriptionUa.descriptionUa
+    props.item.description?.description ||
+      props.item.descriptionUa?.descriptionUa
   );
 
   const imageAndDescriptionAvailable =
     isDescriptionAvailable && isImageAvailable;
+
+  console.log(props.item.title);
+  console.log(props.item);
 
   return (
     <Paper
@@ -108,74 +152,23 @@ const Item = (props) => {
         alignItems: "center",
         borderRadius: "1.5%",
         border: "1px solid white",
-        height: "100%",
+        minHeight: "820px",
+        paddingY: "5px",
       }}
     >
-      <span
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "flex-end",
-          width: "100%",
-          padding: "0 10px 0 10px",
-          height: "5%",
-        }}
-      >
-        {" "}
-        {props.item.title ? (
-          <>
-            {phoneSize ? (
-              <h5
-                style={{
-                  fontSize: "15px",
-                  color: darkBlue,
-                  lineHeight: "15px",
-                }}
-              >
-                {props.item.title}
-              </h5>
-            ) : (
-              <h3
-                style={{
-                  fontSize: "20px",
-                  color: darkBlue,
-                  lineHeight: "20px",
-                }}
-              >
-                {props.language == "en" ? props.item.title : props.item.titleUa}
-              </h3>
-            )}
-          </>
-        ) : (
-          " "
-        )}
-        {props.item.announcementDate ? (
-          <>
-            {phoneSize ? (
-              <h5
-                style={{ fontWeight: 100, fontSize: "15px", color: darkBlue }}
-              >
-                {props.item.announcementDate}
-              </h5>
-            ) : (
-              <h3 style={{ fontWeight: 100, color: darkBlue }}>
-                {props.item.announcementDate}
-              </h3>
-            )}
-          </>
-        ) : (
-          " "
-        )}
-      </span>
-
       {phoneSize ? (
         <Stack
           padding="5px"
-          height="95%"
           alignItems={"center"}
           display={"flex"}
           justifyContent={"center"}
         >
+          <TitleSection
+            title={
+              props.language == "en" ? props.item.title : props.item.titleUa
+            }
+            date={props.item.announcementDate}
+          />
           {/* Either image or long description is required */}
           {isSummaryAvailable && (
             <h6
@@ -202,7 +195,7 @@ const Item = (props) => {
               }}
             >
               <img
-                src={props.item.image.publicUrl}
+                src={props.item.image?.publicUrl}
                 alt="Event image"
                 placeholder="blurred"
                 width={isDescriptionAvailable ? "70%" : "80%"}
@@ -224,35 +217,53 @@ const Item = (props) => {
             >
               <p style={{ color: "darkslategray", textAlign: "center" }}>
                 {props.language == "en"
-                  ? props.item.description.description
-                  : props.item.descriptionUa.descriptionUa}
+                  ? props.item.description?.description
+                  : props.item.descriptionUa?.descriptionUa}
               </p>
             </Box>
           )}
         </Stack>
       ) : (
         <Stack>
-          {isSummaryAvailable && (
-            <h6
-              style={{
-                textAlign: "center",
-                color: "darkslategray",
-                fontSize: "14px",
-              }}
-            >
-              {props.language == "en"
-                ? props.item.summary
-                : props.item.summaryUa}
-            </h6>
-          )}
           <Box
             style={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
+              justifyContent: "space-evenly",
               alignItems: "center",
             }}
           >
+            <TitleSection
+              title={
+                props.language == "en" ? props.item.title : props.item.titleUa
+              }
+              date={props.item.announcementDate}
+            />
+            {isSummaryAvailable && (
+              <Box
+                style={{
+                  height: "60px",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  width: "70%",
+                  padding: "15px 10px 15px 10px",
+                }}
+              >
+                <h6
+                  style={{
+                    textAlign: "center",
+                    color: "darkslategray",
+                    fontSize: "14px",
+                    lineHeight: "16px",
+                  }}
+                >
+                  {props.language == "en"
+                    ? props.item.summary
+                    : props.item.summaryUa}
+                </h6>
+              </Box>
+            )}
             {isDescriptionAvailable && (
               <Box
                 style={{
@@ -260,12 +271,13 @@ const Item = (props) => {
                   justifyContent: "center",
                   alignItems: "center",
                   paddingX: "2rem",
+                  height: "200px",
                 }}
               >
                 <p style={{ color: "darkslategray", textAlign: "center" }}>
                   {props.language == "en"
-                    ? props.item.description.description
-                    : props.item.descriptionUa.descriptionUa}
+                    ? props.item.description?.description
+                    : props.item.descriptionUa?.descriptionUa}
                 </p>
               </Box>
             )}
@@ -276,14 +288,15 @@ const Item = (props) => {
                   justifyContent: "center",
                   alignItems: "center",
                   paddingX: "2rems",
+                  height: "500px",
                 }}
               >
                 <img
-                  src={props.item.image.publicUrl}
+                  src={props.item.image?.publicUrl}
                   alt="Event image"
                   placeholder="blurred"
                   width={isDescriptionAvailable ? "70%" : "80%"}
-                  height={isDescriptionAvailable ? "400px" : "600px"}
+                  height={isDescriptionAvailable ? "70%" : "100%"}
                   style={{
                     objectFit: "contain",
                   }}
@@ -295,7 +308,7 @@ const Item = (props) => {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: "0px 20px 20px 20px",
+                height: "50px",
               }}
             >
               <a href={props.item.linkOne}>
