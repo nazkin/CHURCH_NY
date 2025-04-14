@@ -63,7 +63,7 @@ const AnnouncementsComponent = ({ language }) => {
           >
             {announcement.image ?
             <img
-              src={announcement.image.publicUrl}
+              src={announcement.image?.publicUrl}
               height="200px"
               width="100%"
               style={{

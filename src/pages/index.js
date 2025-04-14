@@ -54,11 +54,6 @@ const PageContent = ({ language }) => {
   return (
     <>
       <HomeHero language={language} />
-      {/* <FixedHeightBox>
-        <ResizableContent>
-          <Announcement language={language} />
-        </ResizableContent>
-      </FixedHeightBox> */}
       <Announcement language={language} />
       <Box>
         <HomeScheduleSection language={language} />
