@@ -5,6 +5,7 @@ import { Grid, Box, Stack, Divider, Typography } from "@mui/material";
 
 import Layout from "../components/layout"
 import { Footer } from "../components/Footer"
+import {MovVideo} from "../components/Video"
 import { AID_CONTENT } from "../constants/content/aid"
 import { GENERAL_CONTENT } from "../constants/content/general";
 
@@ -16,7 +17,7 @@ const AidContent = ({ language }) => (
             {AID_CONTENT[language].title}
         </Typography>
         <a href="https://uaccnj.org/" target="_blank">
-            <StaticImage src="../images/UACCNJ-logo.png" height="200"/>
+            <StaticImage src="/images/uaccnj-logo.png" height="200"/>
         </a>
         <Box paddingTop={2} display="flex" justifyContent={"center"} alignItems={"center"}>
             <center>
@@ -43,7 +44,7 @@ const AidContent = ({ language }) => (
             </center>
         </Box>
         <Box paddingTop={3} display="flex" paddingBottom={3} justifyContent={"center"} alignItems={"center"}>
-            <StaticImage src="../images/donations_qr.png" />
+            <StaticImage src="/images/donations_qr.png" />
         </Box>
         <Box sx={{ width: "100%" }} paddingBottom={3}>
             <Divider sx={{ borderBottomWidth: 2, borderColor: "grey.500" }} />
@@ -52,9 +53,13 @@ const AidContent = ({ language }) => (
             <Typography fontWeight={600} fontSize={25}>{AID_CONTENT[language].pastDonations}:</Typography>
         </Box>
         <Box sx={{ width: "100%" }} paddingBottom={3}>
-            <center>
-                <video src="UACCNJ March 2022 - SD 480p.mov" />
-            </center>
+        <MovVideo
+                src="/UACCNJ March 2022 - SD 480p.mov" //  Path to your .mov file in the 'static' folder
+                title="UACCNJ March 2022 - Help Ukraine"
+                muted // Example of an additional prop
+                loop
+                playsInline // Important for iOS inline playback
+            />
         </Box>
         <Box paddingBottom={50}></Box>
     </Stack>

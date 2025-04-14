@@ -7,24 +7,12 @@ import { PdfDisplay } from "../components/PdfDisplay";
 import Seo from "../components/seo";
 import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import { BULLETIN_CONTENT } from "../constants/content/bulletin";
+import { GENERAL_CONTENT } from "../constants/content/general";
 
 export const Head = () => <Seo title="Bulletin" />;
 
-const VerticalDivider = () => {
-  const dividerStyle = {
-    position: "absolute",
-    left: "50%", // Center the divider horizontally within its parent
-    top: "5%", // Start the divider 5% from the top of the parent container
-    width: "2px", // Thicker divider for better visibility
-    height: "90%", // Occupy 90% of the parent container's height
-    backgroundColor: "#ccc", // Lighter color for a more subtle look
-    boxShadow: "2px 0 4px rgba(0, 0, 0, 0.1)", // Slight shadow for a subtle 3D effect
-  };
-
-  return <div style={dividerStyle}></div>;
-};
-
-const AnnouncementsComponent = () => {
+const AnnouncementsComponent = ({ language }) => {
   const { allContentfulAnnouncement } = useStaticQuery(graphql`
     query getAnnouncementsQuery {
       allContentfulAnnouncement {
@@ -59,7 +47,7 @@ const AnnouncementsComponent = () => {
       sx={{ width: "100%", backgroundColor: "#f4f4f4", minHeight: "100vh" }}
     >
       <Typography variant="h6" sx={{ fontWeight: "600", color: "#333" }}>
-        Announcements
+        {BULLETIN_CONTENT[language].announcements}
       </Typography>
       {allContentfulAnnouncement.nodes.map((announcement, index) => (
         <Box key={index} sx={{ width: "100%", maxWidth: "600px" }}>
@@ -73,6 +61,7 @@ const AnnouncementsComponent = () => {
               border: "1px solid #ddd", // Light border for subtle contrast
             }}
           >
+            {announcement.image ?
             <img
               src={announcement.image?.publicUrl}
               height="200px"
@@ -80,14 +69,14 @@ const AnnouncementsComponent = () => {
               style={{
                 objectFit: "contain",
               }}
-            />
+            /> : null}
             <Stack
               direction="row"
               justifyContent="space-between"
               alignItems="center"
             >
               <Typography sx={{ fontWeight: "500", color: "#333" }}>
-                {announcement.title}
+                {language == 'en' ? announcement.title : announcement.titleUa}
               </Typography>
               <Typography
                 variant="body2"
@@ -96,9 +85,13 @@ const AnnouncementsComponent = () => {
                 {announcement.announcementDate}
               </Typography>
             </Stack>
+            {announcement.summary ? 
             <Typography variant="body1" sx={{ mt: 2, color: "#555" }}>
-              {announcement.summary}
-            </Typography>
+              {language == 'en' ? announcement.summary : announcement.summaryUa}
+            </Typography> : null}
+            {announcement.linkOne ? <Typography variant="body1" sx={{ mt: 2, color: "#555", justifySelf: "right" }}>
+              <a href={announcement.linkOne} target="_blank">{GENERAL_CONTENT[language].moreDetails}</a>
+            </Typography> : null}
           </Box>
 
           {/* Horizontal Divider */}
@@ -113,9 +106,8 @@ const AnnouncementsComponent = () => {
   );
 };
 
-const Bulletin = () => {
-  return (
-    <Layout>
+const BulletinContent = ({language}) => {
+  return (<>
       <Grid
         container
         mt={"80px"}
@@ -143,22 +135,28 @@ const Bulletin = () => {
         <Grid
           xs={12}
           md={6}
-          // py={10}
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "top",
           }}
         >
-          <AnnouncementsComponent />
+          <AnnouncementsComponent language={language} />
         </Grid>
       </Grid>
       <Box paddingBottom={100}></Box>
+      </>);
+ };
+
+const Bulletin = () => {
+  return (
+    <Layout>
+      <BulletinContent />
       <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
         <Footer />
       </Box>
     </Layout>
-  );
-};
+  )
+}
 
 export default Bulletin;
