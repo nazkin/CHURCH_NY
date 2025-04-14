@@ -17,7 +17,7 @@ const AidContent = ({ language }) => (
             {AID_CONTENT[language].title}
         </Typography>
         <a href="https://uaccnj.org/" target="_blank">
-            <StaticImage src="../images/UACCNJ-logo.png" height="200"/>
+            <StaticImage src="/images/UACCNJ-logo.png" height="200"/>
         </a>
         <Box paddingTop={2} display="flex" justifyContent={"center"} alignItems={"center"}>
             <center>
@@ -44,7 +44,7 @@ const AidContent = ({ language }) => (
             </center>
         </Box>
         <Box paddingTop={3} display="flex" paddingBottom={3} justifyContent={"center"} alignItems={"center"}>
-            <StaticImage src="../images/donations_qr.png" />
+            <StaticImage src="/images/donations_qr.png" />
         </Box>
         <Box sx={{ width: "100%" }} paddingBottom={3}>
             <Divider sx={{ borderBottomWidth: 2, borderColor: "grey.500" }} />
