@@ -17,7 +17,7 @@ const AidContent = ({ language }) => (
             {AID_CONTENT[language].title}
         </Typography>
         <a href="https://uaccnj.org/" target="_blank">
-            <StaticImage src="/images/UACCNJ-logo.png" height="200"/>
+            <StaticImage src="/images/uaccnj-logo.png" height="200"/>
         </a>
         <Box paddingTop={2} display="flex" justifyContent={"center"} alignItems={"center"}>
             <center>
