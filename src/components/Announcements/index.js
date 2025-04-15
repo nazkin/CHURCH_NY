@@ -47,10 +47,12 @@ export const Announcement = ({ language }) => {
   return (
     <Container
       style={{
-        boxShadow: `rgba(0, 0, 0, 0.25) 0px 14px 18px, rgba(0, 0, 0, 0.22) 0px 10px 10px;`,
+        boxShadow: `rgba(255, 255, 255, 0.25) 0px 14px 18px, rgba(255, 255, 255, 0.22) 0px 10px 10px;`,
         borderRadius: "8px",
         width: "100%",
         height: "100%",
+        borderTop: "5px solid white",
+        borderBottom: "5px solid white",
       }}
     >
       <Carousel
@@ -63,7 +65,7 @@ export const Announcement = ({ language }) => {
         navButtonsProps={{
           // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
           style: {
-            backgroundColor: darkYellow,
+            backgroundColor: "steelblue",
             color: white,
           },
         }}
@@ -144,7 +146,7 @@ const Item = (props) => {
   return (
     <Paper
       sx={{
-        background: white,
+        background: "transparent",
         color: darkBlue,
         display: "flex",
         flexDirection: "column",
@@ -152,7 +154,6 @@ const Item = (props) => {
         alignItems: "center",
         borderRadius: "1.5%",
         border: "1px solid white",
-        minHeight: "820px",
         paddingY: "5px",
       }}
     >
@@ -224,99 +225,107 @@ const Item = (props) => {
           )}
         </Stack>
       ) : (
-        <Stack>
-          <Box
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-            }}
-          >
-            <TitleSection
-              title={
-                props.language == "en" ? props.item.title : props.item.titleUa
-              }
-              date={props.item.announcementDate}
-            />
-            {isSummaryAvailable && (
-              <Box
-                style={{
-                  height: "60px",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  width: "70%",
-                  padding: "15px 10px 15px 10px",
-                }}
-              >
-                <h6
-                  style={{
-                    textAlign: "center",
-                    color: "darkslategray",
-                    fontSize: "14px",
-                    lineHeight: "16px",
-                  }}
-                >
-                  {props.language == "en"
-                    ? props.item.summary
-                    : props.item.summaryUa}
-                </h6>
-              </Box>
-            )}
-            {isDescriptionAvailable && (
-              <Box
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  paddingX: "2rem",
-                  height: "200px",
-                }}
-              >
-                <p style={{ color: "darkslategray", textAlign: "center" }}>
-                  {props.language == "en"
-                    ? props.item.description?.description
-                    : props.item.descriptionUa?.descriptionUa}
-                </p>
-              </Box>
-            )}
-            {isImageAvailable && (
-              <Box
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  paddingX: "2rems",
-                  height: "500px",
-                }}
-              >
-                <img
-                  src={props.item.image?.publicUrl}
-                  alt="Event image"
-                  placeholder="blurred"
-                  width={isDescriptionAvailable ? "70%" : "80%"}
-                  height={isDescriptionAvailable ? "70%" : "100%"}
-                  style={{
-                    objectFit: "contain",
-                  }}
-                />
-              </Box>
-            )}
+        <Box
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-around",
+            alignItems: "center",
+            minHeight: "400px",
+          }}
+        >
+          <TitleSection
+            title={
+              props.language == "en" ? props.item.title : props.item.titleUa
+            }
+            date={props.item.announcementDate}
+          />
+          {isSummaryAvailable && (
             <Box
               style={{
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                height: "50px",
+                width: "70%",
+                padding: "15px 10px 0px 10px",
               }}
             >
-              <a href={props.item.linkOne}>
-                {GENERAL_CONTENT[props.language].moreDetails}
-              </a>
+              <h6
+                style={{
+                  textAlign: "center",
+                  color: "darkslategray",
+                  fontSize: "14px",
+                  lineHeight: "16px",
+                }}
+              >
+                {props.language == "en"
+                  ? props.item.summary
+                  : props.item.summaryUa}
+              </h6>
             </Box>
+          )}
+          {isDescriptionAvailable && (
+            <Box
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingX: "2rem",
+                paddingY: 0,
+                minHeight: !isImageAvailable ? "400px" : undefined,
+              }}
+            >
+              <p
+                style={{
+                  color: "darkslategray",
+                  textAlign: "center",
+                  padding: 0,
+                  margin: 0,
+                }}
+              >
+                {props.language == "en"
+                  ? props.item.description?.description
+                  : props.item.descriptionUa?.descriptionUa}
+              </p>
+            </Box>
+          )}
+          {isImageAvailable && (
+            <Box
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                paddingX: "2rem",
+                paddingY: 0,
+                magin: 0,
+              }}
+            >
+              <img
+                src={props.item.image?.publicUrl}
+                alt="Event image"
+                placeholder="blurred"
+                width={isDescriptionAvailable ? "80%" : "90%"}
+                height={isDescriptionAvailable ? "350px" : "400px"}
+                style={{
+                  objectFit: "contain",
+                }}
+              />
+            </Box>
+          )}
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "50px",
+              margin: 0,
+            }}
+          >
+            <a href={props.item.linkOne}>
+              {GENERAL_CONTENT[props.language].moreDetails}
+            </a>
           </Box>
-        </Stack>
+        </Box>
       )}
     </Paper>
   );
