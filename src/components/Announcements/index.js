@@ -60,7 +60,7 @@ export const Announcement = ({ language }) => {
       }}
     >
       <Carousel
-        animation="fade"
+        animation="slide"
         interval="3000"
         indicators={false}
         navButtonsAlwaysVisible={true}
