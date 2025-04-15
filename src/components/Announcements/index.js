@@ -17,6 +17,10 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { GENERAL_CONTENT } from '../../constants/content/general';
 
 export const Announcement = ({ language }) => {
+  const theme = useTheme();
+
+  const phoneSize = useMediaQuery(theme.breakpoints.down("sm"));
+
   const { allContentfulAnnouncement } = useStaticQuery(graphql`
     query getAnnouncementsQuery {
       allContentfulAnnouncement {
@@ -65,14 +69,14 @@ export const Announcement = ({ language }) => {
         navButtonsProps={{
           // Change the colors and radius of the actual buttons. THIS STYLES BOTH BUTTONS
           style: {
-            backgroundColor: "steelblue",
-            color: white,
+            backgroundColor: phoneSize ? "transparent" : "steelblue",
+            color: phoneSize ? "steelblue" : white,
           },
         }}
         navButtonsWrapperProps={{
           // Move the buttons to the bottom. Unsetting top here to override default style.
           style: {
-            padding: "30px",
+            padding: phoneSize ? "0px" : "30px",
           },
         }}
       >
@@ -140,9 +144,6 @@ const Item = (props) => {
   const imageAndDescriptionAvailable =
     isDescriptionAvailable && isImageAvailable;
 
-  console.log(props.item.title);
-  console.log(props.item);
-
   return (
     <Paper
       sx={{
@@ -157,176 +158,103 @@ const Item = (props) => {
         paddingY: "5px",
       }}
     >
-      {phoneSize ? (
-        <Stack
-          padding="5px"
-          alignItems={"center"}
-          display={"flex"}
-          justifyContent={"center"}
-        >
-          <TitleSection
-            title={
-              props.language == "en" ? props.item.title : props.item.titleUa
-            }
-            date={props.item.announcementDate}
-          />
-          {/* Either image or long description is required */}
-          {isSummaryAvailable && (
+      <Box
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+          alignItems: "center",
+          minHeight: "400px",
+        }}
+      >
+        <TitleSection
+          title={props.language == "en" ? props.item.title : props.item.titleUa}
+          date={props.item.announcementDate}
+        />
+        {isSummaryAvailable && (
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "70%",
+              padding: "15px 10px 0px 10px",
+            }}
+          >
             <h6
               style={{
                 textAlign: "center",
                 color: "darkslategray",
                 fontSize: "14px",
-                marginBottom: 0,
-                paddingBottom: 0,
+                lineHeight: "16px",
               }}
             >
               {props.language == "en"
                 ? props.item.summary
                 : props.item.summaryUa}
             </h6>
-          )}
-          {isImageAvailable && (
-            <Box
+          </Box>
+        )}
+        {isDescriptionAvailable && (
+          <Box
+            style={{
+              display: phoneSize & isImageAvailable ? "none" : "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: phoneSize & !isImageAvailable ? "50px" : "0px",
+              minHeight: !isImageAvailable ? "400px" : undefined,
+            }}
+          >
+            <p
               style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingX: "2rems",
+                color: "darkslategray",
+                textAlign: "center",
               }}
             >
-              <img
-                src={props.item.image?.publicUrl}
-                alt="Event image"
-                placeholder="blurred"
-                width={isDescriptionAvailable ? "70%" : "80%"}
-                height={isDescriptionAvailable ? "400px" : "600px"}
-                style={{
-                  objectFit: "contain",
-                }}
-              />
-            </Box>
-          )}
-          {isDescriptionAvailable && !isImageAvailable && (
-            <Box
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingX: "2rem",
-              }}
-            >
-              <p style={{ color: "darkslategray", textAlign: "center" }}>
-                {props.language == "en"
-                  ? props.item.description?.description
-                  : props.item.descriptionUa?.descriptionUa}
-              </p>
-            </Box>
-          )}
-        </Stack>
-      ) : (
-        <Box
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-around",
-            alignItems: "center",
-            minHeight: "400px",
-          }}
-        >
-          <TitleSection
-            title={
-              props.language == "en" ? props.item.title : props.item.titleUa
-            }
-            date={props.item.announcementDate}
-          />
-          {isSummaryAvailable && (
-            <Box
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "70%",
-                padding: "15px 10px 0px 10px",
-              }}
-            >
-              <h6
-                style={{
-                  textAlign: "center",
-                  color: "darkslategray",
-                  fontSize: "14px",
-                  lineHeight: "16px",
-                }}
-              >
-                {props.language == "en"
-                  ? props.item.summary
-                  : props.item.summaryUa}
-              </h6>
-            </Box>
-          )}
-          {isDescriptionAvailable && (
-            <Box
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingX: "2rem",
-                paddingY: 0,
-                minHeight: !isImageAvailable ? "400px" : undefined,
-              }}
-            >
-              <p
-                style={{
-                  color: "darkslategray",
-                  textAlign: "center",
-                  padding: 0,
-                  margin: 0,
-                }}
-              >
-                {props.language == "en"
-                  ? props.item.description?.description
-                  : props.item.descriptionUa?.descriptionUa}
-              </p>
-            </Box>
-          )}
-          {isImageAvailable && (
-            <Box
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                paddingX: "2rem",
-                paddingY: 0,
-                magin: 0,
-              }}
-            >
-              <img
-                src={props.item.image?.publicUrl}
-                alt="Event image"
-                placeholder="blurred"
-                width={isDescriptionAvailable ? "80%" : "90%"}
-                height={isDescriptionAvailable ? "350px" : "400px"}
-                style={{
-                  objectFit: "contain",
-                }}
-              />
-            </Box>
-          )}
+              {props.language == "en"
+                ? props.item.description?.description
+                : props.item.descriptionUa?.descriptionUa}
+            </p>
+          </Box>
+        )}
+        {isImageAvailable && (
           <Box
             style={{
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              height: "50px",
-              margin: 0,
+              paddingX: "2rem",
+              paddingY: 0,
+              magin: 0,
+              width: phoneSize ? "80%" : "100%",
             }}
           >
-            <a href={props.item.linkOne}>
-              {GENERAL_CONTENT[props.language].moreDetails}
-            </a>
+            <img
+              src={props.item.image?.publicUrl}
+              alt="Event image"
+              placeholder="blurred"
+              width={isDescriptionAvailable ? "80%" : "90%"}
+              height={isDescriptionAvailable ? "350px" : "400px"}
+              style={{
+                objectFit: "contain",
+              }}
+            />
           </Box>
+        )}
+        <Box
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "50px",
+            margin: 0,
+          }}
+        >
+          <a href={props.item.linkOne}>
+            {GENERAL_CONTENT[props.language].moreDetails}
+          </a>
         </Box>
-      )}
+      </Box>
     </Paper>
   );
 };
