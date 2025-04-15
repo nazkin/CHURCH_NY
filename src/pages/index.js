@@ -12,45 +12,23 @@ import { HomeScheduleSection } from "../components/HomeComponents/HomeSchedule";
 import { SupportParish } from "../components/HomeComponents/HomeSupport";
 import { HomeNewsSection } from "../components/HomeComponents/HomeNewsSection";
 import { Announcement } from "../components/Announcements";
-import { Box, styled } from "@mui/material";
-
-
-// Styled Box for consistent styling
-const FixedHeightBox = styled(Box)(({ theme, isSmallScreen }) => ({
-  height: isSmallScreen ? '300px' : '500px', // Fixed height, adjusted for screen size
-  // border: '2px solid #4CAF50',
-  borderRadius: '8px',
-  padding: theme.spacing(2),
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',            // Center content horizontally
-  backgroundColor: '#f5f5f5',
-  overflow: 'hidden', // Keep overflow hidden to contain content.
-  width: '90%',
-  maxWidth: '1200px',
-  margin: '10px auto',
-  position: 'relative', // Needed for absolute positioning of resizable content
-}));
-
-const ResizableContent = styled('div')({
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  justifyContent: 'center',
-  boxSizing: 'border-box', // Include padding and border in element's total width and height
-  padding: 'inherit',  // Ensure padding from FixedHeightBox is applied
-  overflow: 'hidden', // prevent content from overflowing
-});
+import { Box, Modal, Typography } from "@mui/material";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const PageContent = ({ language }) => {
+  const [isModalOpen, setOpenModal] = React.useState(false);
+  const [selectedImage, selectImage] = React.useState(null);
+  const [isClient, setIsClient] = React.useState(false);
+  const rootRef = React.useRef(null);
+
   const theme = useTheme();
   const phoneSize = useMediaQuery(theme.breakpoints.down("sm"));
-
+  const imageSelector = (image) => {
+    setOpenModal(true);
+    selectImage(image);
+  };
+  const handleClose = () => setOpenModal(false);
+  console.log(selectedImage);
   return (
     <>
       <HomeHero language={language} />
@@ -58,8 +36,49 @@ const PageContent = ({ language }) => {
       <Box>
         <HomeScheduleSection language={language} />
       </Box>
-      <Box>
-        <HomeNewsSection language={language} />
+      <Box ref={rootRef}>
+        <Modal
+          disablePortal
+          disableEnforceFocus
+          disableAutoFocus
+          open={isModalOpen}
+          onClose={handleClose}
+          aria-labelledby="server-modal-title"
+          aria-describedby="server-modal-description"
+          sx={{
+            display: "flex",
+            p: 1,
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+          container={() => rootRef.current}
+        >
+          <Box
+            sx={(theme) => ({
+              position: "relative",
+              height: "80vh",
+              minWidth: !phoneSize && 1000,
+              bgcolor: "background.paper",
+              border: "2px solid #000",
+              boxShadow: theme.shadows[5],
+              p: 4,
+            })}
+          >
+            <GatsbyImage
+              image={selectedImage?.src}
+              alt={selectedImage?.alt || selectedImage?.desc}
+              style={{
+                width: "100%",
+                height: "100%",
+                display: "block",
+              }}
+              imgStyle={{
+                objectFit: "cover",
+              }}
+            />
+          </Box>
+        </Modal>
+        <HomeNewsSection language={language} imageSelector={imageSelector} />
       </Box>
       <Box paddingBottom={30}>
         <SupportParish language={language} />

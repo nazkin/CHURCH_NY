@@ -15,7 +15,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import ImageCarousel from "../../ImageCarousel";
 
-export const HomeNewsSection = ({ language }) => {
+export const HomeNewsSection = ({ language, imageSelector }) => {
   const theme = useTheme();
   const phoneSize = useMediaQuery(theme.breakpoints.down("sm"));
   return (
@@ -30,10 +30,9 @@ export const HomeNewsSection = ({ language }) => {
         justifyContent: "center",
         alignItems: "center",
       }}
-
     >
       <Box px={2} width="100%" height="100%">
-        <ImageCarousel language={language}/>
+        <ImageCarousel language={language} imageSelector={imageSelector} />
       </Box>
     </Grid>
   );

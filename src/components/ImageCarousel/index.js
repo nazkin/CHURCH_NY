@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  IconButton,
+  Modal,
   Box,
   Typography,
   useMediaQuery,
@@ -22,7 +22,7 @@ const chunkImages = (images, chunkSize) => {
   return chunks;
 };
 
-const ImageCarousel = ({ language }) => {
+const ImageCarousel = ({ language, imageSelector }) => {
   const data = useStaticQuery(graphql`
     query {
       allFile(
@@ -50,7 +50,6 @@ const ImageCarousel = ({ language }) => {
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
-  const isMediumScreen = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
   // Handle automatic rotation every 3 seconds
   useEffect(() => {
@@ -120,7 +119,9 @@ const ImageCarousel = ({ language }) => {
                       boxShadow: 3,
                       width: "100%",
                       background: "red",
+                      cursor: "pointer",
                     }}
+                    onClick={() => imageSelector(img)}
                   >
                     <GatsbyImage
                       image={img.src}
@@ -134,7 +135,6 @@ const ImageCarousel = ({ language }) => {
                         objectFit: "cover",
                       }}
                     />
-                    <Button>Expand</Button>
                   </Box>
                 </Grid>
               ))}
