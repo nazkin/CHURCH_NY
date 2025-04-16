@@ -9,6 +9,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import { GlobalStyles } from "@mui/system";
 import { BULLETIN_CONTENT } from "../constants/content/bulletin";
 import { GENERAL_CONTENT } from "../constants/content/general";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 
 export const Head = () => <Seo title="Bulletin" />;
 
@@ -117,35 +119,62 @@ const AnnouncementsComponent = ({ language }) => {
 
 const BulletinContent = ({ language }) => {
   const scrollRef = React.useRef(null);
+  const animationFrame = React.useRef(null);
+  const [hovered, setHovered] = React.useState(false);
+  const theme = useTheme();
+  const phoneSize = useMediaQuery(theme.breakpoints.down("sm"));
 
   React.useEffect(() => {
     const element = scrollRef.current;
-    if (!element) return;
+    if (!element || phoneSize || hovered) return;
 
-    let start = null;
-    const duration = 25000; // total scroll duration in ms
-    const targetScrollTop = 600; // how far you want to scroll
+    const scrollTo = (from, to, duration, callback) => {
+      let start = null;
 
-    const initialScrollTop = element.scrollTop;
+      const animate = (timestamp) => {
+        if (hovered) return;
+        if (!start) start = timestamp;
 
-    const step = (timestamp) => {
-      if (!start) start = timestamp;
-      const elapsed = timestamp - start;
+        const elapsed = timestamp - start;
+        const progress = Math.min(elapsed / duration, 1);
 
-      // progress from 0 to 1
-      const progress = Math.min(elapsed / duration, 1);
+        const easeInOut =
+          progress < 0.5
+            ? 2 * progress * progress
+            : -1 + (4 - 2 * progress) * progress;
 
-      // Scroll smoothly based on easing (linear here, but you can add easing)
-      element.scrollTop = initialScrollTop + progress * targetScrollTop;
+        element.scrollTop = from + (to - from) * easeInOut;
 
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
+        if (progress < 1) {
+          animationFrame.current = requestAnimationFrame(animate);
+        } else if (callback) {
+          callback();
+        }
+      };
+
+      animationFrame.current = requestAnimationFrame(animate);
     };
 
-    // Kick off animation
-    window.requestAnimationFrame(step);
-  }, []);
+    const scrollLoop = () => {
+      const downDistance = 400;
+      const duration = 23000;
+
+      scrollTo(0, downDistance, duration, () => {
+        scrollTo(downDistance, 0, duration, () => {
+          if (!hovered) scrollLoop();
+        });
+      });
+    };
+
+    scrollLoop();
+
+    return () => {
+      if (animationFrame.current) {
+        cancelAnimationFrame(animationFrame.current);
+      }
+    };
+  }, [hovered]);
+
   return (
     <Grid
       container
@@ -171,6 +200,8 @@ const BulletinContent = ({ language }) => {
         md={6}
         className="example"
         ref={scrollRef}
+        onMouseEnter={() => setHovered(true)}
+        onClick={() => setHovered(true)}
         sx={{
           display: "flex",
           justifyContent: "center",
