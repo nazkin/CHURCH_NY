@@ -76,7 +76,12 @@ const ImageCarousel = ({ language, imageSelector }) => {
 
   return (
     <Box width="100%" height="100%">
-      <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+      <Box
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        mb={5}
+      >
         <Typography sx={Styled.homeCarouselText}>
           {HOME_CONTENT[language].ourChurch}
         </Typography>
@@ -93,9 +98,9 @@ const ImageCarousel = ({ language, imageSelector }) => {
         }}
       >
         <Carousel
-          navButtonsAlwaysVisible
+          navButtonsAlwaysVisible={false}
           animation="slide"
-          indicators={true}
+          indicators={false}
           autoPlay={true}
           interval={4000}
           width="100%"

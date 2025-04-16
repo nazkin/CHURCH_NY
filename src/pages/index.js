@@ -33,10 +33,10 @@ const PageContent = ({ language }) => {
     <>
       <HomeHero language={language} />
       <Announcement language={language} />
-      <Box>
+      <Box my={10}>
         <HomeScheduleSection language={language} />
       </Box>
-      <Box ref={rootRef}>
+      <Box my={10} ref={rootRef}>
         <Modal
           disablePortal
           disableEnforceFocus
@@ -80,7 +80,25 @@ const PageContent = ({ language }) => {
         </Modal>
         <HomeNewsSection language={language} imageSelector={imageSelector} />
       </Box>
-      <Box paddingBottom={30}>
+      <Box py={15}>
+        <Box
+          width={"100%"}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+        >
+          <Typography
+            sx={{
+              fontSize: "52px",
+              textAlign: "center",
+              color: "slategrey",
+              fontWeight: 200,
+              paddingBottom: 5,
+            }}
+          >
+            Explore Our Affiliates
+          </Typography>
+        </Box>
         <SupportParish language={language} />
       </Box>
     </>

@@ -208,6 +208,7 @@ const BulletinContent = ({ language }) => {
           alignItems: "top",
           height: "80vh",
           overflowY: "scroll",
+          boxShadow: "rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;",
         }}
       >
         <AnnouncementsComponent language={language} />
