@@ -3,7 +3,8 @@ import './styles.css';
 
 export const PdfDisplay = ({ pdfUrl, aspectRatio }) => {
     const containerStyle = {
-      paddingBottom: aspectRatio || '100%', // Default to 1:1
+      paddingBottom: aspectRatio || "100%", // Default to 1:1
+      height: "400px",
     };
   
     return (
