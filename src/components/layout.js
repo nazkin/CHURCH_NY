@@ -17,7 +17,7 @@ import {
  *
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
-const Layout = ({ children }) => {
+const Layout = ({ children, hasScroll = true }) => {
   const [language, setLanguage] = useState(LANGUAGE_ID.en);
 
   React.useEffect(() => {
@@ -48,7 +48,16 @@ const Layout = ({ children }) => {
   `);
 
   return (
-    <Box width='100%' height='100%' sx={{background: 'whitesmoke'}}>
+    <Box
+      width="100%"
+      height="100%"
+      sx={{
+        background: "whitesmoke",
+        overflowY: !hasScroll ? "hidden" : "scroll",
+        msOverflowStyle: !hasScroll && "none", // IE and Edge
+        scrollbarWidth: !hasScroll && "none",
+      }}
+    >
       <Header
         siteTitle={data.site.siteMetadata?.title || `Title`}
         language={language}
