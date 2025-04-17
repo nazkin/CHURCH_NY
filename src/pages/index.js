@@ -8,11 +8,12 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { HomeHero } from "../components/HomeComponents/HomeHero";
+import { white } from "../constants/colors";
 import { HOME_CONTENT } from "../constants/content/home";
 import { SupportParish } from "../components/HomeComponents/HomeSupport";
 import { HomeNewsSection } from "../components/HomeComponents/HomeNewsSection";
 import { Announcement } from "../components/Announcements";
-import { Box, Modal, Typography, Container } from "@mui/material";
+import { Box, Modal, Typography, Container, Grid } from "@mui/material";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Schedule from "../components/HomeComponents/sched/index";
 const PageContent = ({ language }) => {
@@ -39,6 +40,9 @@ const PageContent = ({ language }) => {
         justifyContent={"center"}
         alignItems={"center"}
         mt={5}
+        sx={{
+          background: white,
+        }}
       >
         <Typography
           sx={{
@@ -52,10 +56,10 @@ const PageContent = ({ language }) => {
         </Typography>
       </Box>
       <Container
-        my={10}
-        mx={10}
+        py={10}
+        px={10}
         sx={{
-          background: "whitesmoke",
+          background: white,
         }}
       >
         <Schedule />

@@ -23,20 +23,22 @@ export const SupportParish = ({ language }) => {
   return (
     <Grid
       container
-      spacing={1}
+      spacing={2}
       style={{
         margin: `0 auto 0 auto`,
         maxWidth: `var(--size-content)`,
         minHeight: 120,
+        display: "flex",
+        justifyContent: "space-between",
       }}
     >
       <Grid
         item
         xs={12}
         sm={12}
-        md={6}
-        lg={6}
-        xl={6}
+        md={5}
+        lg={5}
+        xl={5}
         sx={Styled.flexColSpaceAround}
       >
         <Box
@@ -58,9 +60,9 @@ export const SupportParish = ({ language }) => {
               onMouseLeave={() => setHoverUACCNJ(false)}
               onMouseEnter={() => setHoverUACCNJ(true)}
               style={{
-                background: hoverUACCNJ ? lightBlue : white,
+                background: white,
                 padding: "25px",
-                opacity: hoverUACCNJ ? 0.7 : 1,
+                opacity: hoverUACCNJ ? 0.96 : 1,
                 border: "1px solid whitesmoke",
                 borderRadius: "20px",
                 width: "100%",
@@ -83,9 +85,9 @@ export const SupportParish = ({ language }) => {
         item
         xs={12}
         sm={12}
-        md={6}
-        lg={6}
-        xl={6}
+        md={5}
+        lg={5}
+        xl={5}
         sx={Styled.flexColSpaceAround}
       >
         <Box
@@ -95,12 +97,29 @@ export const SupportParish = ({ language }) => {
           justifyContent="center"
           alignItems={"center"}
           gap={5}
-          onMouseLeave={() => setHoverUCAP(false)}
-          onMouseEnter={() => setHoverUCAP(true)}
-          opacity={hoverUCAP ? 0.8 : 1}
+          sx={{
+            background: lightYellow,
+          }}
         >
           <Tooltip title={GENERAL_CONTENT[language].UCAP}>
-            <a href="https://ukrcatholic.org//" target="_blank">
+            <a
+              href="https://ukrcatholic.org//"
+              target="_blank"
+              onMouseLeave={() => setHoverUCAP(false)}
+              onMouseEnter={() => setHoverUCAP(true)}
+              style={{
+                background: white,
+                padding: "25px",
+                opacity: hoverUCAP ? 0.96 : 1,
+                border: "1px solid whitesmoke",
+                borderRadius: "20px",
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
               <Stack
                 direction="column"
                 display={"flex"}
