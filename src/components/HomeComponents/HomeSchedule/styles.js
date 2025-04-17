@@ -29,7 +29,7 @@ export const flexSpaceEvenlyAndCenter = {
   width: "100%",
 };
 export const homeSchedText = {
-  fontSize: "34px",
+  fontSize: "52px",
   textAlign: "center",
   color: "slategrey",
   fontWeight: 200,

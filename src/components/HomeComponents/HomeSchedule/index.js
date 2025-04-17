@@ -84,13 +84,15 @@ export const LiturgyScheduleFull = ({ language }) => {
   const theme = useTheme();
 
   return (
-    <Grid
-      container
-      styles={Styled.homeScheduleContainer}
-      paddingTop={2}
-    >
+    <Grid container styles={Styled.homeScheduleContainer} paddingTop={2}>
       <Box sx={Styled.homeSchedBackgroundSection}>
-        <Box width={"100%"} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+        <Box
+          width={"100%"}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          pb={5}
+        >
           <Typography sx={Styled.homeSchedText}>
             {HOME_CONTENT[language].liturgySchedTitle}
           </Typography>
@@ -104,44 +106,129 @@ export const LiturgyScheduleFull = ({ language }) => {
           }}
           paddingTop={2}
         >
-          <Box width="100%" paddingBottom={2} paddingLeft={2} paddingRight={2} display="flex" justifyContent={"space-between"} alignItems={"top"}>
-            <Box width="45%" padding={0} display={"flex"} justifyContent={"left"} alignItems={"top"}>
-            <Typography sx={Styled.schedTableText}>
-              {HOME_CONTENT[language].saturday} ({HOME_CONTENT[language].en})
-            </Typography>
+          <Box
+            width="100%"
+            paddingBottom={2}
+            paddingLeft={2}
+            paddingRight={2}
+            display="flex"
+            justifyContent={"space-between"}
+            alignItems={"top"}
+          >
+            <Box
+              width="45%"
+              padding={0}
+              display={"flex"}
+              justifyContent={"left"}
+              alignItems={"top"}
+            >
+              <Typography sx={Styled.schedTableText}>
+                {HOME_CONTENT[language].saturday} ({HOME_CONTENT[language].en})
+              </Typography>
             </Box>
-            <Box width="55%" padding={0} display="flex" justifyContent={"right"} alignItems={"top"}>
+            <Box
+              width="55%"
+              padding={0}
+              display="flex"
+              justifyContent={"right"}
+              alignItems={"top"}
+            >
               <Typography sx={Styled.schedTableText}>5:00 P.M.</Typography>
             </Box>
           </Box>
-          <Box width="100%" paddingBottom={2} paddingLeft={2} paddingRight={2} display="flex" justifyContent={"space-between"} alignItems={"top"}>
-          <Box width="45%" padding={0} display={"flex"} justifyContent={"left"} alignItems={"top"}>
+          <Box
+            width="100%"
+            paddingBottom={2}
+            paddingLeft={2}
+            paddingRight={2}
+            display="flex"
+            justifyContent={"space-between"}
+            alignItems={"top"}
+          >
+            <Box
+              width="45%"
+              padding={0}
+              display={"flex"}
+              justifyContent={"left"}
+              alignItems={"top"}
+            >
               <Typography sx={Styled.schedTableText}>
                 {HOME_CONTENT[language].sunday} ({HOME_CONTENT[language].ua})
               </Typography>
             </Box>
-            <Box width="55%" padding={0} display="flex" justifyContent={"right"} alignItems={"top"}>
-              <Typography sx={Styled.schedTableText}>8:30 A.M. {GENERAL_CONTENT[language].and} 10:00 A.M. </Typography>
+            <Box
+              width="55%"
+              padding={0}
+              display="flex"
+              justifyContent={"right"}
+              alignItems={"top"}
+            >
+              <Typography sx={Styled.schedTableText}>
+                8:30 A.M. {GENERAL_CONTENT[language].and} 10:00 A.M.{" "}
+              </Typography>
             </Box>
           </Box>
-          <Box width="100%" paddingBottom={2} paddingLeft={2} paddingRight={2} display="flex" justifyContent={"space-between"} alignItems={"top"}>
-            <Box width="45%" padding={0} display={"flex"} justifyContent={"left"} alignItems={"top"}>
+          <Box
+            width="100%"
+            paddingBottom={2}
+            paddingLeft={2}
+            paddingRight={2}
+            display="flex"
+            justifyContent={"space-between"}
+            alignItems={"top"}
+          >
+            <Box
+              width="45%"
+              padding={0}
+              display={"flex"}
+              justifyContent={"left"}
+              alignItems={"top"}
+            >
               <Typography sx={Styled.schedTableText}>
                 {HOME_CONTENT[language].holyDays}
               </Typography>
             </Box>
-            <Box width="55%" padding={0} display="flex" justifyContent={"right"} alignItems={"top"}>
-              <Typography sx={Styled.schedTableText}>9:00 A.M. {GENERAL_CONTENT[language].and} 7:00 P.M. </Typography>
+            <Box
+              width="55%"
+              padding={0}
+              display="flex"
+              justifyContent={"right"}
+              alignItems={"top"}
+            >
+              <Typography sx={Styled.schedTableText}>
+                9:00 A.M. {GENERAL_CONTENT[language].and} 7:00 P.M.{" "}
+              </Typography>
             </Box>
           </Box>
-          <Box width="100%" paddingLeft={2} paddingRight={2} display="flex" justifyContent={"space-between"} alignItems={"top"}>
-            <Box width="45%" padding={0} display={"flex"} justifyContent={"left"} alignItems={"top"}>
+          <Box
+            width="100%"
+            paddingLeft={2}
+            paddingRight={2}
+            display="flex"
+            justifyContent={"space-between"}
+            alignItems={"top"}
+          >
+            <Box
+              width="45%"
+              padding={0}
+              display={"flex"}
+              justifyContent={"left"}
+              alignItems={"top"}
+            >
               <Typography sx={Styled.schedTableText}>
                 {HOME_CONTENT[language].specialIntentions}
               </Typography>
             </Box>
-            <Box width="55%" padding={0} display="flex" justifyContent={"right"} alignItems={"top"}>
-              <Typography sx={Styled.schedTableText}>9:00 A.M. {GENERAL_CONTENT[language].and_or} 7:00 P.M. </Typography>
+            <Box
+              width="55%"
+              padding={0}
+              display="flex"
+              justifyContent={"right"}
+              alignItems={"top"}
+            >
+              <Typography sx={Styled.schedTableText}>
+                9:00 A.M. {GENERAL_CONTENT[language].and_or} 7:00 P.M.{" "}
+              </Typography>
             </Box>
           </Box>
         </Stack>

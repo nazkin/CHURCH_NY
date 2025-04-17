@@ -50,18 +50,16 @@ export const Announcement = ({ language }) => {
 
   return (
     <Container
-      style={{
-        boxShadow: `rgba(255, 255, 255, 0.25) 0px 14px 18px, rgba(255, 255, 255, 0.22) 0px 10px 10px;`,
-        borderRadius: "8px",
+      sx={{
         width: "100%",
         height: "100%",
-        borderTop: "5px solid white",
-        borderBottom: "5px solid white",
+        border: "1px solid transparent",
+        marginTop: 16,
       }}
     >
       <Carousel
         animation="slide"
-        interval="3000"
+        interval="6000"
         indicators={false}
         navButtonsAlwaysVisible={true}
         NextIcon={<NavigateNextIcon />}
