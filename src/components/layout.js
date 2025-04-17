@@ -53,9 +53,10 @@ const Layout = ({ children, hasScroll = true }) => {
       height="100%"
       sx={{
         background: "whitesmoke",
-        overflowY: !hasScroll ? "hidden" : "scroll",
-        msOverflowStyle: !hasScroll && "none", // IE and Edge
-        scrollbarWidth: !hasScroll && "none",
+        overflowY: !hasScroll && "hidden",
+        msOverflowStyle: !hasScroll ? "none" : "scrollbar", // IE and Edge
+        scrollbarWidth: !hasScroll ? "none" : "2px",
+        padding: 0,
       }}
     >
       <Header

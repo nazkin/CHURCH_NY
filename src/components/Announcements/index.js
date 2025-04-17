@@ -231,8 +231,8 @@ const Item = (props) => {
               src={props.item.image?.publicUrl}
               alt="Event image"
               placeholder="blurred"
-              width={isDescriptionAvailable ? "80%" : "90%"}
-              height={isDescriptionAvailable ? "350px" : "400px"}
+              width={isDescriptionAvailable ? "90%" : "100%"}
+              height={isDescriptionAvailable ? "350px" : "500px"}
               style={{
                 objectFit: "contain",
               }}
