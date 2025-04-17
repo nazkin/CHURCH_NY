@@ -8,13 +8,13 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { HomeHero } from "../components/HomeComponents/HomeHero";
-import { HomeScheduleSection } from "../components/HomeComponents/HomeSchedule";
+import { HOME_CONTENT } from "../constants/content/home";
 import { SupportParish } from "../components/HomeComponents/HomeSupport";
 import { HomeNewsSection } from "../components/HomeComponents/HomeNewsSection";
 import { Announcement } from "../components/Announcements";
-import { Box, Modal, Typography } from "@mui/material";
+import { Box, Modal, Typography, Container } from "@mui/material";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-
+import Schedule from "../components/HomeComponents/sched/index";
 const PageContent = ({ language }) => {
   const [isModalOpen, setOpenModal] = React.useState(false);
   const [selectedImage, selectImage] = React.useState(null);
@@ -33,9 +33,33 @@ const PageContent = ({ language }) => {
     <>
       <HomeHero language={language} />
       <Announcement language={language} />
-      <Box my={10}>
-        <HomeScheduleSection language={language} />
+      <Box
+        width={"100%"}
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        mt={5}
+      >
+        <Typography
+          sx={{
+            fontSize: "52px",
+            textAlign: "center",
+            color: "slategrey",
+            fontWeight: 200,
+          }}
+        >
+          {HOME_CONTENT[language].liturgySchedTitle}
+        </Typography>
       </Box>
+      <Container
+        my={10}
+        mx={10}
+        sx={{
+          background: "whitesmoke",
+        }}
+      >
+        <Schedule />
+      </Container>
       <Box my={10} ref={rootRef}>
         <Modal
           disablePortal
