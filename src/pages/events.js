@@ -11,12 +11,10 @@ import { Script } from 'gatsby';
 
 const EventsContent = ({ language }) => {
     const [scriptLoaded, setScriptLoaded] = useState(false);
-
+    console.log("EVENTS", scriptLoaded)
     useEffect(() => {
         if (scriptLoaded) {
-        // Your script logic here, e.g., initialize a plugin
         console.log("script loaded")
-        // window.yourPlugin.init();
         }
     }, [scriptLoaded]);
 
@@ -39,11 +37,10 @@ const Events = () => {
 
   return (
     <Layout>
-        {showEvents ?
-            <EventsContent /> : <></> }
-      <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
-        <Footer />
-      </Box>
+        <EventsContent />
+        <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
+            <Footer />
+        </Box>
     </Layout>
   )
 }
