@@ -55,31 +55,13 @@ const EventsContent = ({ language }) => {
 }
 
 const Events = () => {
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-  //   const [script, setScript] = useState(null);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "//dist.eventscalendar.co/embed.js";
-    script.onload = () => setScriptLoaded(true);
-    document.head.appendChild(script);
-    // setScript(script);
-
-    console.log(script.src);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <Layout>
       <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
-        {/* {scriptLoaded && script} */}
-        <Script
-          // strategy="post-hydrate"
-          // onLoad={() => setScriptLoaded(true)}
+        <iframe
           src="//dist.eventscalendar.co/embed.js"
+          width={500}
+          height={500}
         />
         <Footer />
       </Box>
