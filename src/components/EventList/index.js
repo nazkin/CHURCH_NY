@@ -6,6 +6,7 @@ import { Box } from '@mui/system';
 import { Button } from '@mui/material';
 import { Dialog, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { useEffect } from 'react';
+import { steelBlue, white } from '../../constants/colors';
 
 // Sample event data (replace with your actual data source)
 const eventsData = [
@@ -99,15 +100,15 @@ const eventsData = [
         description: 'Fireworks, parades, and patriotic festivities.',
         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
     },
-    {
-        id: '11',
-        month: 8,
-        title: 'August Event',
-        date: '2024-08-10',
-        summary: 'August summary',
-        description: 'August description',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C'
-    },
+    // {
+    //     id: '11',
+    //     month: 8,
+    //     title: 'August Event',
+    //     date: '2024-08-10',
+    //     summary: 'August summary',
+    //     description: 'August description',
+    //     imageUrl: 'https://placehold.co/600x400/EEE/31343C'
+    // },
     {
         id: '12',
         month: 9,
@@ -158,10 +159,10 @@ const eventsData = [
 // Styled Components for better UI
 const TwoColumnContainer = styled(Box)({
     display: 'flex',
-    height: '500px',
+    height: '600px',
     width: '100%',
     overflow: 'hidden',
-    backgroundColor: '#f5f5f5',
+    // backgroundColor: '#f5f5f5',
     padding: '16px',
     gap: '20px',
     '@media (max-width: 600px)': {  // Added media query for small screens
@@ -171,10 +172,10 @@ const TwoColumnContainer = styled(Box)({
 });
 
 const MonthColumn = styled(Box)({
-    flex: '0 0 120px',
+    flex: '0 0 150px',
     overflowY: 'auto',
     paddingRight: '10px',
-    borderRight: '1px solid #ccc',
+    // paddingTop: '65px',
     '&::-webkit-scrollbar': {
         width: '8px',
     },
@@ -228,7 +229,7 @@ const MonthButton = styled(Button, {
     display: 'block',
     width: '100%',
     textAlign: 'left',
-    padding: '8px 12px',
+    padding: '4px 4px',
     borderRadius: '4px',
     marginBottom: '4px',
     backgroundColor: 'transparent',
@@ -246,7 +247,7 @@ const MonthButton = styled(Button, {
 }));
 
 const EventCard = styled(motion.div)(({ theme }) => ({
-    backgroundColor: '#468499',
+    backgroundColor: white,
     color: '#FFD700',
     borderRadius: '8px',
     boxShadow: '0 2px 4px rgba(0, 0, 0, 0.08)',
@@ -259,7 +260,7 @@ const EventCard = styled(motion.div)(({ theme }) => ({
 }));
 
 const EventImage = styled('img')({
-    width: '100%',
+    width: '80%',
     height: 'auto',
     borderRadius: '4px',
     cursor: 'pointer',
@@ -270,24 +271,24 @@ const EventTitle = styled(Typography)({
     fontSize: '1.2rem',
     fontWeight: 'bold',
     marginBottom: '8px',
-    color: '#FFD700',
+    color: steelBlue,
 });
 
 const EventDate = styled(Typography)({
     fontSize: '0.9rem',
-    color: '#EEE',
+    color: 'darkslategray',
     marginBottom: '4px',
 });
 
 const EventSummary = styled(Typography)({
     fontSize: '1rem',
-    color: '#EEE',
+    color: 'darkslategray',
     marginBottom: '12px',
 });
 
 const EventDescription = styled(Typography)({
     fontSize: '1rem',
-    color: '#FFFFFF',
+    color: 'darkslategray',
     lineHeight: 1.6,
     '& img': {
         cursor: 'pointer',
@@ -298,25 +299,25 @@ const EventDescription = styled(Typography)({
     }
 });
 
-const months = [
-    { number: 1, name: 'January' },
-    { number: 2, name: 'February' },
-    { number: 3, name: 'March' },
-    { number: 4, name: 'April' },
-    { number: 5, name: 'May' },
-    { number: 6, name: 'June' },
-    { number: 7, name: 'July' },
-    { number: 8, name: 'August' },
-    { number: 9, name: 'September' },
-    { number: 10, name: 'October' },
-    { number: 11, name: 'November' },
-    { number: 12, name: 'December' },
-];
-
-const EventsList = () => {
+const EventsList = ({language}) => {
     const [selectedMonth, setSelectedMonth] = useState(null);
     const eventsColumnRef = useRef(null);
     const [openImage, setOpenImage] = useState(null);
+
+    const months = [
+        { number: 1, name: language == 'en' ? 'January' : 'Січень' },
+        { number: 2, name: language == 'en' ? 'February' : 'Лютий' },
+        { number: 3, name: language == 'en' ? 'March' : 'Березень' },
+        { number: 4, name: language == 'en' ? 'April' : 'Квітень' },
+        { number: 5, name: language == 'en' ? 'May' : 'Травень' },
+        { number: 6, name: language == 'en' ? 'June' : 'Червень' },
+        { number: 7, name: language == 'en' ? 'July' : 'Липень' },
+        { number: 8, name: language == 'en' ? 'August' : 'Серпень' },
+        { number: 9, name: language == 'en' ? 'September' : 'Вересень' },
+        { number: 10, name: language == 'en' ? 'October' : 'Жовтень' },
+        { number: 11, name: language == 'en' ? 'November' : 'Листопад' },
+        { number: 12, name: language == 'en' ? 'December' : 'Грудень' },
+    ];
 
     const scrollToMonth = useCallback(
         (month) => {
@@ -345,7 +346,7 @@ const EventsList = () => {
         setOpenImage(imageUrl);
     };
 
-    const filteredEvents = selectedMonth ? getMonthEvents(selectedMonth) : eventsData;
+    const filteredEvents = eventsData//selectedMonth ? getMonthEvents(selectedMonth) : eventsData;
 
       //Fixes "document is not defined" during build
     const [isClient, setIsClient] = useState(false);
@@ -359,15 +360,19 @@ const EventsList = () => {
 
 
     return (
+        <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingTop: '70px', paddingBottom: 5, margin: '0 auto'}} justifySelf={'center'}>
         <TwoColumnContainer>
-            <MonthColumn>
+            <MonthColumn alignContent={'center'}>
                 {highlightedMonths.map((month) => (
                     <MonthButton
                         key={month.number}
                         isHighlighted={month.hasEvents}
                         onClick={() => scrollToMonth(month.number)}
+                        disabled={!month.hasEvents}
                     >
+                        <Typography fontSize={'10pt'}>
                         {month.name}
+                        </Typography>
                     </MonthButton>
                 ))}
             </MonthColumn>
@@ -380,11 +385,12 @@ const EventsList = () => {
                         transition={{ duration: 0.3 }}
                         id={`month-${event.month}`}
                     >
-                        <EventImage
+                        <center><EventImage
                             src={event.imageUrl}
                             alt={event.title}
                             onClick={() => handleImageClick(event.imageUrl)}
                         />
+                        </center>
                         <EventTitle>{event.title}</EventTitle>
                         <EventDate>Date: {event.date}</EventDate>
                         <EventSummary>{event.summary}</EventSummary>
@@ -423,6 +429,7 @@ const EventsList = () => {
                 </DialogContent>
             </Dialog>
         </TwoColumnContainer>
+        </Box>
     );
 };
 
