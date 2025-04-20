@@ -54,8 +54,7 @@ const Layout = ({ children, hasScroll = true }) => {
       sx={{
         background: "whitesmoke",
         overflowY: !hasScroll && "hidden",
-        msOverflowStyle: !hasScroll ? "none" : "scrollbar", // IE and Edge
-        scrollbarWidth: !hasScroll ? "none" : "2px",
+        overflowX: "hidden",
         padding: 0,
       }}
     >
@@ -64,9 +63,9 @@ const Layout = ({ children, hasScroll = true }) => {
         language={language}
         changeLanguage={changeLanguage}
       />
-      <main>
+      <Box>
         {Children.map(children, (child) => cloneElement(child, { language }))}
-      </main>
+      </Box>
     </Box>
   );
 };

@@ -123,7 +123,6 @@ const ImageCarousel = ({ language, imageSelector }) => {
                       overflow: "hidden",
                       boxShadow: 3,
                       width: "100%",
-                      background: "red",
                       cursor: "pointer",
                     }}
                     onClick={() => imageSelector(img)}
