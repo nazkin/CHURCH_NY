@@ -70,8 +70,11 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
   const pageLinks = phoneSize ? [...samplePageLinks, aid, facebook, uaccnj, archeparchy] : samplePageLinks
 
   return (
-    <AppBar position="fixed" sx={{ background: steelBlue, color: white }}>
-      <Container maxWidth="m">
+    <AppBar
+      position="fixed"
+      sx={{ background: steelBlue, color: white, width: "100%" }}
+    >
+      <Container>
         <Toolbar disableGutters>
           <Box
             sx={{
@@ -94,8 +97,8 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
             >
               <StaticImage
                 src="../images/church_icon_simple.png"
-                width="50"
-                height="50"
+                width="50px"
+                height="50px"
               />
             </Box>
           </Box>
@@ -187,20 +190,39 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
             justifyContent={"center"}
             alignItems={"center"}
           >
-            {!phoneSize ? 
-            <Stack direction="row" display={"flex"} justifyContent={"center"} alignItems={"center"} gap={2}>
-              <Tooltip title={GENERAL_CONTENT[language].UCAP}>
-                <a href="https://ukrcatholic.org//" target="_blank">
-                  <StaticImage src = "../images/ucap.png" width="25" height="50" />
-                </a>
-              </Tooltip>
-              <Tooltip title={GENERAL_CONTENT[language].UACCNJ}>
-                <a href="https://uaccnj.org/" target="_blank">
-                  <StaticImage src = "../images/uaccnj-logo-no-name.png" width="30" height="30" />
-                </a>
-              </Tooltip>
-            </Stack> : null}
-            {!phoneSize ? <a href="https://www.facebook.com/SJUCCNJ/" target="_blank"><Facebook fontSize="large" className={styles.iconLG} /></a> : null }
+            {!phoneSize ? (
+              <Stack
+                direction="row"
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={2}
+              >
+                <Tooltip title={GENERAL_CONTENT[language].UCAP}>
+                  <a href="https://ukrcatholic.org//" target="_blank">
+                    <StaticImage
+                      src="../images/ucap.png"
+                      width="25"
+                      height="50"
+                    />
+                  </a>
+                </Tooltip>
+                <Tooltip title={GENERAL_CONTENT[language].UACCNJ}>
+                  <a href="https://uaccnj.org/" target="_blank">
+                    <StaticImage
+                      src="../images/uaccnj-logo-no-name.png"
+                      width="30"
+                      height="30"
+                    />
+                  </a>
+                </Tooltip>
+              </Stack>
+            ) : null}
+            {!phoneSize ? (
+              <a href="https://www.facebook.com/SJUCCNJ/" target="_blank">
+                <Facebook fontSize="large" className={styles.iconLG} />
+              </a>
+            ) : null}
             <SupportOurChurch language={language} />
             <Box
               sx={{

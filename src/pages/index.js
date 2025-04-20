@@ -121,7 +121,7 @@ const PageContent = ({ language }) => {
               paddingBottom: 5,
             }}
           >
-            Explore Our Affiliates
+            {HOME_CONTENT[language].supportTitle}
           </Typography>
         </Box>
         <SupportParish language={language} phoneSize={phoneSize} />
