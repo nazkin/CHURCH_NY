@@ -16,20 +16,21 @@ import {
   lightBlue,
 } from "../../../constants/colors";
 
-export const SupportParish = ({ language }) => {
+export const SupportParish = ({ language, phoneSize }) => {
   const [hoverUACCNJ, setHoverUACCNJ] = React.useState(false);
   const [hoverUCAP, setHoverUCAP] = React.useState(false);
 
   return (
     <Grid
       container
-      spacing={2}
+      gap={5}
       style={{
         margin: `0 auto 0 auto`,
         maxWidth: `var(--size-content)`,
         minHeight: 120,
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "space-evenly",
+        padding: 10,
       }}
     >
       <Grid
@@ -49,7 +50,7 @@ export const SupportParish = ({ language }) => {
           alignItems={"center"}
           gap={5}
           sx={{
-            background: lightYellow,
+            background: hoverUACCNJ ? darkBlue : "transparent",
           }}
         >
           {/* <Button variant="outlined">{HOME_CONTENT[language].supportParishBtn}</Button> */}
@@ -62,7 +63,7 @@ export const SupportParish = ({ language }) => {
               style={{
                 background: white,
                 padding: "25px",
-                opacity: hoverUACCNJ ? 0.96 : 1,
+                opacity: hoverUACCNJ ? 0.98 : 1,
                 border: "1px solid whitesmoke",
                 borderRadius: "20px",
                 width: "100%",
@@ -98,7 +99,7 @@ export const SupportParish = ({ language }) => {
           alignItems={"center"}
           gap={5}
           sx={{
-            background: lightYellow,
+            background: hoverUCAP ? darkBlue : "transparent",
           }}
         >
           <Tooltip title={GENERAL_CONTENT[language].UCAP}>
@@ -110,7 +111,7 @@ export const SupportParish = ({ language }) => {
               style={{
                 background: white,
                 padding: "25px",
-                opacity: hoverUCAP ? 0.96 : 1,
+                opacity: hoverUCAP ? 0.98 : 1,
                 border: "1px solid whitesmoke",
                 borderRadius: "20px",
                 width: "100%",

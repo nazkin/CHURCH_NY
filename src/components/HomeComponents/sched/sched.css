@@ -31,7 +31,6 @@ h1 {
 
 .timeline {
   border-left: 0.25em solid #4298c3;
-  background: rgba(255, 255, 255, 0.1);
   margin: 2em auto;
   line-height: 1.4em;
   padding: 1em;
@@ -42,26 +41,37 @@ h1 {
   margin-right: 3em;
   border-radius: 0.5em;
   min-width: 22em;
-
 }
+
+.timeline-mobile {
+  border-left: 0.25em solid #4298c3;
+  margin: 2em auto;
+  line-height: 1.4em;
+  padding: 1em 1em 1em 3em;
+  list-style: none;
+  text-align: left;
+  margin-left: 10em;
+  margin-right: 3em;
+  border-radius: 0.5em;
+  min-width: 22em;
+}
+
 
 .event {
   min-width: 20em;
   width: 100%;
   vertical-align: middle;
-  box-sizing: border-box;
   position: relative;
-
 }
 
-.timeline .event:before,
-.timeline .event:after {
+.timeline  .event:before,
+.timeline  .event:after {
   position: absolute;
   display: block;
   top: 1em;
 }
 
-.timeline .event:before {
+.timeline  .event:before {
   left: -15em;
   color: darkslategray;
   content: attr(data-date);
@@ -71,7 +81,7 @@ h1 {
   min-width: 9em;
 }
 
-.timeline .event:after {
+.timeline  .event:after {
   box-shadow: 0 0 0 0.2em #4298c3;
   left: -3.5em;
   background: #96CCD7;
@@ -81,23 +91,67 @@ h1 {
   content: "";
 }
 
-.timeline .event .member-location,
-.timeline .event .member-parameters {
+.timeline  .event .member-location,
+.timeline  .event .member-parameters {
   display: none;
 }
 
-.timeline .event:last-of-type .member-location,
-.timeline .event:last-of-type .member-parameters {
+.timeline  .event:last-of-type .member-location,
+.timeline  .event:last-of-type .member-parameters {
   display: block;
 }
 
-.member-infos {
+.timeline-mobile  .event:before,
+.timeline-mobile  .event:after {
+  position: absolute;
+  display: block;
+  top: 1em;
+}
+
+.timeline-mobile  .event:before {
+  left: -15em;
+  color: darkslategray;
+  content: attr(data-date);
+  text-align: right;
+  font-weight: 100;
+  font-size: 0.9em;
+  min-width: 9em;
+}
+
+.timeline-mobile  .event:after {
+  box-shadow: 0 0 0 0.2em #4298c3;
+  left: -3.5em;
+  background: #96CCD7;
+  border-radius: 50%;
+  height: 0.75em;
+  width: 0.75em;
+  content: "";
+}
+
+.timeline-mobile  .event .member-location,
+.timeline-mobile  .event .member-parameters {
+  display: none;
+}
+
+.timeline-mobile  .event:last-of-type .member-location,
+.timeline-mobile  .event:last-of-type .member-parameters {
+  display: block;
+}
+
+.member-infos, .member-infos-mobile {
   padding: 10px;
   text-align: left;
   position: relative;
 }
 
+
 .member-infos > h1 {
   font-weight: bold;
   font-size: 1.4em;
+}
+
+.member-infos-mobile > h1 {
+  font-weight: bold;
+  font-size: 0.8em;
+  letter-spacing: 0px;
 }

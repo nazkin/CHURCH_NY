@@ -22,6 +22,7 @@ export const HomeNewsSection = ({ language, imageSelector }) => {
     <Grid
       container
       alt="News poster or slide"
+      px={2}
       style={{
         width: "100%",
         minHeight: 400,
@@ -31,9 +32,7 @@ export const HomeNewsSection = ({ language, imageSelector }) => {
         alignItems: "center",
       }}
     >
-      <Box px={2} width="100%" height="100%">
-        <ImageCarousel language={language} imageSelector={imageSelector} />
-      </Box>
+      <ImageCarousel language={language} imageSelector={imageSelector} />
     </Grid>
   );
 };
