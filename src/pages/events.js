@@ -59,6 +59,28 @@ const EventsContent = ({ language }) => {
     </Box>;
 }
 
+
+import { useState, useEffect } from "react";
+
+function MyComponent() {
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "//dist.eventscalendar.co/embed.js";
+    script.onload = () => setScriptLoaded(true);
+    document.body.appendChild(script);
+
+    console.log(script.src);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return <div>{scriptLoaded ? "Script loaded" : "Script not loaded"}</div>;
+}
+
 const Events = () => {
     const [showEvents, setShowEvents] = useState(false)
     React.useEffect(() => {
@@ -67,11 +89,11 @@ const Events = () => {
 
   return (
     <Layout>
-        <EventsContent />
-        <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
-            <Footer />
-        </Box>
+      <MyComponent />
+      <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
+        <Footer />
+      </Box>
     </Layout>
-  )
+  );
 }
 export default Events
