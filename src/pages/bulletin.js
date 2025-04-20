@@ -178,14 +178,13 @@ const BulletinContent = ({ language }) => {
   return (
     <Grid
       container
-      mt={"80px"}
-      py="20px"
+      py={20}
       style={{
         background: "whitesmoke",
+        minHeight: "100vh",
       }}
-      marginTop={"70px"}
     >
-      <Grid xs={12} md={6} px={"10px"} style={{ height: "85vh" }}>
+      <Grid xs={12} md={6} px={"10px"}>
         <PdfDisplay pdfUrl={"/2024ltr.pdf"} aspectRatio="calc(100% * 1.414)" />
       </Grid>
       <GlobalStyles
@@ -206,9 +205,8 @@ const BulletinContent = ({ language }) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "top",
-          height: "80vh",
+          height: "100%",
           overflowY: "scroll",
-          boxShadow: "rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;",
         }}
       >
         <AnnouncementsComponent language={language} />
