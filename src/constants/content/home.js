@@ -13,7 +13,7 @@ export const HOME_CONTENT = {
     summary:
       "Condimentum id venenatis a condimentum. Sed enim ut sem viverra aliquet eget. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Aliquet bibendum enim facilisis gravida neque convallis. At tempor commodo ullamcorper a lacus. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor. Id semper risus in hendrerit gravida. Id interdum velit laoreet id donec ultrices tincidunt arcu non. Diam maecenas ultricies mi eget mauris pharetra et ultrices. Tincidunt ornare massa eget egestas purus. Risus in hendrerit gravida rutrum quisque non tellus orci. Neque vitae tempus quam pellentesque nec nam aliquam.",
     easterCeleb: "Easter Celebration at St. John the Baptist Catholic Church",
-    supportTitle: "Support Your Parish",
+    supportTitle: "Explore Our Affiliates",
     supportBtn: "Support our Church",
     supportParishBtn: "Support our Parish",
     history:
@@ -34,7 +34,7 @@ export const HOME_CONTENT = {
     summary:
       "UA | Condimentum id venenatis a condimentum. Sed enim ut sem viverra aliquet eget. Malesuada bibendum arcu vitae elementum curabitur vitae nunc sed. Aliquet bibendum enim facilisis gravida neque convallis. At tempor commodo ullamcorper a lacus. Accumsan in nisl nisi scelerisque eu ultrices vitae auctor. Id semper risus in hendrerit gravida. Id interdum velit laoreet id donec ultrices tincidunt arcu non. Diam maecenas ultricies mi eget mauris pharetra et ultrices. Tincidunt ornare massa eget egestas purus. Risus in hendrerit gravida rutrum quisque non tellus orci. Neque vitae tempus quam pellentesque nec nam aliquam.",
     easterCeleb: "Святкування Великодня у Нашій Церкві",
-    supportTitle: "Підтримати Нашу Парафію",
+    supportTitle: "Дізнайтеся про Наших Партнерів",
     supportBtn: "Підтримати Нашу Церкву",
     supportParishBtn: "Підтримати Нашу Парафію",
     history:
