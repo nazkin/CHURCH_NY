@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef, useCallback } from 'react';
+import { motion } from 'framer-motion';
 import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { Button } from '@mui/material';
 import { Dialog, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
+import { useEffect } from 'react';
 
 // Sample event data (replace with your actual data source)
 const eventsData = [
@@ -157,16 +158,20 @@ const eventsData = [
 // Styled Components for better UI
 const TwoColumnContainer = styled(Box)({
     display: 'flex',
-    height: '500px', // Or any desired height
+    height: '500px',
     width: '100%',
-    overflow: 'hidden', // Important: prevent scrollbar on container
+    overflow: 'hidden',
     backgroundColor: '#f5f5f5',
     padding: '16px',
     gap: '20px',
+    '@media (max-width: 600px)': {  // Added media query for small screens
+        flexDirection: 'column',
+        height: 'auto',
+    },
 });
 
 const MonthColumn = styled(Box)({
-    flex: '0 0 120px', // Fixed width for month column
+    flex: '0 0 120px',
     overflowY: 'auto',
     paddingRight: '10px',
     borderRight: '1px solid #ccc',
@@ -183,10 +188,20 @@ const MonthColumn = styled(Box)({
     '&::-webkit-scrollbar-thumb:hover': {
         background: '#555',
     },
+    '@media (max-width: 600px)': {  // Added media query for small screens
+        flex: '0 0 auto',
+        width: '100%',
+        borderRight: 'none',
+        borderBottom: '1px solid #ccc',
+        paddingBottom: '10px',
+        marginBottom: '10px',
+        overflowX: 'auto; overflowY: hidden;',
+        whiteSpace: 'nowrap',
+    },
 });
 
 const EventsColumn = styled(Box)({
-    flex: '1', // Take up remaining space
+    flex: '1',
     overflowY: 'auto',
     paddingLeft: '10px',
     '&::-webkit-scrollbar': {
@@ -201,6 +216,9 @@ const EventsColumn = styled(Box)({
     },
     '&::-webkit-scrollbar-thumb:hover': {
         background: '#555',
+    },
+    '@media (max-width: 600px)': {  // Added media query for small screens
+        paddingLeft: '0px',
     },
 });
 
@@ -217,19 +235,26 @@ const MonthButton = styled(Button, {
     color: isHighlighted ? theme.palette.primary.main : theme.palette.text.primary,
     fontWeight: isHighlighted ? 'bold' : 'normal',
     '&:hover': {
-        backgroundColor: 'rgba(0, 0, 0, 0.04)', // Light hover effect
+        backgroundColor: 'rgba(0, 0, 0, 0.04)',
+    },
+    '@media (max-width: 600px)': {  // Added media query for small screens
+        display: 'inline-block',
+        width: 'auto',
+        marginRight: '10px',
+        marginBottom: '0px',
     },
 }));
 
 const EventCard = styled(motion.div)(({ theme }) => ({
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: '#468499',
+    color: '#FFD700',
     borderRadius: '8px',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.08)', // Subtle shadow
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.08)',
     marginBottom: '16px',
     padding: '16px',
     transition: 'transform 0.2s ease-in-out',
     '&:hover': {
-        transform: 'scale(1.02)', // Slight scale on hover
+        transform: 'scale(1.02)',
     },
 }));
 
@@ -237,7 +262,7 @@ const EventImage = styled('img')({
     width: '100%',
     height: 'auto',
     borderRadius: '4px',
-    cursor: 'pointer', // Indicate clickable for full-size view
+    cursor: 'pointer',
     marginBottom: '12px',
 });
 
@@ -245,28 +270,28 @@ const EventTitle = styled(Typography)({
     fontSize: '1.2rem',
     fontWeight: 'bold',
     marginBottom: '8px',
-    color: '#2c3e50', // Darker title color
+    color: '#FFD700',
 });
 
 const EventDate = styled(Typography)({
     fontSize: '0.9rem',
-    color: '#7f8c8d', // Muted date color
+    color: '#EEE',
     marginBottom: '4px',
 });
 
 const EventSummary = styled(Typography)({
     fontSize: '1rem',
-    color: '#34495e', // Slightly darker summary
+    color: '#EEE',
     marginBottom: '12px',
 });
 
 const EventDescription = styled(Typography)({
     fontSize: '1rem',
-    color: '#555', //  darker description
-    lineHeight: 1.6, // Improved readability
+    color: '#FFFFFF',
+    lineHeight: 1.6,
     '& img': {
-        cursor: 'pointer', // Indicate clickable images in description.
-        maxWidth: '100%',  // Ensure images don't overflow
+        cursor: 'pointer',
+        maxWidth: '100%',
         height: 'auto',
         borderRadius: '4px',
         margin: '8px 0',
@@ -291,7 +316,7 @@ const months = [
 const EventsList = () => {
     const [selectedMonth, setSelectedMonth] = useState(null);
     const eventsColumnRef = useRef(null);
-    const [openImage, setOpenImage] = useState(null); // State for the image dialog
+    const [openImage, setOpenImage] = useState(null);
 
     const scrollToMonth = useCallback(
         (month) => {
@@ -315,11 +340,23 @@ const EventsList = () => {
         hasEvents: eventsData.some((event) => event.month === month.number),
     }));
 
+
     const handleImageClick = (imageUrl) => {
         setOpenImage(imageUrl);
     };
 
     const filteredEvents = selectedMonth ? getMonthEvents(selectedMonth) : eventsData;
+
+      //Fixes "document is not defined" during build
+    const [isClient, setIsClient] = useState(false);
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return null;
+    }
+
 
     return (
         <TwoColumnContainer>
@@ -341,7 +378,7 @@ const EventsList = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.3 }}
-                        id={`month-${event.month}`} // Add ID for scrolling
+                        id={`month-${event.month}`}
                     >
                         <EventImage
                             src={event.imageUrl}
@@ -359,16 +396,16 @@ const EventsList = () => {
                                         `<img src="${src}" onclick="this.dispatchEvent(new CustomEvent('imageclick', {bubbles: true, detail: {src: '${src}'}}));" style="cursor:pointer;" />`
                                 ),
                             }}
-                            onClick={(e) => {
+                           onClick={(e) => {
                                 if (e.target.tagName === 'IMG') {
-                                    handleImageClick(e.target.src);
+                                     handleImageClick(e.target.src);
                                 }
                             }}
                         />
                     </EventCard>
                 ))}
             </EventsColumn>
-            <Dialog
+             <Dialog
                 open={!!openImage}
                 onClose={() => setOpenImage(null)}
                 maxWidth="md"
