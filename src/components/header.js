@@ -75,7 +75,14 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
       sx={{ background: steelBlue, color: white, width: "100%" }}
     >
       <Container>
-        <Toolbar disableGutters>
+        <Toolbar
+          disableGutters
+          sx={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+          }}
+        >
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -97,8 +104,8 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
             >
               <StaticImage
                 src="../images/church_icon_simple.png"
-                width="50px"
-                height="50px"
+                width="50"
+                height="50"
               />
             </Box>
           </Box>
@@ -127,7 +134,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
               >
                 <div
                   style={{
-                    background: "#159bf3",
+                    background: "steelblue",
                     height: 40,
                     display: "flex",
                     flexDirection: "row",
@@ -156,7 +163,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
                             <ChevronLeftIcon />
                           </ListItemIcon>
                           <ListItemText
-                            style={{ color: "#159bf3" }}
+                            sx={{ color: "black" }}
                             primary={obj.text[language]}
                           />
                         </ListItemButton>
