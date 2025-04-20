@@ -9,52 +9,52 @@ import { Grid, Box, Stack, Divider, Typography } from "@mui/material";
 import { Script } from "react-dom";
 
 
-const EventsContent = ({ language }) => {
-  const [scriptLoaded, setScriptLoaded] = useState(false);
-  console.log("EVENTS", scriptLoaded);
-  useEffect(() => {
-    // if (scriptLoaded) {
-    // console.log("script loaded")
-    // }
-    console.log("RUN USE EFFECT!!!");
-  }, []);
+// const EventsContent = ({ language }) => {
+//   const [scriptLoaded, setScriptLoaded] = useState(false);
+//   console.log("EVENTS", scriptLoaded);
+//   //   useEffect(() => {
+//   //     // if (scriptLoaded) {
+//   //     // console.log("script loaded")
+//   //     // }
+//   //     console.log("RUN USE EFFECT!!!");
+//   //   }, []);
 
-  <Box
-    sx={{
-      width: "80%",
-      maxWidth: "1000px",
-      backgroundColor: "#ffffff",
-      padding: 2,
-      borderRadius: "8px",
-      boxShadow: 2,
-      paddingTop: "100px",
-      paddingBottom: 130,
-      margin: "0 auto",
-    }}
-    justifySelf={"center"}
-  >
-    <Typography variant="h4" sx={{ textAlign: "center", marginBottom: 3 }}>
-      {EVENTS_CONTENT[language].title}
-    </Typography>
-    <Box
-      width="100%"
-      height={"100%"}
-      minWidth={"500px"}
-      minHeight={"500px"}
-      display="flex"
-      justifyContent={"center"}
-      alignItems={"center"}
-    ></Box>
-  </Box>;
-};
+//   <Box
+//     sx={{
+//       width: "80%",
+//       maxWidth: "1000px",
+//       backgroundColor: "#ffffff",
+//       padding: 2,
+//       borderRadius: "8px",
+//       boxShadow: 2,
+//       paddingTop: "100px",
+//       paddingBottom: 130,
+//       margin: "0 auto",
+//     }}
+//     justifySelf={"center"}
+//   >
+//     <Typography variant="h4" sx={{ textAlign: "center", marginBottom: 3 }}>
+//       {EVENTS_CONTENT[language].title}
+//     </Typography>
+//     <Box
+//       width="100%"
+//       height={"100%"}
+//       minWidth={"500px"}
+//       minHeight={"500px"}
+//       display="flex"
+//       justifyContent={"center"}
+//       alignItems={"center"}
+//     ></Box>
+//   </Box>;
+// };
 
 const Events = () => {
-    const [scriptLoaded, setScriptLoaded] = useState(false);
-    useEffect(() => {
-    if (scriptLoaded) {
-        console.log("RUN USE EFFECT!!!");
-    }
-    }, [scriptLoaded]);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
+  // useEffect(() => {
+  // if (scriptLoaded) {
+  //     console.log("RUN USE EFFECT!!!");
+  // }
+  // }, [scriptLoaded]);
 
   return (
     <Layout>
@@ -67,7 +67,7 @@ const Events = () => {
           height: "100%",
         }}
       >
-        <div
+        {/* <div
           data-events-calendar-app
           data-project-id="proj_rcajbWhaMnIMxDi4zif5R"
           width="80%"
@@ -78,7 +78,7 @@ const Events = () => {
           onLoad={setScriptLoaded(true)}
           type="text/javascript"
           src="//dist.eventscalendar.co/embed.js"
-        ></Script>
+        ></Script> */}
         {/* <div
           style={{ display: "flex", width: "80%", height: "80%" }}
           events-calendar-app
