@@ -58,7 +58,7 @@ const Events = () => {
   return (
     <Layout>
       <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
-        <iframe
+        <embed
           src="//dist.eventscalendar.co/embed.js"
           width={500}
           height={500}
