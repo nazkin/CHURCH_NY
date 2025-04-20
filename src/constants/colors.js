@@ -4,9 +4,9 @@ export const steelBlue = "#4682B4"
 
 export const lightBlue = "#96CCD7";
 
-export const lightYellow = "#B18121";
+export const lightYellow = "gold";
 
-export const darkYellow = "#71450E";
+export const darkYellow = "goldenrod";
 
 export const white = "#DFE3E6";
 

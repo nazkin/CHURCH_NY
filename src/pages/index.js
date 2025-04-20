@@ -16,6 +16,7 @@ import { Announcement } from "../components/Announcements";
 import { Box, Modal, Typography, Container, Grid } from "@mui/material";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import Schedule from "../components/HomeComponents/sched/index";
+import { darkBlue } from "../constants/colors";
 const PageContent = ({ language }) => {
   const [isModalOpen, setOpenModal] = React.useState(false);
   const [selectedImage, selectImage] = React.useState(null);
@@ -29,7 +30,6 @@ const PageContent = ({ language }) => {
     selectImage(image);
   };
   const handleClose = () => setOpenModal(false);
-  console.log(selectedImage);
   return (
     <>
       <HomeHero language={language} />
@@ -40,15 +40,12 @@ const PageContent = ({ language }) => {
         justifyContent={"center"}
         alignItems={"center"}
         mt={5}
-        sx={{
-          background: white,
-        }}
       >
         <Typography
           sx={{
             fontSize: "52px",
             textAlign: "center",
-            color: "slategrey",
+            color: darkBlue,
             fontWeight: 200,
           }}
         >
@@ -62,7 +59,7 @@ const PageContent = ({ language }) => {
           background: white,
         }}
       >
-        <Schedule />
+        <Schedule language={language} />
       </Container>
       <Box my={10} ref={rootRef}>
         <Modal
@@ -101,14 +98,14 @@ const PageContent = ({ language }) => {
                 display: "block",
               }}
               imgStyle={{
-                objectFit: "cover",
+                objectFit: "fill",
               }}
             />
           </Box>
         </Modal>
         <HomeNewsSection language={language} imageSelector={imageSelector} />
       </Box>
-      <Box py={15}>
+      <Box pb={15}>
         <Box
           width={"100%"}
           display={"flex"}
@@ -119,7 +116,7 @@ const PageContent = ({ language }) => {
             sx={{
               fontSize: "52px",
               textAlign: "center",
-              color: "slategrey",
+              color: darkBlue,
               fontWeight: 200,
               paddingBottom: 5,
             }}
@@ -127,7 +124,7 @@ const PageContent = ({ language }) => {
             Explore Our Affiliates
           </Typography>
         </Box>
-        <SupportParish language={language} />
+        <SupportParish language={language} phoneSize={phoneSize} />
       </Box>
     </>
   );
