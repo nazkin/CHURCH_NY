@@ -221,9 +221,7 @@ const Bulletin = () => {
   return (
     <Layout hasScroll={false}>
       <BulletinContent />
-      <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
-        <Footer />
-      </Box>
+      <Footer />
     </Layout>
   );
 };

@@ -11,17 +11,9 @@ import EventsList from "../components/EventList"
 const Events = () => {
   return (
     <Layout>
-        <EventsList />
-        <Box
-            sx={{
-            position: "fixed",
-            bottom: "0",
-            left: 0,
-            width: "100%",
-            }}
-        >
-            <Footer />
-        </Box>
+      <EventsList />
+
+      <Footer />
     </Layout>
   );
 };
