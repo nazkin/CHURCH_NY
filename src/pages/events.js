@@ -50,11 +50,6 @@ const EventsContent = ({ language }) => {
           data-events-calendar-app
           data-project-id="proj_rcajbWhaMnIMxDi4zif5R"
         ></div>
-        <Script
-          // strategy="post-hydrate"
-          // onLoad={() => setScriptLoaded(true)}
-          src="//dist.eventscalendar.co/embed.js"
-        />
       </Box>
     </Box>;
 }
@@ -67,7 +62,7 @@ const Events = () => {
     const script = document.createElement("script");
     script.src = "//dist.eventscalendar.co/embed.js";
     script.onload = () => setScriptLoaded(true);
-    document.body.appendChild(script);
+    document.head.appendChild(script);
     // setScript(script);
 
     console.log(script.src);
@@ -81,6 +76,11 @@ const Events = () => {
     <Layout>
       <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
         {/* {scriptLoaded && script} */}
+        <Script
+          // strategy="post-hydrate"
+          // onLoad={() => setScriptLoaded(true)}
+          src="//dist.eventscalendar.co/embed.js"
+        />
         <Footer />
       </Box>
     </Layout>
