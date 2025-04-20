@@ -54,7 +54,7 @@ const Events = () => {
       <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
         <div
           style={{ display: "flex", width: "80%", height: "80%" }}
-          data-events-calendar-app
+          events-calendar-app
           project-id="proj_rcajbWhaMnIMxDi4zif5R"
         >
           <Script
