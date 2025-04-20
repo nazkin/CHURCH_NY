@@ -181,11 +181,12 @@ const BulletinContent = ({ language }) => {
       py={20}
       style={{
         background: "whitesmoke",
-        minHeight: "100vh",
+        minHeight: !phoneSize && "100vh",
+        maxWidth: "100%",
       }}
     >
       <Grid xs={12} md={6} px={"10px"}>
-        <PdfDisplay pdfUrl={"/2024ltr.pdf"} aspectRatio="calc(100% * 1.414)" />
+        <PdfDisplay pdfUrl={"/2024ltr.pdf"} />
       </Grid>
       <GlobalStyles
         styles={{
