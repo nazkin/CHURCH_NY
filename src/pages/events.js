@@ -59,10 +59,7 @@ const EventsContent = ({ language }) => {
     </Box>;
 }
 
-
-import { useState, useEffect } from "react";
-
-function MyComponent() {
+const Events = () => {
   const [scriptLoaded, setScriptLoaded] = useState(false);
 
   useEffect(() => {
@@ -78,22 +75,14 @@ function MyComponent() {
     };
   }, []);
 
-  return <div>{scriptLoaded ? "Script loaded" : "Script not loaded"}</div>;
-}
-
-const Events = () => {
-    const [showEvents, setShowEvents] = useState(false)
-    React.useEffect(() => {
-        setShowEvents(true)
-    }, []);
+  console.log(scriptLoaded);
 
   return (
     <Layout>
-      <MyComponent />
       <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
         <Footer />
       </Box>
     </Layout>
   );
-}
+};
 export default Events
