@@ -61,14 +61,14 @@ const EventsContent = ({ language }) => {
 
 const Events = () => {
   const [scriptLoaded, setScriptLoaded] = useState(false);
-  const [script, setScript] = useState(null);
+  //   const [script, setScript] = useState(null);
 
   useEffect(() => {
     const script = document.createElement("script");
     script.src = "//dist.eventscalendar.co/embed.js";
     script.onload = () => setScriptLoaded(true);
     document.body.appendChild(script);
-    setScript(script);
+    // setScript(script);
 
     console.log(script.src);
 
@@ -77,12 +77,10 @@ const Events = () => {
     };
   }, []);
 
-  console.log(script);
-
   return (
     <Layout>
       <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
-        {scriptLoaded && script}
+        {/* {scriptLoaded && script} */}
         <Footer />
       </Box>
     </Layout>
