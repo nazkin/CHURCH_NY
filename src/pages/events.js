@@ -58,8 +58,16 @@ const Events = () => {
 
   return (
     <Layout>
-      <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
-        <div
+      <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%", height: "100%" }}>
+      <div 
+        data-events-calendar-app 
+        data-project-id="proj_rcajbWhaMnIMxDi4zif5R" 
+        width="80%"
+        height="80%">
+        
+    </div>
+      <Script strategy="post-hydrate" onLoad={setScriptLoaded(true)} type="text/javascript" src="//dist.eventscalendar.co/embed.js"></Script>
+        {/* <div
           style={{ display: "flex", width: "80%", height: "80%" }}
           events-calendar-app
           project-id="proj_rcajbWhaMnIMxDi4zif5R"
@@ -67,10 +75,10 @@ const Events = () => {
           <Script
             src="//dist.eventscalendar.co/embed.js"
             onLoad={setScriptLoaded(true)}
-            width={500}
-            height={500}
+            width="100%"
+            height="100%"
           />
-        </div>
+        </div> */}
 
         <Footer />
       </Box>
