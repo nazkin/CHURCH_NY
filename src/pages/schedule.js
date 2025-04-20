@@ -113,10 +113,8 @@ const Schedule = () => {
   return (
     <Layout>
       <LiturgySchedule />
-      <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
-        <Footer />
-      </Box>
+      <Footer />
     </Layout>
-  )
+  );
 }
 export default Schedule

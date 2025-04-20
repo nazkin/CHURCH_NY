@@ -53,12 +53,12 @@ const AboutContent = ({ language }) => {
 export const Head = () => <Seo title="About Page" />
 
 const About = () => {
-  return <Layout>
-    <AboutContent />
-    <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
+  return (
+    <Layout>
+      <AboutContent />
       <Footer />
-    </Box>
-  </Layout>
+    </Layout>
+  );
 }
 
 export default About

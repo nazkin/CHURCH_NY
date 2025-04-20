@@ -241,12 +241,12 @@ const ContactForm = ({ language }) => {
 export const Head = () => <Seo title="Contact" />
 
 const Contact = () => {
-  return <Layout>
-    <ContactForm />
-    <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
+  return (
+    <Layout>
+      <ContactForm />
       <Footer />
-    </Box>
-  </Layout>
+    </Layout>
+  );
 }
 
 export default Contact
