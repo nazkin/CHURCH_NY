@@ -49,6 +49,13 @@ const EventsContent = ({ language }) => {
 };
 
 const Events = () => {
+    const [scriptLoaded, setScriptLoaded] = useState(false);
+    useEffect(() => {
+    if (scriptLoaded) {
+        console.log("RUN USE EFFECT!!!");
+    }
+    }, [scriptLoaded]);
+
   return (
     <Layout>
       <Box sx={{ position: "fixed", bottom: "0", left: 0, width: "100%" }}>
@@ -59,6 +66,7 @@ const Events = () => {
         >
           <Script
             src="//dist.eventscalendar.co/embed.js"
+            onLoad={setScriptLoaded(true)}
             width={500}
             height={500}
           />
