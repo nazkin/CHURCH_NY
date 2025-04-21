@@ -7,154 +7,156 @@ import { Button } from '@mui/material';
 import { Dialog, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 import { useEffect } from 'react';
 import { steelBlue, white } from '../../constants/colors';
+import { useStaticQuery, graphql } from "gatsby";
+import { GENERAL_CONTENT } from '../../constants/content/general';
 
 // Sample event data (replace with your actual data source)
-const eventsData = [
-    {
-        id: '1',
-        month: 1,
-        title: 'New Year Celebration',
-        date: '2024-01-01',
-        summary: 'Celebrate the start of the new year!',
-        description: 'Join us for a festive celebration with fireworks, music, and dancing.',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C',
-    },
-    {
-        id: '2',
-        month: 1,
-        title: 'January Event 2',
-        date: '2024-01-15',
-        summary: 'Another event in January',
-        description: 'Details for the second January event.',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C',
-    },
-    {
-        id: '3',
-        month: 2,
-        title: 'Valentine\'s Day',
-        date: '2024-02-14',
-        summary: 'Celebrate love and affection.',
-        description: 'A romantic evening with dinner and music.',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C',
-    },
-    {
-        id: '4',
-        month: 3,
-        title: 'St. Patrick\'s Day',
-        date: '2024-03-17',
-        summary: 'Celebrate Irish culture!',
-        description: 'Join the parade and enjoy traditional Irish food and drinks.',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C',
-    },
-    {
-        id: '5',
-        month: 3,
-        title: 'March Event 2',
-        date: '2024-03-25',
-        summary: 'A second event in March',
-        description: 'More March details',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C',
-    },
-    {
-        id: '6',
-        month: 4,
-        title: 'April Fools\' Day',
-        date: '2024-04-01',
-        summary: 'Get ready for some pranks!',
-        description: 'A day of fun and laughter.',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C',
-    },
-    {
-        id: '7',
-        month: 5,
-        title: 'Cinco de Mayo',
-        date: '2024-05-05',
-        summary: 'Celebrate Mexican heritage.',
-        description: 'Enjoy Mexican food, music, and dancing.',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C',
-    },
-    {
-        id: '8',
-        month: 5,
-        title: 'Mother\'s Day',
-        date: '2024-05-12',
-        summary: 'Honor mothers and motherhood.',
-        description: 'A day to celebrate the special women in our lives.',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C',
-    },
-    {
-        id: '9',
-        month: 6,
-        title: 'Father\'s Day',
-        date: '2024-06-16',
-        summary: 'Celebrate fatherhood.',
-        description: 'A day to honor fathers and father figures.',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C',
-    },
-    {
-        id: '10',
-        month: 7,
-        title: 'Independence Day',
-        date: '2024-07-04',
-        summary: 'Celebrate freedom and independence!',
-        description: 'Fireworks, parades, and patriotic festivities.',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C',
-    },
-    // {
-    //     id: '11',
-    //     month: 8,
-    //     title: 'August Event',
-    //     date: '2024-08-10',
-    //     summary: 'August summary',
-    //     description: 'August description',
-    //     imageUrl: 'https://placehold.co/600x400/EEE/31343C'
-    // },
-    {
-        id: '12',
-        month: 9,
-        title: 'September Event',
-        date: '2024-09-10',
-        summary: 'September summary',
-        description: 'September description',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C'
-    },
-    {
-        id: '13',
-        month: 10,
-        title: 'October Event',
-        date: '2024-10-10',
-        summary: 'October summary',
-        description: 'October description',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C'
-    },
-    {
-        id: '14',
-        month: 11,
-        title: 'November Event',
-        date: '2024-11-10',
-        summary: 'November summary',
-        description: 'November description',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C'
-    },
-    {
-        id: '15',
-        month: 12,
-        title: 'December Event',
-        date: '2024-12-10',
-        summary: 'December summary',
-        description: 'December description',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C'
-    },
-    {
-        id: '16',
-        month: 12,
-        title: 'Christmas',
-        date: '2024-12-25',
-        summary: 'Celebrate the birth of Jesus.',
-        description: 'A time for family, gifts, and joy.',
-        imageUrl: 'https://placehold.co/600x400/EEE/31343C'
-    }
-];
+// const eventsData = [
+//     {
+//         id: '1',
+//         month: 1,
+//         title: 'New Year Celebration',
+//         date: '2024-01-01',
+//         summary: 'Celebrate the start of the new year!',
+//         description: 'Join us for a festive celebration with fireworks, music, and dancing.',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
+//     },
+//     {
+//         id: '2',
+//         month: 1,
+//         title: 'January Event 2',
+//         date: '2024-01-15',
+//         summary: 'Another event in January',
+//         description: 'Details for the second January event.',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
+//     },
+//     {
+//         id: '3',
+//         month: 2,
+//         title: 'Valentine\'s Day',
+//         date: '2024-02-14',
+//         summary: 'Celebrate love and affection.',
+//         description: 'A romantic evening with dinner and music.',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
+//     },
+//     {
+//         id: '4',
+//         month: 3,
+//         title: 'St. Patrick\'s Day',
+//         date: '2024-03-17',
+//         summary: 'Celebrate Irish culture!',
+//         description: 'Join the parade and enjoy traditional Irish food and drinks.',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
+//     },
+//     {
+//         id: '5',
+//         month: 3,
+//         title: 'March Event 2',
+//         date: '2024-03-25',
+//         summary: 'A second event in March',
+//         description: 'More March details',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
+//     },
+//     {
+//         id: '6',
+//         month: 4,
+//         title: 'April Fools\' Day',
+//         date: '2024-04-01',
+//         summary: 'Get ready for some pranks!',
+//         description: 'A day of fun and laughter.',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
+//     },
+//     {
+//         id: '7',
+//         month: 5,
+//         title: 'Cinco de Mayo',
+//         date: '2024-05-05',
+//         summary: 'Celebrate Mexican heritage.',
+//         description: 'Enjoy Mexican food, music, and dancing.',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
+//     },
+//     {
+//         id: '8',
+//         month: 5,
+//         title: 'Mother\'s Day',
+//         date: '2024-05-12',
+//         summary: 'Honor mothers and motherhood.',
+//         description: 'A day to celebrate the special women in our lives.',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
+//     },
+//     {
+//         id: '9',
+//         month: 6,
+//         title: 'Father\'s Day',
+//         date: '2024-06-16',
+//         summary: 'Celebrate fatherhood.',
+//         description: 'A day to honor fathers and father figures.',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
+//     },
+//     {
+//         id: '10',
+//         month: 7,
+//         title: 'Independence Day',
+//         date: '2024-07-04',
+//         summary: 'Celebrate freedom and independence!',
+//         description: 'Fireworks, parades, and patriotic festivities.',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C',
+//     },
+//     // {
+//     //     id: '11',
+//     //     month: 8,
+//     //     title: 'August Event',
+//     //     date: '2024-08-10',
+//     //     summary: 'August summary',
+//     //     description: 'August description',
+//     //     imageUrl: 'https://placehold.co/600x400/EEE/31343C'
+//     // },
+//     {
+//         id: '12',
+//         month: 9,
+//         title: 'September Event',
+//         date: '2024-09-10',
+//         summary: 'September summary',
+//         description: 'September description',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C'
+//     },
+//     {
+//         id: '13',
+//         month: 10,
+//         title: 'October Event',
+//         date: '2024-10-10',
+//         summary: 'October summary',
+//         description: 'October description',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C'
+//     },
+//     {
+//         id: '14',
+//         month: 11,
+//         title: 'November Event',
+//         date: '2024-11-10',
+//         summary: 'November summary',
+//         description: 'November description',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C'
+//     },
+//     {
+//         id: '15',
+//         month: 12,
+//         title: 'December Event',
+//         date: '2024-12-10',
+//         summary: 'December summary',
+//         description: 'December description',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C'
+//     },
+//     {
+//         id: '16',
+//         month: 12,
+//         title: 'Christmas',
+//         date: '2024-12-25',
+//         summary: 'Celebrate the birth of Jesus.',
+//         description: 'A time for family, gifts, and joy.',
+//         imageUrl: 'https://placehold.co/600x400/EEE/31343C'
+//     }
+// ];
 
 // Styled Components for better UI
 const TwoColumnContainer = styled(Box)({
@@ -286,6 +288,12 @@ const EventSummary = styled(Typography)({
     marginBottom: '12px',
 });
 
+const EventLink = styled(Typography)({
+    fontSize: '0.8rem',
+    color: 'darkslategray',
+    marginBottom: '12px',
+});
+
 const EventDescription = styled(Typography)({
     fontSize: '1rem',
     color: 'darkslategray',
@@ -299,10 +307,89 @@ const EventDescription = styled(Typography)({
     }
 });
 
+
+function getMonthFromDate(dateString, language) {
+    const monthNames = { 
+        'January' : 'Січня',
+        'February' : 'Лютого',
+        'March' : 'Березня',
+        'April' : 'Квітня',
+        'May' : 'Травня',
+        'June' : 'Червня',
+        'July' : 'Липня',
+        'August' : 'Серпня',
+        'September' : 'Вересня',
+        'October' : 'Жовтня',
+        'November' : 'Листопада',
+        'December' : 'Грудня',
+    };
+
+    const date = new Date(dateString);
+    const month = date.getMonth(); // getMonth() returns a zero-based index
+    const monthName = new Intl.DateTimeFormat('en-US', { month: 'long' }).format(date); // Get full month name
+  
+    const day = date.getDate();
+    const year = date.getFullYear();
+    let hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    const formattedTime = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')} ${ampm}`;
+  
+  
+    const finalMonthName = language == 'en' ? monthName : monthNames[monthName]
+
+    return {
+      monthNumber: month + 1,
+      monthName:  finalMonthName,
+      formattedDate: language == 'en' ? `${finalMonthName} ${day}, ${year} at ${formattedTime}` : `${day} ${finalMonthName}, ${year} o ${formattedTime}` 
+    };
+  }
+
 const EventsList = ({language}) => {
     const [selectedMonth, setSelectedMonth] = useState(null);
     const eventsColumnRef = useRef(null);
     const [openImage, setOpenImage] = useState(null);
+
+    const { allContentfulEvents } = useStaticQuery(graphql`
+        query getEventsQuery {
+            allContentfulEvents {
+            nodes {
+                date
+                linkUrl
+                id
+                titleUa
+                title
+                summaryUa {
+                summaryUa
+                }
+                summary {
+                summary
+                }
+                image {
+                    publicUrl
+                }
+            }
+            totalCount
+            }
+        }
+      `);
+
+    const eventsData = allContentfulEvents.nodes.map((e) => {
+        const dateData = getMonthFromDate(e.date, language)
+        return {
+            id: e.id,
+            month: dateData.monthNumber,
+            title: language == 'en' ? e.title : e.titleUa,
+            date: dateData.formattedDate,
+            summary: language == 'en' ? e.summary.summary : e.summaryUa.summaryUa,
+            description: '',
+            linkUrl: e.linkUrl,
+            imageUrl: e.image.publicUrl,
+        }
+    })
+    console.log(allContentfulEvents)
 
     const months = [
         { number: 1, name: language == 'en' ? 'January' : 'Січень' },
@@ -392,7 +479,7 @@ const EventsList = ({language}) => {
                         />
                         </center>
                         <EventTitle>{event.title}</EventTitle>
-                        <EventDate>Date: {event.date}</EventDate>
+                        <EventDate>{event.date}</EventDate>
                         <EventSummary>{event.summary}</EventSummary>
                         <EventDescription
                             dangerouslySetInnerHTML={{
@@ -408,6 +495,13 @@ const EventsList = ({language}) => {
                                 }
                             }}
                         />
+                        <center>
+                            <EventLink>
+                                <a style={{color: steelBlue}} href={event.linkUrl} target="_blank">
+                                    {GENERAL_CONTENT[language].showDetails}
+                                </a>
+                            </EventLink>
+                        </center> 
                     </EventCard>
                 ))}
             </EventsColumn>
@@ -417,7 +511,7 @@ const EventsList = ({language}) => {
                 maxWidth="md"
                 fullWidth
             >
-                <DialogTitle>Image Preview</DialogTitle>
+                <center>
                 <DialogContent>
                     <DialogContentText>
                         <img
@@ -427,6 +521,7 @@ const EventsList = ({language}) => {
                         />
                     </DialogContentText>
                 </DialogContent>
+                </center>
             </Dialog>
         </TwoColumnContainer>
         </Box>

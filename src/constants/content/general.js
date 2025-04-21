@@ -14,6 +14,7 @@ export const GENERAL_CONTENT = {
         the: 'The ',
         and: "and",
         and_or: "and/or",
+        showDetails: "See Details",
     },
     ua: {
         name: "Українська Католицька Церква Св. Івана Хрестителя",
@@ -28,5 +29,6 @@ export const GENERAL_CONTENT = {
         the: '',
         and: "та",
         and_or: "та/або",
+        showDetails: "Побачити Більше Деталей"
     }
 }
