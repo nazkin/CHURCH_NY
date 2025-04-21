@@ -11,19 +11,19 @@ export default function Schedule({ language }) {
 
   const events = [
     {
-      time: "5:00pm",
+      time: "5:00 P.M.",
       title: HOME_CONTENT[language].saturday,
     },
     {
-      time: "8:30am & 10:00am",
+      time: "8:30 A.M. & 10:00 A.M.",
       title: HOME_CONTENT[language].sunday,
     },
     {
-      time: "9:00am - 7:00pm",
+      time: "9:00 A.M. & 7:00 P.M.",
       title: HOME_CONTENT[language].holyDays,
     },
     {
-      time: "9:00am - 7:00pm",
+      time: "9:00 A.M. & 7:00 P.M.",
       title: HOME_CONTENT[language].specialIntentions,
     },
   ];
