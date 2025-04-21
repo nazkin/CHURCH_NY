@@ -375,8 +375,9 @@ const EventsList = ({language}) => {
             }
         }
       `);
-
-    const eventsData = allContentfulEvents.nodes.map((e) => {
+    
+    const sortedEvents = allContentfulEvents.nodes
+    const eventsData = sortedEvents.sort((a, b) => new Date(a.date) - new Date(b.date)).map((e) => {
         const dateData = getMonthFromDate(e.date, language)
         return {
             id: e.id,
@@ -389,7 +390,6 @@ const EventsList = ({language}) => {
             imageUrl: e.image.publicUrl,
         }
     })
-    console.log(allContentfulEvents)
 
     const months = [
         { number: 1, name: language == 'en' ? 'January' : 'Січень' },
