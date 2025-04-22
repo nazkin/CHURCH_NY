@@ -31,9 +31,9 @@ const Footer = () => {
           Copyright © 2025 St. John the Baptist Ukrainian Catholic Church
           Whippany, NJ 07981
         </Typography>
-        {!phoneSize && (
+        {/* {!phoneSize && (
           <Typography fontSize={12}>Created By: Nazar Kinash</Typography>
-        )}
+        )} */}
         {/* <Facebook fontSize="small" className={styles.iconLG} /> */}
       </Box>
     </footer>
