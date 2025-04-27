@@ -47,7 +47,6 @@ export const Announcement = ({ language }) => {
       }
     }
   `);
-  console.log(allContentfulAnnouncement.nodes)
   return (
     <Container
       sx={{
