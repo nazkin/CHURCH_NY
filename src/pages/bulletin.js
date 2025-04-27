@@ -186,7 +186,7 @@ const BulletinContent = ({ language }) => {
       }}
     >
       <Grid xs={12} md={6} px={"10px"}>
-        <PdfDisplay pdfUrl={"/2024ltr.pdf"} />
+        <PdfDisplay pdfUrl={"/2024april.pdf"} />
       </Grid>
       <GlobalStyles
         styles={{
