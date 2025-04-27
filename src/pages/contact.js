@@ -22,10 +22,9 @@ import { CONTACT_CONTENT } from '../constants/content/contact'
 import { GENERAL_CONTENT } from '../constants/content/general'
 import { ADDRESS_LINE_1, ADDRESS_LINE_2, PHONE_NUMBER, EMAIL } from '../constants/info'
 
-const SERVICE = 'service_mhbcm0d'
-const TEMPLATE = 'template_smhk7ll'
-const PUBLIC_KEY = 'qMiZK74sZIp_Lm_UE'
-
+const SERVICE = process.env.EMAIL_SVC;
+const TEMPLATE = process.env.EMAIL_TEMPLATE;
+const PUBLIC_KEY = process.env.EMAIL_PUBLIC_KEY;
 const ContactInfo = ({ language }) => {
   const [isClient, setIsClient] = useState(false);
   const churchName = GENERAL_CONTENT[language].name
