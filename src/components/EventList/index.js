@@ -389,7 +389,7 @@ const EventsList = ({ language }) => {
     }
   `);
 
-  const sortedEvents = allContentfulEvents.nodes;
+  const sortedEvents = allContentfulEvents.nodes.filter((event) => event.title !== "Test [DO NOT DELETE]");
   const eventsData = sortedEvents
     .sort((a, b) => new Date(a.date) - new Date(b.date))
     .map((e) => {

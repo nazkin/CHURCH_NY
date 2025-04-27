@@ -47,7 +47,7 @@ export const Announcement = ({ language }) => {
       }
     }
   `);
-
+  console.log(allContentfulAnnouncement.nodes)
   return (
     <Container
       sx={{
@@ -76,7 +76,7 @@ export const Announcement = ({ language }) => {
           },
         }}
       >
-        {allContentfulAnnouncement.nodes.map((item, i) => (
+        {allContentfulAnnouncement.nodes.filter((item) => item.title !== "Test [DO NOT DELETE]").map((item, i) => (
           <Item key={i} item={item} language={language} />
         ))}
       </Carousel>
