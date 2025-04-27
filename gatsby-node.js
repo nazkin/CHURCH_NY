@@ -7,6 +7,11 @@
 /**
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
+
+ require("dotenv").config({
+   path: `.env.${process.env.NODE_ENV}`,
+ });
+
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions
   createPage({

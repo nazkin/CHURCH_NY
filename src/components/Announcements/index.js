@@ -246,7 +246,7 @@ const Item = (props) => {
             margin: 0,
           }}
         >
-          <a href={props.item.linkOne}>
+          <a href={props.item.linkOne ? props.item.linkOne : ""}>
             {GENERAL_CONTENT[props.language].moreDetails}
           </a>
         </Box>
