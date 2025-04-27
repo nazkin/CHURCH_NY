@@ -56,7 +56,7 @@ const AnnouncementsComponent = ({ language }) => {
       <Typography variant="h6" sx={{ fontWeight: "600", color: "#333" }}>
         {BULLETIN_CONTENT[language].announcements}
       </Typography>
-      {allContentfulAnnouncement.nodes.map((announcement, index) => (
+      {allContentfulAnnouncement.nodes.filter((item) => item.title !== "Test [DO NOT DELETE]").map((announcement, index) => (
         <Box key={index} sx={{ width: "100%", maxWidth: "600px" }}>
           {/* Announcement content */}
           <Box
@@ -98,6 +98,13 @@ const AnnouncementsComponent = ({ language }) => {
                 {language == "en"
                   ? announcement.summary
                   : announcement.summaryUa}
+              </Typography>
+            ) : null}
+            {announcement.description ? (
+              <Typography variant="body1" sx={{ mt: 2, color: "#555" }}>
+                {language == "en"
+                  ? announcement.description.description
+                  : announcement.descriptionUa.descriptionUa}
               </Typography>
             ) : null}
             {announcement.linkOne ? (
