@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, Container, Typography, Box, Stack } from "@mui/material";
 import { StaticImage } from "gatsby-plugin-image";
@@ -15,6 +15,7 @@ import {
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { GENERAL_CONTENT } from '../../constants/content/general';
+import { Dialog, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
 export const Announcement = ({ language }) => {
   const theme = useTheme();
@@ -138,8 +139,12 @@ const Item = (props) => {
 
   const imageAndDescriptionAvailable =
     isDescriptionAvailable && isImageAvailable;
+  const [openImage, setOpenImage] = useState(null);
+  const handleImageClick = (imageUrl) => {
+    setOpenImage(imageUrl);
+  };
 
-  return (
+  return (<>
     <Paper
       sx={{
         background: "transparent",
@@ -232,11 +237,13 @@ const Item = (props) => {
               height={isDescriptionAvailable ? "350px" : "500px"}
               style={{
                 objectFit: "contain",
+                cursor: "pointer",
               }}
+              onClick={() => handleImageClick(props.item.image?.publicUrl)}
             />
           </Box>
         )}
-        <Box
+        {props.item.linkOne && <Box
           style={{
             display: "flex",
             justifyContent: "center",
@@ -248,8 +255,26 @@ const Item = (props) => {
           <a href={props.item.linkOne ? props.item.linkOne : ""}>
             {GENERAL_CONTENT[props.language].moreDetails}
           </a>
-        </Box>
+        </Box>}
       </Box>
     </Paper>
+    <Dialog
+      open={!!openImage}
+      onClose={() => setOpenImage(null)}
+      maxWidth="md"
+      fullWidth
+    >
+      <center>
+        <DialogContent>
+          <DialogContentText>
+            <img
+              src={openImage}
+              alt="Full Size"
+              style={{ width: "100%", height: "auto" }}
+            />
+          </DialogContentText>
+        </DialogContent>
+      </center>
+    </Dialog></>
   );
 };
