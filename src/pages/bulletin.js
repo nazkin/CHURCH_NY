@@ -11,6 +11,7 @@ import { BULLETIN_CONTENT } from "../constants/content/bulletin";
 import { GENERAL_CONTENT } from "../constants/content/general";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+import { Dialog, DialogContent, DialogContentText } from '@mui/material';
 
 export const Head = () => <Seo title="Bulletin" />;
 
@@ -41,8 +42,11 @@ const AnnouncementsComponent = ({ language }) => {
       }
     }
   `);
-
-  return (
+  const [openImage, setOpenImage] = React.useState(null);
+  const handleImageClick = (imageUrl) => {
+    setOpenImage(imageUrl);
+  };
+  return (<>
     <Stack
       spacing={2}
       alignItems="center"
@@ -75,7 +79,9 @@ const AnnouncementsComponent = ({ language }) => {
                 width="100%"
                 style={{
                   objectFit: "contain",
+                  cursor: "pointer",
                 }}
+                onClick={() => handleImageClick(announcement.image?.publicUrl)}
               />
             ) : null}
             <Stack
@@ -121,6 +127,24 @@ const AnnouncementsComponent = ({ language }) => {
         </Box>
       ))}
     </Stack>
+    <Dialog
+    open={!!openImage}
+    onClose={() => setOpenImage(null)}
+    maxWidth="md"
+    fullWidth
+  >
+    <center>
+      <DialogContent>
+        <DialogContentText>
+          <img
+            src={openImage}
+            alt="Full Size"
+            style={{ width: "100%", height: "auto" }}
+          />
+        </DialogContentText>
+      </DialogContent>
+    </center>
+  </Dialog></>
   );
 };
 
