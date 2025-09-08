@@ -1,14 +1,19 @@
-import React, { useState, useRef, useCallback } from 'react';
-import { motion } from 'framer-motion';
-import { styled } from '@mui/material/styles';
-import { Typography } from '@mui/material';
-import { Box } from '@mui/system';
-import { Button } from '@mui/material';
-import { Dialog, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
-import { useEffect } from 'react';
-import { steelBlue, white } from '../../constants/colors';
+import React, { useState, useRef, useCallback } from "react";
+import { motion } from "framer-motion";
+import { styled } from "@mui/material/styles";
+import { Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import { Button } from "@mui/material";
+import {
+  Dialog,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
+import { useEffect } from "react";
+import { steelBlue, white } from "../../constants/colors";
 import { useStaticQuery, graphql } from "gatsby";
-import { GENERAL_CONTENT } from '../../constants/content/general';
+import { GENERAL_CONTENT } from "../../constants/content/general";
 
 // Styled Components for better UI
 const TwoColumnContainer = styled(Box)({
@@ -60,7 +65,7 @@ const MonthColumn = styled(Box)({
 const EventsColumn = styled(Box)({
   flex: "1",
   overflowY: "auto",
-  marginTop: '50px',
+  marginTop: "50px",
   padding: "0px 0px 0px 10px",
   height: "85%",
   "&::-webkit-scrollbar": {
@@ -241,7 +246,9 @@ const EventsList = ({ language }) => {
     }
   `);
 
-  const sortedEvents = allContentfulEvents.nodes.filter((event) => event.title !== "Test [DO NOT DELETE]");
+  const sortedEvents = allContentfulEvents.nodes.filter(
+    (event) => event.title !== "Test [DO NOT DELETE]"
+  );
   const eventsData = sortedEvents
     .sort((a, b) => new Date(a.date) - new Date(b.date))
     .map((e) => {
@@ -254,7 +261,7 @@ const EventsList = ({ language }) => {
         summary: language == "en" ? e.summary.summary : e.summaryUa.summaryUa,
         description: "",
         linkUrl: e.linkUrl,
-        imageUrl: e.image.publicUrl,
+        imageUrl: e.image?.publicUrl,
       };
     });
 
