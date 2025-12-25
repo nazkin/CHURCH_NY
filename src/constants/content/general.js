@@ -11,10 +11,13 @@ export const GENERAL_CONTENT = {
         UACCNJ: "Ukrainian-American Cultural Center NJ",
         UCAP: "Ukrainian Catholic Archeparchy of Philadelphia",
         UCAP_LABEL: <center>Ukrainian Catholic <br/> Archeparchy of Philadelphia</center>,
+        UGCC: "Ukrainian Greek Catholic Church",
+        UGCC_LABEL: <center>Ukrainian Greek Catholic Church</center>,
         the: 'The ',
         and: "and",
         and_or: "and/or",
         showDetails: "See Details",
+        ugcc_url: "https://ugcc.ua/en/",
     },
     ua: {
         name: "Українська Католицька Церква Св. Івана Хрестителя",
@@ -26,9 +29,12 @@ export const GENERAL_CONTENT = {
         UACCNJ: "Українсько-Aмериканський Культурний Центр NJ",
         UCAP: "Українська Католицька Архиєпархія Філадельфії",
         UCAP_LABEL: <center>Українська Католицька<br/> Архиєпархія Філадельфії</center>,
+        UGCC: "Українська Греко Католицька Церква",
+        UGCC_LABEL: <center>Українська Греко Католицька Церква</center>,
         the: '',
         and: "та",
         and_or: "та/або",
-        showDetails: "Побачити Більше Деталей"
+        showDetails: "Побачити Більше Деталей",
+        ugcc_url: "https://ugcc.ua/",
     }
 }
