@@ -19,27 +19,28 @@ import {
 export const SupportParish = ({ language, phoneSize }) => {
   const [hoverUACCNJ, setHoverUACCNJ] = React.useState(false);
   const [hoverUCAP, setHoverUCAP] = React.useState(false);
+  const [hoverUCC, setHoverUCC] = React.useState(false);
 
   return (
     <Grid
       container
-      gap={5}
+      // gap={1}
       style={{
         margin: `0 auto 0 auto`,
         maxWidth: `var(--size-content)`,
         minHeight: 120,
         display: "flex",
         justifyContent: "space-evenly",
-        padding: 10,
+        // padding: 10,
       }}
     >
       <Grid
         item
         xs={12}
         sm={12}
-        md={5}
-        lg={5}
-        xl={5}
+        md={4}
+        lg={4}
+        xl={4}
         sx={Styled.flexColSpaceAround}
       >
         <Box
@@ -48,7 +49,8 @@ export const SupportParish = ({ language, phoneSize }) => {
           display="flex"
           justifyContent="center"
           alignItems={"center"}
-          gap={5}
+          padding={2}
+          // gap={5}
           sx={{
             background: hoverUACCNJ ? darkBlue : "transparent",
           }}
@@ -62,7 +64,7 @@ export const SupportParish = ({ language, phoneSize }) => {
               onMouseEnter={() => setHoverUACCNJ(true)}
               style={{
                 background: white,
-                padding: "25px",
+                padding: "15px",
                 opacity: hoverUACCNJ ? 0.98 : 1,
                 border: "1px solid whitesmoke",
                 borderRadius: "20px",
@@ -86,9 +88,9 @@ export const SupportParish = ({ language, phoneSize }) => {
         item
         xs={12}
         sm={12}
-        md={5}
-        lg={5}
-        xl={5}
+        md={4}
+        lg={4}
+        xl={4}
         sx={Styled.flexColSpaceAround}
       >
         <Box
@@ -97,7 +99,72 @@ export const SupportParish = ({ language, phoneSize }) => {
           display="flex"
           justifyContent="center"
           alignItems={"center"}
-          gap={5}
+          padding={2}
+          // gap={5}
+          sx={{
+            background: hoverUCC ? darkBlue : "transparent",
+          }}
+        >
+          <Tooltip title={GENERAL_CONTENT[language].UGCC}>
+            <a
+              href={GENERAL_CONTENT[language].ugcc_url}
+              target="_blank"
+              onMouseLeave={() => setHoverUCC(false)}
+              onMouseEnter={() => setHoverUCC(true)}
+              style={{
+                background: white,
+                padding: "15px",
+                opacity: hoverUCC ? 0.98 : 1,
+                border: "1px solid whitesmoke",
+                borderRadius: "20px",
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Stack
+                direction="column"
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={1}
+              >
+                <StaticImage
+                  src="../../../images/logo-ugcc.png"
+                  width="150px"
+                  height="60px"
+                />
+                <Typography
+                  fontWeight={600}
+                  fontFamily={"cursive"}
+                  fontSize={20}
+                >
+                  {GENERAL_CONTENT[language].UGCC_LABEL}
+                </Typography>
+              </Stack>
+            </a>
+          </Tooltip>
+        </Box>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={4}
+        lg={4}
+        xl={4}
+        sx={Styled.flexColSpaceAround}
+      >
+        <Box
+          width="100%"
+          height="100%"
+          display="flex"
+          justifyContent="center"
+          alignItems={"center"}
+          padding={2}
+          // gap={5}
           sx={{
             background: hoverUCAP ? darkBlue : "transparent",
           }}
@@ -110,7 +177,7 @@ export const SupportParish = ({ language, phoneSize }) => {
               onMouseEnter={() => setHoverUCAP(true)}
               style={{
                 background: white,
-                padding: "25px",
+                padding: "15px",
                 opacity: hoverUCAP ? 0.98 : 1,
                 border: "1px solid whitesmoke",
                 borderRadius: "20px",
