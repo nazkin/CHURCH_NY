@@ -128,23 +128,23 @@ const AnnouncementsComponent = ({ language }) => {
       ))}
     </Stack>
     <Dialog
-    open={!!openImage}
-    onClose={() => setOpenImage(null)}
-    maxWidth="md"
-    fullWidth
-  >
-    <center>
-      <DialogContent>
-        <DialogContentText>
-          <img
-            src={openImage}
-            alt="Full Size"
-            style={{ width: "100%", height: "auto" }}
-          />
-        </DialogContentText>
-      </DialogContent>
-    </center>
-  </Dialog></>
+      open={!!openImage}
+      onClose={() => setOpenImage(null)}
+      maxWidth="md"
+      fullWidth
+    >
+      <center>
+        <DialogContent>
+          <DialogContentText>
+            <img
+              src={openImage}
+              alt="Full Size"
+              style={{ width: "100%", height: "auto" }}
+            />
+          </DialogContentText>
+        </DialogContent>
+      </center>
+    </Dialog></>
   );
 };
 
@@ -217,7 +217,7 @@ const BulletinContent = ({ language }) => {
       }}
     >
       <Grid xs={12} md={6} px={"10px"}>
-        <PdfDisplay pdfUrl={"/january252026.pdf"} />
+        <PdfDisplay pdfUrl={"/february012026.pdf"} />
       </Grid>
       <GlobalStyles
         styles={{
