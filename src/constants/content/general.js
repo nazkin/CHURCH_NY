@@ -20,6 +20,8 @@ export const GENERAL_CONTENT = {
         download: "Download",
         print: "Print",
         ugcc_url: "https://ugcc.ua/en/",
+        DYVENSVIT: "Dyven Svit",
+        DYVENSVIT_LABEL: <center>Dyven Svit</center>,
     },
     ua: {
         name: "Українська Католицька Церква Св. Івана Хрестителя",
@@ -40,5 +42,7 @@ export const GENERAL_CONTENT = {
         download: "Завантажити",
         print: "Друкувати",
         ugcc_url: "https://ugcc.ua/",
+        DYVENSVIT: "Дивен Світ",
+        DYVENSVIT_LABEL: <center>Дивен Світ</center>,
     }
 }

@@ -63,6 +63,12 @@ export const samplePageLinks = [
     },
     {
         text: {
+            en: "CHOIR",
+            ua: "ХОР"
+        }, url: "/choir"
+    },
+    {
+        text: {
             en: "CONTACT",
             ua: "ЗВ'ЯЗАТИСЬ"
         }, url: "/contact"

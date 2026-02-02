@@ -20,6 +20,7 @@ export const SupportParish = ({ language, phoneSize }) => {
   const [hoverUACCNJ, setHoverUACCNJ] = React.useState(false);
   const [hoverUCAP, setHoverUCAP] = React.useState(false);
   const [hoverUCC, setHoverUCC] = React.useState(false);
+  const [hoverDyvensvit, setHoverDyvensvit] = React.useState(false);
 
   return (
     <Grid
@@ -38,9 +39,9 @@ export const SupportParish = ({ language, phoneSize }) => {
         item
         xs={12}
         sm={12}
-        md={4}
-        lg={4}
-        xl={4}
+        md={3}
+        lg={3}
+        xl={3}
         sx={Styled.flexColSpaceAround}
       >
         <Box
@@ -88,9 +89,9 @@ export const SupportParish = ({ language, phoneSize }) => {
         item
         xs={12}
         sm={12}
-        md={4}
-        lg={4}
-        xl={4}
+        md={3}
+        lg={3}
+        xl={3}
         sx={Styled.flexColSpaceAround}
       >
         <Box
@@ -152,9 +153,9 @@ export const SupportParish = ({ language, phoneSize }) => {
         item
         xs={12}
         sm={12}
-        md={4}
-        lg={4}
-        xl={4}
+        md={3}
+        lg={3}
+        xl={3}
         sx={Styled.flexColSpaceAround}
       >
         <Box
@@ -206,6 +207,70 @@ export const SupportParish = ({ language, phoneSize }) => {
                   fontSize={20}
                 >
                   {GENERAL_CONTENT[language].UCAP_LABEL}
+                </Typography>
+              </Stack>
+            </a>
+          </Tooltip>
+        </Box>
+      </Grid>
+      <Grid
+        item
+        xs={12}
+        sm={12}
+        md={3}
+        lg={3}
+        xl={3}
+        sx={Styled.flexColSpaceAround}
+      >
+        <Box
+          width="100%"
+          height="100%"
+          display="flex"
+          justifyContent="center"
+          alignItems={"center"}
+          padding={2}
+          sx={{
+            background: hoverDyvensvit ? darkBlue : "transparent",
+          }}
+        >
+          <Tooltip title={GENERAL_CONTENT[language].DYVENSVIT}>
+            <a
+              href="https://dyvensvit.org/"
+              target="_blank"
+              onMouseLeave={() => setHoverDyvensvit(false)}
+              onMouseEnter={() => setHoverDyvensvit(true)}
+              style={{
+                background: white,
+                padding: "15px",
+                opacity: hoverDyvensvit ? 0.98 : 1,
+                border: "1px solid whitesmoke",
+                borderRadius: "20px",
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Stack
+                direction="column"
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                gap={1}
+              >
+                <StaticImage
+                  src="../../../images/dyvensvit"
+                  width="120px"
+                  height="50px"
+                  objectFit="contain"
+                />
+                <Typography
+                  fontWeight={600}
+                  fontFamily={"cursive"}
+                  fontSize={20}
+                >
+                  {GENERAL_CONTENT[language].DYVENSVIT_LABEL}
                 </Typography>
               </Stack>
             </a>
