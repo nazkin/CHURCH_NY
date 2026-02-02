@@ -28,7 +28,7 @@ const Footer = () => {
         paddingTop={2}
       >
         <Typography fontSize={12}>
-          Copyright © 2025 St. John the Baptist Ukrainian Catholic Church
+          Copyright © 2026 St. John the Baptist Ukrainian Catholic Church
           Whippany, NJ 07981
         </Typography>
         {/* {!phoneSize && (
