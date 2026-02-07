@@ -69,6 +69,12 @@ export const samplePageLinks = [
     },
     {
         text: {
+            en: "PRAYER",
+            ua: "МОЛИТВА"
+        }, url: "/prayer"
+    },
+    {
+        text: {
             en: "CONTACT",
             ua: "ЗВ'ЯЗАТИСЬ"
         }, url: "/contact"
