@@ -45,20 +45,20 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
   const phoneSize = useMediaQuery(theme.breakpoints.down("sm"));
   const facebook = {
     text: {
-        en: "FACEBOOK",
-        ua: "FACEBOOK",
+      en: "FACEBOOK",
+      ua: "FACEBOOK",
     }, url: "https://www.facebook.com/SJUCCNJ/"
   }
   const uaccnj = {
     text: {
-        en: "UACCNJ",
-        ua: "UACCNJ",
+      en: "UACCNJ",
+      ua: "UACCNJ",
     }, url: "https://uaccnj.org"
   }
   const archeparchy = {
     text: {
-        en: "ARCHEPARCHY OF PHILADELPHIA",
-        ua: "АРХИЄПАРХІЯ ФІЛАДЕЛЬФІЇ",
+      en: "ARCHEPARCHY OF PHILADELPHIA",
+      ua: "АРХИЄПАРХІЯ ФІЛАДЕЛЬФІЇ",
     }, url: "https://ukrcatholic.org/"
   }
   const aid = {
@@ -102,11 +102,19 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
               justifyContent={"left"}
               alignItems={"center"}
             >
-              <StaticImage
-                src="../images/church_icon_simple.png"
-                width="50"
-                height="50"
-              />
+              <Tooltip title={GENERAL_CONTENT[language].home}>
+                <Link
+                  to="/"
+                  className={styles.link}
+                  activeClassName={styles.linkActive}
+                >
+                  <StaticImage
+                    src="../images/church_icon_simple.png"
+                    width="50"
+                    height="50"
+                  />
+                </Link>
+              </Tooltip>
             </Box>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -175,7 +183,7 @@ const Header = ({ siteTitle, language, changeLanguage }) => {
             </Drawer>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {samplePageLinks.map((obj) => (
+            {samplePageLinks.filter(obj => obj.url !== "/").map((obj) => (
               <Link
                 to={obj.url}
                 className={styles.link}
