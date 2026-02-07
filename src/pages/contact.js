@@ -50,9 +50,9 @@ const ContactInfo = ({ language }) => {
 
   return <Box>
     <Box paddingBottom={"10pt"}>
-    <Typography fontWeight={500} fontSize={18}>
-      {churchName}
-    </Typography>
+      <Typography fontWeight={500} fontSize={18}>
+        {churchName}
+      </Typography>
     </Box>
     <Box paddingBottom={"10pt"} alignItems={"center"}>
       <Stack width="100%" direction="row" display={"flex"} justifyContent={"left"} alignItems={"center"} gap={1}>
@@ -60,8 +60,8 @@ const ContactInfo = ({ language }) => {
           {ADDRESS_LINE_1}{' '}{ADDRESS_LINE_2}
         </Typography>
         <Tooltip title={CONTACT_CONTENT[language].copyAddress}>
-          <IconButton onClick={handleCopyAddress()} sx={{ padding: 0, fontSize: 18 }}>
-            <ContentCopyIcon sx={{ fontSize: "inherit" }}/>
+          <IconButton onClick={handleCopyAddress} sx={{ padding: 0, fontSize: 18 }}>
+            <ContentCopyIcon sx={{ fontSize: "inherit" }} />
           </IconButton>
         </Tooltip>
       </Stack>
@@ -71,18 +71,18 @@ const ContactInfo = ({ language }) => {
         {CONTACT_CONTENT[language].phoneLabel}{' '}{PHONE_NUMBER}
       </Typography>
       <Stack width="100%" direction="row" display={"flex"} justifyContent={"left"} alignItems={"center"} gap={1}>
-      <Typography fontWeight={400} fontSize={15}>
-        {EMAIL}
-      </Typography>
+        <Typography fontWeight={400} fontSize={15}>
+          {EMAIL}
+        </Typography>
         <Tooltip title={CONTACT_CONTENT[language].copyEmail}>
-            <IconButton onClick={handleCopyEmail()} sx={{ padding: 0, fontSize: 18 }}>
-              <ContentCopyIcon sx={{ fontSize: "inherit" }}/>
-            </IconButton>
+          <IconButton onClick={handleCopyEmail} sx={{ padding: 0, fontSize: 18 }}>
+            <ContentCopyIcon sx={{ fontSize: "inherit" }} />
+          </IconButton>
         </Tooltip>
       </Stack>
     </Box>
     <Box>
-    <Typography fontWeight={400} fontSize={15}>
+      <Typography fontWeight={400} fontSize={15}>
         {GENERAL_CONTENT[language].pastorLabel}{' - '}{pastorName}
       </Typography>
     </Box>
@@ -132,7 +132,7 @@ const ContactForm = ({ language }) => {
       });
   }
 
-  return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingTop: '100px', paddingBottom: 50, margin: '0 auto'}} justifySelf={'center'}>
+  return <Box sx={{ width: '80%', maxWidth: '1000px', backgroundColor: '#ffffff', padding: 2, borderRadius: '8px', boxShadow: 2, paddingTop: '100px', paddingBottom: 50, margin: '0 auto' }} justifySelf={'center'}>
     <Grid
       container
       style={{
@@ -143,10 +143,10 @@ const ContactForm = ({ language }) => {
         paddingBottom: "100px",
       }}>
       <Grid md={6} display={"flex"} flexDirection={"column"}>
-          <Grid>
-            <ContactInfo language={language} />
-          </Grid>
-          <Grid>
+        <Grid>
+          <ContactInfo language={language} />
+        </Grid>
+        <Grid>
           <TextField
             id="name-input"
             label={CONTACT_CONTENT[language].nameInput}
@@ -222,7 +222,7 @@ const ContactForm = ({ language }) => {
               {CONTACT_CONTENT[language].submitBtn}
             </Button>
           </Box>
-          </Grid>
+        </Grid>
       </Grid>
       <Grid md={5} style={{
         display: "flex",
@@ -231,7 +231,7 @@ const ContactForm = ({ language }) => {
         alignItems: "top",
       }}>
         <Box height="90%" direction="flex" justifyContent={"centse"} alignItems={"top"}>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.6451164792375!2d-74.42900408727112!3d40.83575807125593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3a7c048043bef%3A0xbc81a8fd3b1a55b5!2sSaint%20John%20the%20Baptist%20Ukrainian%20Catholic%20Church!5e0!3m2!1sen!2sus!4v1742655055864!5m2!1sen!2sus" width="100%" height="100%" style={{border:0}} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3018.6451164792375!2d-74.42900408727112!3d40.83575807125593!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3a7c048043bef%3A0xbc81a8fd3b1a55b5!2sSaint%20John%20the%20Baptist%20Ukrainian%20Catholic%20Church!5e0!3m2!1sen!2sus!4v1742655055864!5m2!1sen!2sus" width="100%" height="100%" style={{ border: 0 }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </Box>
       </Grid>
     </Grid>
