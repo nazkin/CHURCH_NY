@@ -8,9 +8,9 @@
  * @type {import('gatsby').GatsbyNode['createPages']}
  */
 
- require("dotenv").config({
-   path: `.env.${process.env.NODE_ENV}`,
- });
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 exports.createPages = async ({ actions }) => {
   const { createPage } = actions
@@ -40,4 +40,13 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
       ],
     },
   });
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+  createTypes(`
+    type ContentfulBulletin implements Node {
+      name: String
+    }
+  `);
 };
