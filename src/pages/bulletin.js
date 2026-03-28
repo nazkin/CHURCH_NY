@@ -15,33 +15,8 @@ import { Dialog, DialogContent, DialogContentText } from '@mui/material';
 
 export const Head = () => <Seo title="Bulletin" />;
 
-const AnnouncementsComponent = ({ language }) => {
-  const { allContentfulAnnouncement } = useStaticQuery(graphql`
-    query getAnnouncementsQuery {
-      allContentfulAnnouncement {
-        totalCount
-        nodes {
-          linkOne
-          linkTwo
-          summary
-          title
-          summaryUa
-          titleUa
-          id
-          announcementDate
-          description {
-            description
-          }
-          descriptionUa {
-            descriptionUa
-          }
-          image {
-            publicUrl
-          }
-        }
-      }
-    }
-  `);
+const AnnouncementsComponent = ({ language, announcementsData }) => {
+  const allContentfulAnnouncement = announcementsData;
   const [openImage, setOpenImage] = React.useState(null);
   const handleImageClick = (imageUrl) => {
     setOpenImage(imageUrl);
@@ -149,6 +124,74 @@ const AnnouncementsComponent = ({ language }) => {
 };
 
 const BulletinContent = ({ language }) => {
+  const data = useStaticQuery(graphql`
+    query getBulletinAndAnnouncementsQuery {
+      allContentfulBulletin {
+        nodes {
+          name
+          dateForTheBulletin
+          bulletinFile {
+            publicUrl
+          }
+        }
+      }
+      allContentfulAnnouncement {
+        totalCount
+        nodes {
+          linkOne
+          linkTwo
+          summary
+          title
+          summaryUa
+          titleUa
+          id
+          announcementDate
+          description {
+            description
+          }
+          descriptionUa {
+            descriptionUa
+          }
+          image {
+            publicUrl
+          }
+        }
+      }
+    }
+  `);
+
+  const [latestBulletinUrl, setLatestBulletinUrl] = React.useState("/march222026.pdf");
+  const [latestBulletinName, setLatestBulletinName] = React.useState(null);
+
+  React.useEffect(() => {
+    const bulletins = data?.allContentfulBulletin?.nodes || [];
+    if (bulletins.length > 0) {
+      // Find the maximum date
+      const maxDate = bulletins.reduce((max, b) => {
+        if (!b.dateForTheBulletin) return max;
+        const bDate = new Date(b.dateForTheBulletin).getTime();
+        return bDate > max ? bDate : max;
+      }, 0);
+
+      if (maxDate > 0) {
+        // Filter bulletins that match the maximum date exactly
+        const latestBulletins = bulletins.filter(b => {
+          if (!b.dateForTheBulletin) return false;
+          return new Date(b.dateForTheBulletin).getTime() === maxDate;
+        });
+
+        if (latestBulletins.length > 0) {
+          // Pick a random one from the latest date
+          const randomBulletin = latestBulletins[Math.floor(Math.random() * latestBulletins.length)];
+          if (randomBulletin?.bulletinFile?.publicUrl) {
+            setLatestBulletinUrl(randomBulletin.bulletinFile.publicUrl);
+            setLatestBulletinName(randomBulletin.name || null);
+          }
+        }
+      }
+    }
+  }, [data]);
+
   const scrollRef = React.useRef(null);
   const animationFrame = React.useRef(null);
   const [hovered, setHovered] = React.useState(false);
@@ -217,7 +260,12 @@ const BulletinContent = ({ language }) => {
       }}
     >
       <Grid xs={12} md={6} px={"10px"}>
-        <PdfDisplay pdfUrl={"/march222026.pdf"} language={language} />
+        {latestBulletinName && (
+          <Typography variant="h5" sx={{ mb: 2, fontWeight: "bold", textAlign: "center", color: "#333" }}>
+            {latestBulletinName}
+          </Typography>
+        )}
+        <PdfDisplay pdfUrl={latestBulletinUrl} language={language} />
       </Grid>
       <GlobalStyles
         styles={{
@@ -241,7 +289,7 @@ const BulletinContent = ({ language }) => {
           overflowY: "scroll",
         }}
       >
-        <AnnouncementsComponent language={language} />
+        <AnnouncementsComponent language={language} announcementsData={data.allContentfulAnnouncement} />
       </Grid>
       {/* </GlobalStyles> */}
     </Grid>

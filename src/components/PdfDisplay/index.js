@@ -12,20 +12,51 @@ export const PdfDisplay = ({ pdfUrl, aspectRatio, language = "en" }) => {
     height: "400px",
   };
 
-  const handlePrint = () => {
-    const iframe = document.createElement("iframe");
-    iframe.style.position = 'fixed';
-    iframe.style.right = '0';
-    iframe.style.bottom = '0';
-    iframe.style.width = '0';
-    iframe.style.height = '0';
-    iframe.style.border = '0';
-    iframe.src = pdfUrl;
-    document.body.appendChild(iframe);
-    iframe.onload = () => {
-      iframe.contentWindow.focus();
-      iframe.contentWindow.print();
-    };
+  const getFetchableUrl = (url) => {
+    if (url && url.startsWith('//')) {
+      return `https:${url}`;
+    }
+    return url;
+  };
+
+  const handleAction = async (actionType) => {
+    const fullUrl = getFetchableUrl(pdfUrl);
+    try {
+      const response = await fetch(fullUrl);
+      const blob = await response.blob();
+      const blobUrl = URL.createObjectURL(blob);
+
+      if (actionType === 'download') {
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        const filename = fullUrl.split('/').pop() || 'document.pdf';
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 100);
+      } else if (actionType === 'print') {
+        const iframe = document.createElement("iframe");
+        iframe.style.position = 'fixed';
+        iframe.style.right = '0';
+        iframe.style.bottom = '0';
+        iframe.style.width = '0';
+        iframe.style.height = '0';
+        iframe.style.border = '0';
+        iframe.src = blobUrl;
+        document.body.appendChild(iframe);
+        iframe.onload = () => {
+          iframe.contentWindow.focus();
+          iframe.contentWindow.print();
+          // Revoke slightly after printing dialogue triggers
+          setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+        };
+      }
+    } catch (error) {
+      console.error("Failed to process PDF for", actionType, error);
+      // Fallback: simply open in new tab
+      window.open(fullUrl, '_blank');
+    }
   };
 
   return (
@@ -34,8 +65,7 @@ export const PdfDisplay = ({ pdfUrl, aspectRatio, language = "en" }) => {
         <Button
           variant="contained"
           startIcon={<DownloadIcon />}
-          href={pdfUrl}
-          download
+          onClick={() => handleAction('download')}
           sx={{ backgroundColor: steelBlue, '&:hover': { backgroundColor: steelBlue } }}
         >
           {GENERAL_CONTENT[language].download}
@@ -43,7 +73,7 @@ export const PdfDisplay = ({ pdfUrl, aspectRatio, language = "en" }) => {
         <Button
           variant="contained"
           startIcon={<PrintIcon />}
-          onClick={handlePrint}
+          onClick={() => handleAction('print')}
           sx={{ backgroundColor: steelBlue, '&:hover': { backgroundColor: steelBlue } }}
         >
           {GENERAL_CONTENT[language].print}
